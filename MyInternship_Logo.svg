@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="640" height="180" viewBox="0 0 640 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="startupGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#6366F1"/>
+            <stop offset="100%" stop-color="#06B6D4"/>
+        </linearGradient>
+    </defs>
+
+    <!-- Abstract Startup Symbol (Growth + Connection) -->
+    <circle cx="80" cy="90" r="55" fill="url(#startupGrad)"/>
+
+    <!-- Upward Arrow (Growth / Career) -->
+    <path d="M60 105 L80 75 L100 105" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <line x1="80" y1="75" x2="80" y2="120" stroke="white" stroke-width="6" stroke-linecap="round"/>
+
+    <!-- Small Connection Dots (Networking) -->
+    <circle cx="60" cy="120" r="5" fill="white"/>
+    <circle cx="100" cy="120" r="5" fill="white"/>
+
+    <!-- Brand Name -->
+    <text x="160" y="95" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="46" font-weight="700" fill="#0F172A">
+        MyInternship
+    </text>
+
+    <!-- Tagline -->
+    <text x="162" y="125" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="18" fill="#64748B">
+        Déjà un stage de trouvé !
+    </text>
+</svg>
