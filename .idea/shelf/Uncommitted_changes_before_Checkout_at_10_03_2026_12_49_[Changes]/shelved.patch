@@ -1,0 +1,78 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"9ce49fa8-52a0-42af-8ce6-1c56055703e3\" name=\"Changes\" comment=\"\">\n      <change afterPath=\"$PROJECT_DIR$/arborescence/composer.json\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/copilot.data.migration.ask2agent.xml\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/laravel-idea.xml\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/MonCompteAdmin.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/arborescence/internship-app/src/Views/MonCompteAdmin.html\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/MonCompteEtudiant.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/arborescence/internship-app/src/Views/MonCompteEtudiant.html\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/MonComptePilote.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/arborescence/internship-app/src/Views/MonComptePilote.html\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/MyInternship_Logo.svg\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/arborescence/internship-app/assets/MyInternship_Logo.svg\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/README.md\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/arborescence/README.md\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/Style.css\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/arborescence/internship-app/assets/Style.css\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/arborescence/internship-app/README.md\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/arborescence/internship-app/assets/stylesheet.css\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/arborescence/internship-app/composer.json\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/connexion.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/arborescence/internship-app/src/Views/connexion.html\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/entreprises.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/arborescence/internship-app/src/Views/entreprises.html\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/ficheEntreprise.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/arborescence/internship-app/src/Views/ficheEntreprise.html\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/index.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/arborescence/internship-app/src/Views/index.html\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/mentions-legales.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/arborescence/internship-app/src/Views/mentions-legales.html\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/offreDeStage.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/arborescence/internship-app/src/Views/offreDeStage.html\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/trouverUnStage.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/arborescence/internship-app/src/Views/trouverUnStage.html\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"ComposerSettings\">\n    <pharConfigPath>$PROJECT_DIR$/arborescence/composer.json</pharConfigPath>\n    <execution>\n      <executable path=\"\\\\wsl.localhost\\Ubuntu\\usr\\local\\bin\\composer\" />\n    </execution>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\n      <map>\n        <entry key=\"$PROJECT_DIR$\" value=\"feature/architecture-dossiers\" />\n      </map>\n    </option>\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"McpProjectServerCommands\">\n    <commands />\n    <urls />\n  </component>\n  <component name=\"PhpWorkspaceProjectConfiguration\">\n    <include_path>\n      <path value=\"$PROJECT_DIR$/arborescence/vendor/composer\" />\n    </include_path>\n  </component>\n  <component name=\"PropertiesComponent\"><![CDATA[{\n  \"keyToString\": {\n    \"git-widget-placeholder\": \"develop\",\n    \"node.js.selected.package.tslint\": \"(autodetect)\"\n  }\n}]]></component>\n  <component name=\"TaskManager\">\n    <servers />\n  </component>\n</project>
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 3d3c46a3246a20ccf465cd815055d97ffa31e0e4)
++++ b/.idea/workspace.xml	(date 1773143276721)
+@@ -5,25 +5,7 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="9ce49fa8-52a0-42af-8ce6-1c56055703e3" name="Changes" comment="">
+-      <change afterPath="$PROJECT_DIR$/arborescence/composer.json" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/copilot.data.migration.ask2agent.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/laravel-idea.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/MonCompteAdmin.html" beforeDir="false" afterPath="$PROJECT_DIR$/arborescence/internship-app/src/Views/MonCompteAdmin.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/MonCompteEtudiant.html" beforeDir="false" afterPath="$PROJECT_DIR$/arborescence/internship-app/src/Views/MonCompteEtudiant.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/MonComptePilote.html" beforeDir="false" afterPath="$PROJECT_DIR$/arborescence/internship-app/src/Views/MonComptePilote.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/MyInternship_Logo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/arborescence/internship-app/assets/MyInternship_Logo.svg" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/arborescence/README.md" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Style.css" beforeDir="false" afterPath="$PROJECT_DIR$/arborescence/internship-app/assets/Style.css" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/arborescence/internship-app/README.md" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/arborescence/internship-app/assets/stylesheet.css" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/arborescence/internship-app/composer.json" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/connexion.html" beforeDir="false" afterPath="$PROJECT_DIR$/arborescence/internship-app/src/Views/connexion.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/entreprises.html" beforeDir="false" afterPath="$PROJECT_DIR$/arborescence/internship-app/src/Views/entreprises.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/ficheEntreprise.html" beforeDir="false" afterPath="$PROJECT_DIR$/arborescence/internship-app/src/Views/ficheEntreprise.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/arborescence/internship-app/src/Views/index.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/mentions-legales.html" beforeDir="false" afterPath="$PROJECT_DIR$/arborescence/internship-app/src/Views/mentions-legales.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/offreDeStage.html" beforeDir="false" afterPath="$PROJECT_DIR$/arborescence/internship-app/src/Views/offreDeStage.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/trouverUnStage.html" beforeDir="false" afterPath="$PROJECT_DIR$/arborescence/internship-app/src/Views/trouverUnStage.html" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -44,6 +26,33 @@
+     </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
++  <component name="GitHubPullRequestState"><![CDATA[{
++  "prStates": [
++    {
++      "id": {
++        "id": "PR_kwDORDN7vM7JW4xP",
++        "number": 9
++      },
++      "lastSeen": 1773143090243
++    }
++  ]
++}]]></component>
++  <component name="GithubPullRequestsUISettings"><![CDATA[{
++  "selectedUrlAndAccountId": {
++    "url": "https://github.com/Melisande-Ctrl/Projet-Web4all.git",
++    "accountId": "dc92444b-9101-4cae-a908-b41fec08f248"
++  },
++  "recentNewPullRequestHead": {
++    "server": {
++      "useHttp": false,
++      "host": "github.com",
++      "port": null,
++      "suffix": null
++    },
++    "owner": "Melisande-Ctrl",
++    "repository": "Projet-Web4all"
++  }
++}]]></component>
+   <component name="McpProjectServerCommands">
+     <commands />
+     <urls />
+@@ -55,7 +64,7 @@
+   </component>
+   <component name="PropertiesComponent"><![CDATA[{
+   "keyToString": {
+-    "git-widget-placeholder": "develop",
++    "git-widget-placeholder": "#9 on develop",
+     "node.js.selected.package.tslint": "(autodetect)"
+   }
+ }]]></component>
