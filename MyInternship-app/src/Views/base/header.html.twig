@@ -3,12 +3,17 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {% block pageTitle %}
     <title>MyInternship - Offres de stage & alternance</title>
-    <link rel="stylesheet" href="../../assets/css_files/Style.css" />
+    {% endblock %}
+    {% block style %}
+    <link rel="stylesheet" href="../../../assets/css_files/Style.css" />
+    {% endblock %}
 </head>
 
 <body>
 <header class="header">
+    {% block header %}
     <div class="container header__top">
         <a class="brand" href="#">
             <div class="brand__logo">MyInternship</div>
@@ -19,21 +24,14 @@
         </a>
 
         <nav class="header__actions">
-            <a class="link" href="connexion.html.twig">Connexion</a>
+            <a class="link" href="../connexion.html.twig">Connexion</a>
         </nav>
     </div>
-
-    <nav class="container nav" aria-label="Navigation principale">
-        <a class="nav__link" href="#recherche">Rechercher</a>
-        <a class="nav__link" href="#offreDeStage.html">Offres</a>
-        <a class="nav__link" href="#entreprises.html">Entreprises</a>
-        <a class="nav__link" href="#aide">Aide</a>
-        <a class="nav__link" href="mentions-legales.html">Mentions légales</a>
-    </nav>
+    {% endblock %}
 </header>
 
 <main>
-
+    {% block main %}
     <section class="hero" id="recherche">
         <div class="container hero__grid">
             <div>
@@ -80,7 +78,7 @@
 
                 <h2>Pour les étudiants</h2>
                 <p class="muted">Connecter vous a votre profil et suivez vos candidatures.</p>
-                <a class="btn btn--ghost" href="connexion.html.twig">se connecter</a>
+                <a class="btn btn--ghost" href="../connexion.html.twig">se connecter</a>
             </div>
         </div>
     </section>
@@ -159,21 +157,7 @@
             <a class="btn btn--primary" href="#">Publier une offre</a>
         </div>
     </section>
+    {% endblock %}
 </main>
-
-<footer class="footer" id="aide">
-    <div class="container footer__grid">
-        <div>
-            <div class="footer__brand">MyInternship</div>
-            <p class="muted">Plateforme de gestion d’offres de stages.</p>
-        </div>
-
-        <div class="footer__links">
-            <a class="link" href="mentions-legales.html">Mentions légales</a>
-            <a class="link" href="#">Politique de confidentialité</a>
-            <a class="link" href="#">Contact</a>
-        </div>
-    </div>
-</footer>
 </body>
 </html>

@@ -4,24 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ce49fa8-52a0-42af-8ce6-1c56055703e3" name="Changes" comment="assets organization">
-      <change afterPath="$PROJECT_DIR$/internship-app/src/Views/base/header.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internship-app/src/Views/base/navbar.html.twig" afterDir="false" />
+    <list default="true" id="9ce49fa8-52a0-42af-8ce6-1c56055703e3" name="Changes" comment="twig updates in Views">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internship-app/src/Views/MonCompteAdmin.html" beforeDir="false" afterPath="$PROJECT_DIR$/internship-app/src/Views/MonCompteAdmin.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internship-app/src/Views/MonCompteEtudiant.html" beforeDir="false" afterPath="$PROJECT_DIR$/internship-app/src/Views/MonCompteEtudiant.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internship-app/src/Views/MonComptePilote.html" beforeDir="false" afterPath="$PROJECT_DIR$/internship-app/src/Views/MonComptePilote.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internship-app/src/Views/connexion.html" beforeDir="false" afterPath="$PROJECT_DIR$/internship-app/src/Views/connexion.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internship-app/src/Views/entreprises.html" beforeDir="false" afterPath="$PROJECT_DIR$/internship-app/src/Views/entreprises.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internship-app/src/Views/ficheEntreprise.html" beforeDir="false" afterPath="$PROJECT_DIR$/internship-app/src/Views/ficheEntreprise.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internship-app/src/Views/home.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internship-app/src/Views/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/internship-app/src/Views/base/footer.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internship-app/src/Views/internships.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internship-app/src/Views/layout.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internship-app/src/Views/login.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internship-app/src/Views/mentions-legales.html" beforeDir="false" afterPath="$PROJECT_DIR$/internship-app/src/Views/mentions-legales.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internship-app/src/Views/offreDeStage.html" beforeDir="false" afterPath="$PROJECT_DIR$/internship-app/src/Views/offreDeStage.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internship-app/src/Views/trouverUnStage.html" beforeDir="false" afterPath="$PROJECT_DIR$/internship-app/src/Views/trouverUnStage.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Views/base/footer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Views/base/footer.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Views/base/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Views/base/header.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Views/base/navbar.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Views/base/navbar.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,12 +105,29 @@
       <option name="project" value="LOCAL" />
       <updated>1773144368459</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="twig updates in Views">
+      <option name="closed" value="true" />
+      <created>1773144958908</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1773144958908</updated>
+    </task>
+    <task id="LOCAL-00006" summary="twig updates in Views">
+      <option name="closed" value="true" />
+      <created>1773145079095</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1773145079095</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Unversioned files" />
     <MESSAGE value="assets organization" />
-    <option name="LAST_COMMIT_MESSAGE" value="assets organization" />
+    <MESSAGE value="twig updates in Views" />
+    <option name="LAST_COMMIT_MESSAGE" value="twig updates in Views" />
   </component>
 </project>
