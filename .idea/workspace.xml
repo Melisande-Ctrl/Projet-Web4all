@@ -4,27 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ce49fa8-52a0-42af-8ce6-1c56055703e3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/arborescence/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/copilot.data.migration.ask2agent.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/laravel-idea.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonCompteAdmin.html" beforeDir="false" afterPath="$PROJECT_DIR$/arborescence/internship-app/src/Views/MonCompteAdmin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonCompteEtudiant.html" beforeDir="false" afterPath="$PROJECT_DIR$/arborescence/internship-app/src/Views/MonCompteEtudiant.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MonComptePilote.html" beforeDir="false" afterPath="$PROJECT_DIR$/arborescence/internship-app/src/Views/MonComptePilote.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyInternship_Logo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/arborescence/internship-app/assets/MyInternship_Logo.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/arborescence/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Style.css" beforeDir="false" afterPath="$PROJECT_DIR$/arborescence/internship-app/assets/Style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arborescence/internship-app/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/arborescence/internship-app/assets/stylesheet.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/arborescence/internship-app/composer.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/connexion.html" beforeDir="false" afterPath="$PROJECT_DIR$/arborescence/internship-app/src/Views/connexion.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entreprises.html" beforeDir="false" afterPath="$PROJECT_DIR$/arborescence/internship-app/src/Views/entreprises.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ficheEntreprise.html" beforeDir="false" afterPath="$PROJECT_DIR$/arborescence/internship-app/src/Views/ficheEntreprise.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/arborescence/internship-app/src/Views/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mentions-legales.html" beforeDir="false" afterPath="$PROJECT_DIR$/arborescence/internship-app/src/Views/mentions-legales.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/offreDeStage.html" beforeDir="false" afterPath="$PROJECT_DIR$/arborescence/internship-app/src/Views/offreDeStage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trouverUnStage.html" beforeDir="false" afterPath="$PROJECT_DIR$/arborescence/internship-app/src/Views/trouverUnStage.html" afterDir="false" />
-    </list>
+    <list default="true" id="9ce49fa8-52a0-42af-8ce6-1c56055703e3" name="Changes" comment="Unversioned files" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,7 +19,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feature/architecture-dossiers" />
+        <entry key="$PROJECT_DIR$" value="develop" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -55,11 +35,24 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "git-widget-placeholder": "develop",
+    "git-widget-placeholder": "main",
     "node.js.selected.package.tslint": "(autodetect)"
   }
 }]]></component>
   <component name="TaskManager">
+    <task id="LOCAL-00001" summary="Unversioned files">
+      <option name="closed" value="true" />
+      <created>1773143533117</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1773143533117</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Unversioned files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Unversioned files" />
   </component>
 </project>
