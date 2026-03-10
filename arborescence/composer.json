@@ -1,0 +1,22 @@
+{
+  "name": "vendor_name/arborescence",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Mélisande",
+      "email": "email@example.com"
+    },
+    {
+      "name": "Thomas",
+      "email": "email@example.com"
+    },
+    {
+      "name": "Isaac",
+      "email": "email@example.com"
+    }
+  ],
+  "require": {
+  }
+}
