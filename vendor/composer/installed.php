@@ -3,7 +3,7 @@
         'name' => 'vendor_name/arborescence',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '9a27429c84acbb502c77f40017ff1d933825c3d4',
+        'reference' => '10c89474e4919a4eb5fce2c1a2be6fefbe3bc304',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -292,7 +292,7 @@
         'vendor_name/arborescence' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '9a27429c84acbb502c77f40017ff1d933825c3d4',
+            'reference' => '10c89474e4919a4eb5fce2c1a2be6fefbe3bc304',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
