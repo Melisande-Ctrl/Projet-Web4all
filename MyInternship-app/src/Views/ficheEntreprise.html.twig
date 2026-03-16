@@ -1,32 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>[Nom] - Fiche d'entreprise</title>
-    <meta name="viewport" content="width=device-width"/>
-    <link rel="stylesheet" href="../../assets/css_files/Style.css" />
-</head>
-<body>
-<header>
-    <div class="container header__top">
-            <div class="brand__logo">MyInternship</div>
-            <div class="brand__text">
-                <div class="brand__name">MyInternship</div>
-                <div class="brand__tagline">Recherche de stages</div>
-            </div>
-
-        <nav class="header__actions">
-            <a class="link" href="connexion.html.twig">Connexion</a>
-        </nav>
-    </div>
-
-    <nav class="container nav">
-        <a class="nav__link" href="trouverUnStage.html.twig">Rechercher</a>
-        <a class="nav__link" href="offreDeStage.html.twig">Offres</a>
-        <a class="nav__link" href="entreprises.html.twig">Entreprises</a>
-<!--        <a class="nav__link" href="mentions-legales.html.twig.twig">Mentions légales</a>-->
-    </nav>
-</header>
+{% extends "footer.html.twig" %}
 
 <main>
     <h1>[Nom] - Fiche d'entreprise</h1>
@@ -39,20 +11,3 @@
     <h2>Liste des offres de stages proposées : </h2>
 <!--Nombre limité d'offres affiché, lien "voir plus" vers la page de recherche avec le filtre de l'entreprise-->
 </main>
-
-<footer>
-    <div class="container footer__grid">
-        <div>
-            <div class="footer__brand">MyInternship</div>
-            <p class="muted">Plateforme de gestion d’offres de stages.</p>
-        </div>
-
-        <div class="footer__links">
-            <a class="link" href="mentions-legales.html.twig">Mentions légales</a>
-            <a class="link" href="#">Politique de confidentialité</a>
-            <a class="link" href="#">Contact</a>
-        </div>
-    </div>
-</footer>
-</body>
-</html>
