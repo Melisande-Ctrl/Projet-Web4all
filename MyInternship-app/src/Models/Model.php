@@ -9,7 +9,7 @@ use PDO, PDOException;
 class Model {
     protected $connection;
 
-    protected function __construct() {
+    public function __construct() {
         $env = parse_ini_file(".env");
         try {
             $this->connection = new PDO('mysql:host=' . $env['servername'] . ';dbname='.$env['dbname'] . ';charset=utf8', $env['username'], $env['password']);
