@@ -7,7 +7,7 @@ use PDO, PDOException;
  * The Model class is a parent class that serves as the base class for all models in the application.
 */
 class Model {
-    protected $connection;
+    protected PDO $connection;
 
     public function __construct() {
         $env = parse_ini_file("../.env");
