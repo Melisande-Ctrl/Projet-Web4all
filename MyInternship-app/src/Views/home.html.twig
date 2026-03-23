@@ -1,0 +1,42 @@
+{% extends 'base/layout.html.twig' %}
+
+{% block content %}
+<section>
+    <h1>Trouvez un stage adapte a votre profil</h1>
+    <p>
+        MyInternship centralise les offres de stage, les entreprises partenaires et le suivi des candidatures
+        pour les etudiants de l'ecole.
+    </p>
+
+    <p>
+        <a href="?route=internships">Consulter les offres</a>
+        <a href="?route=connexion">Se connecter</a>
+    </p>
+</section>
+
+<section>
+    <h2>Acces rapides</h2>
+    <ul>
+        <li><a href="?route=internships">Voir toutes les offres de stage</a></li>
+        <li><a href="?route=entreprises">Consulter les entreprises</a></li>
+        <li><a href="?route=mentions_legales">Lire les mentions legales</a></li>
+    </ul>
+</section>
+
+<section>
+    <h2>Dernieres offres mises en avant</h2>
+    {% if featuredInternships is not empty %}
+        <ul>
+            {% for internship in featuredInternships %}
+                <li>
+                    <strong>{{ internship.title }}</strong> - {{ internship.location }} - {{ internship.contract }}
+                    - {{ internship.duration }}
+                    <a href="?route=internship_show&id={{ internship.id }}">Voir l'offre</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Aucune offre mise en avant pour le moment.</p>
+    {% endif %}
+</section>
+{% endblock %}

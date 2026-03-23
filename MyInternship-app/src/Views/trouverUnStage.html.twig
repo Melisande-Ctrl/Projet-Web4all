@@ -1,10 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base/layout.html.twig' %}
 
-</body>
-</html>
+{% block content %}
+<section>
+    <h1>Offres de stage</h1>
+    <p>Liste de travail pour brancher ensuite la vraie recherche, les filtres et la pagination.</p>
+
+    {% if internships is not empty %}
+        <ul>
+            {% for internship in internships %}
+                <li>
+                    <strong>{{ internship.title }}</strong> - {{ internship.company }} - {{ internship.location }}
+                    - {{ internship.salary }}
+                    <a href="?route=internship_show&id={{ internship.id }}">Voir le detail</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Aucune offre disponible.</p>
+    {% endif %}
+</section>
+{% endblock %}

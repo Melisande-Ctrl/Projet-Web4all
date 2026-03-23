@@ -1,21 +1,32 @@
 <?php
+
+declare(strict_types=1);
+
 namespace App\Controllers;
 
-/**
- * The base controller class for all controllers in the application.
- */
-abstract class Controller {
-    /**
-     * The model associated with the controller.
-     *
-     * @var Model null
-     */
-    protected $model = null;
+use Twig\Environment;
 
-    /**
-     * The template engine used by the controller.
-     *
-     * @var  \Twig\Environment null
-     */
-    protected $templateEngine = null;
+/**
+ * Base technique commune a tous les controleurs.
+ */
+abstract class Controller
+{
+    protected ?object $model = null;
+    protected Environment $templateEngine;
+
+    public function __construct(Environment $templateEngine)
+    {
+        $this->templateEngine = $templateEngine;
+    }
+
+    protected function render(string $template, array $data = []): void
+    {
+        echo $this->templateEngine->render($template, $data);
+    }
+
+    protected function redirect(string $route): never
+    {
+        header('Location: ?route=' . urlencode($route));
+        exit;
+    }
 }

@@ -1,10 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base/layout.html.twig' %}
 
-</body>
-</html>
+{% block content %}
+<section>
+    {% if offer %}
+        <h1>{{ offer.title }}</h1>
+        <p><strong>Entreprise :</strong> {{ offer.company }}</p>
+        <p><strong>Localisation :</strong> {{ offer.location }}</p>
+        <p><strong>Remuneration :</strong> {{ offer.salary }}</p>
+        <p>{{ offer.description }}</p>
+
+        <h2>Competences recherchees</h2>
+        <ul>
+            {% for skill in offer.skills %}
+                <li>{{ skill }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h1>Offre introuvable</h1>
+        <p>L'identifiant de l'offre est absent ou incorrect.</p>
+    {% endif %}
+</section>
+{% endblock %}
