@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitfd0fee666d9c175c6e99dad6f265f7b4
+class ComposerStaticInitc928d54922d45d67fb44244d0a1bf6f8
 {
     public static $files = array (
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
@@ -19,53 +19,53 @@ class ComposerStaticInitfd0fee666d9c175c6e99dad6f265f7b4
     );
 
     public static $prefixLengthsPsr4 = array (
-        'T' =>
+        'T' => 
         array (
             'Twig\\' => 5,
         ),
-        'S' =>
+        'S' => 
         array (
             'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Symfony\\Polyfill\\Ctype\\' => 23,
         ),
-        'P' =>
+        'P' => 
         array (
             'PhpParser\\' => 10,
         ),
-        'D' =>
+        'D' => 
         array (
             'DeepCopy\\' => 9,
         ),
-        'A' =>
+        'A' => 
         array (
             'App\\' => 4,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'Twig\\' =>
+        'Twig\\' => 
         array (
             0 => __DIR__ . '/..' . '/twig/twig/src',
         ),
-        'Symfony\\Polyfill\\Mbstring\\' =>
+        'Symfony\\Polyfill\\Mbstring\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
         ),
-        'Symfony\\Polyfill\\Ctype\\' =>
+        'Symfony\\Polyfill\\Ctype\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
         ),
-        'PhpParser\\' =>
+        'PhpParser\\' => 
         array (
             0 => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser',
         ),
-        'DeepCopy\\' =>
+        'DeepCopy\\' => 
         array (
             0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
         ),
-        'App\\' =>
+        'App\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src',
+            0 => __DIR__ . '/../..' . '/MyInternship-app/src',
         ),
     );
 
@@ -1301,9 +1301,9 @@ class ComposerStaticInitfd0fee666d9c175c6e99dad6f265f7b4
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitfd0fee666d9c175c6e99dad6f265f7b4::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitfd0fee666d9c175c6e99dad6f265f7b4::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInitfd0fee666d9c175c6e99dad6f265f7b4::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitc928d54922d45d67fb44244d0a1bf6f8::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitc928d54922d45d67fb44244d0a1bf6f8::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitc928d54922d45d67fb44244d0a1bf6f8::$classMap;
 
         }, null, ClassLoader::class);
     }

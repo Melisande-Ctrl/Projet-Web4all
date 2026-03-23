@@ -28,6 +28,7 @@ use Twig\Extension\DebugExtension;
 use App\Controllers\HomeController;
 use App\Controllers\AuthController;
 use App\Controllers\InternshipController;
+use App\Controllers\CompanyController;
 
 /**
 *Initialisation de Twig
@@ -57,6 +58,9 @@ $routes = [
         'connexion' => [AuthController::class, 'showLoginForm'],
         'internships' => [InternshipController::class, 'index'],
         'internship_show' => [InternshipController::class, 'show'],
+        'entreprises' => [CompanyController::class, 'index'],
+        'entreprise_show' => [CompanyController::class, 'show'],
+        'mentions_legales' => [HomeController::class, 'legalNotices'],
     ],
     'POST' => [
         'login' => [AuthController::class, 'login'],
