@@ -1,17 +1,14 @@
-{% extends "base/navbar.html.twig" %}
-{% block footer %}
 <footer class="footer" id="aide">
     <div class="container footer__grid">
         <div>
             <div class="footer__brand">MyInternship</div>
-            <p class="muted">Plateforme de gestion d’offres de stages.</p>
+            <p class="muted">Plateforme de gestion d offres de stages et de suivi des candidatures.</p>
         </div>
 
         <div class="footer__links">
-            <a class="link" href="../mentions-legales.html.twig">Mentions légales</a>
-            <a class="link" href="#">Politique de confidentialité</a>
-            <a class="link" href="#">Contact</a>
+            <a class="link" href="?route=mentions_legales">Mentions legales</a>
+            <a class="link" href="?route=internships">Offres</a>
+            <a class="link" href="?route=entreprises">Entreprises</a>
         </div>
     </div>
 </footer>
-{% endblock %}

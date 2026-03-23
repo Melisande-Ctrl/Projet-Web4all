@@ -1,42 +1,143 @@
-{% extends 'base/footer.html.twig' %}
+{% extends 'base/layout.html.twig' %}
+
+{% block pageTitle %}
+<title>{{ page_title }}</title>
+{% endblock %}
 
 {% block content %}
-<section>
-    <h1>Trouvez un stage adapte a votre profil</h1>
-    <p>
-        MyInternship centralise les offres de stage, les entreprises partenaires et le suivi des candidatures
-        pour les etudiants de l'ecole.
-    </p>
+<section class="hero">
+    <div class="container hero__grid">
+        <div>
+            <p class="hero__eyebrow">Plateforme scolaire de recherche de stage</p>
+            <h1>Trouvez votre <span class="accent">stage</span> et suivez chaque candidature.</h1>
+            <p class="muted hero__lead">
+                MyInternship centralise les offres, les entreprises partenaires, les wish-lists
+                et le suivi des candidatures pour les etudiants, pilotes et administrateurs.
+            </p>
 
-    <p>
-        <a href="?route=internships">Consulter les offres</a>
-        <a href="?route=connexion">Se connecter</a>
-    </p>
+            <div class="hero__actions">
+                <a class="btn btn--primary" href="?route=internships">Consulter les offres</a>
+                <a class="btn btn--ghost" href="?route=connexion">Se connecter</a>
+            </div>
+
+            <div class="hero__badges">
+                <span class="badge">Architecture MVC</span>
+                <span class="badge">Gestion des roles</span>
+                <span class="badge">Suivi des candidatures</span>
+            </div>
+        </div>
+
+        <aside class="hero__card">
+            <h2>Ce que couvre deja la plateforme</h2>
+            <div class="stats">
+                {% for stat in siteStats %}
+                    <article class="stat">
+                        <strong>{{ stat.value }}</strong>
+                        <span>{{ stat.label }}</span>
+                    </article>
+                {% endfor %}
+            </div>
+        </aside>
+    </div>
 </section>
 
-<section>
-    <h2>Acces rapides</h2>
-    <ul>
-        <li><a href="?route=internships">Voir toutes les offres de stage</a></li>
-        <li><a href="?route=entreprises">Consulter les entreprises</a></li>
-        <li><a href="?route=mentions_legales">Lire les mentions legales</a></li>
-    </ul>
-</section>
+<section class="section section--surface">
+    <div class="container">
+        <div class="section__head">
+            <h2>Acces rapides</h2>
+            <p class="muted">Les entrees principales du site, pensees selon les besoins des differents profils.</p>
+        </div>
 
-<section>
-    <h2>Dernieres offres mises en avant</h2>
-    {% if featuredInternships is not empty %}
-        <ul>
-            {% for internship in featuredInternships %}
-                <li>
-                    <strong>{{ internship.title }}</strong> - {{ internship.location }} - {{ internship.contract }}
-                    - {{ internship.duration }}
-                    <a href="?route=internship_show&id={{ internship.id }}">Voir l'offre</a>
-                </li>
+        <div class="cards cards--three">
+            {% for profile in profiles %}
+                <article class="card card--feature">
+                    <p class="card__eyebrow">Profil</p>
+                    <h3>{{ profile.title }}</h3>
+                    <p class="muted">{{ profile.description }}</p>
+                    <a class="link" href="?route={{ profile.cta_route }}">{{ profile.cta_label }}</a>
+                </article>
             {% endfor %}
-        </ul>
-    {% else %}
-        <p>Aucune offre mise en avant pour le moment.</p>
-    {% endif %}
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="section__head">
+            <h2>Dernieres offres mises en avant</h2>
+            <p class="muted">Exemple de presentation exploitable ensuite avec les vraies donnees SQL.</p>
+        </div>
+
+        {% if featuredInternships is not empty %}
+            <div class="list">
+                {% for internship in featuredInternships %}
+                    <article class="list__item">
+                        <div>
+                            <div class="list__title">{{ internship.title }}</div>
+                            <div class="muted">
+                                {{ internship.company }} • {{ internship.location }} • {{ internship.contract }}
+                                • {{ internship.duration }} • {{ internship.salary }}
+                            </div>
+                        </div>
+                        <a class="btn btn--small" href="?route=internship_show&id={{ internship.id }}">Voir</a>
+                    </article>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>Aucune offre mise en avant pour le moment.</p>
+        {% endif %}
+
+        <div class="section__foot">
+            <a class="btn btn--ghost" href="?route=internships">Voir toutes les offres</a>
+        </div>
+    </div>
+</section>
+
+<section class="section section--surface">
+    <div class="container">
+        <div class="section__head">
+            <h2>Entreprises a decouvrir</h2>
+            <p class="muted">Des structures deja presentes dans le reseau de stages de l ecole.</p>
+        </div>
+
+        <div class="cards">
+            {% for company in featuredCompanies %}
+                <article class="card">
+                    <h3>{{ company.name }}</h3>
+                    <p class="muted">{{ company.sector }} • note moyenne {{ company.rating }}</p>
+                    <p>{{ company.summary }}</p>
+                    <a class="link" href="?route=entreprise_show&id={{ company.id }}">Voir la fiche</a>
+                </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="section__head">
+            <h2>Parcours utilisateur</h2>
+            <p class="muted">La logique fonctionnelle du projet, presentee simplement.</p>
+        </div>
+
+        <ol class="timeline">
+            {% for step in processSteps %}
+                <li class="timeline__item">{{ step }}</li>
+            {% endfor %}
+        </ol>
+    </div>
+</section>
+
+<section class="cta" id="cta">
+    <div class="container cta__box">
+        <div>
+            <h2>Un accueil utile pour la soutenance</h2>
+            <p class="muted">
+                Cette page montre deja les cas d usage centraux du projet: consultation, navigation par profil,
+                entreprises partenaires et liens vers les modules clefs.
+            </p>
+        </div>
+        <a class="btn btn--primary" href="?route=connexion">Acceder a la plateforme</a>
+    </div>
 </section>
 {% endblock %}

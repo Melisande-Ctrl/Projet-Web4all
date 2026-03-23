@@ -1,25 +1,33 @@
-{% extends 'base/footer.html.twig' %}
+{% extends 'base/layout.html.twig' %}
+
+{% block pageTitle %}
+<title>{{ page_title }}</title>
+{% endblock %}
 
 {% block content %}
-<section>
-    {% if company %}
-        <h1>{{ company.name }}</h1>
-        <p>{{ company.description }}</p>
-        <p><strong>Note moyenne :</strong> {{ company.rating }}</p>
+<section class="section">
+    <div class="container">
+        <article class="card">
+            {% if company %}
+                <h1>{{ company.name }}</h1>
+                <p>{{ company.description }}</p>
+                <p class="muted">Note moyenne : {{ company.rating }}</p>
 
-        <h2>Contact</h2>
-        <p><strong>Email :</strong> {{ company.contact_email }}</p>
-        <p><strong>Telephone :</strong> {{ company.contact_phone }}</p>
+                <h2>Contact</h2>
+                <p><strong>Email :</strong> {{ company.contact_email }}</p>
+                <p><strong>Telephone :</strong> {{ company.contact_phone }}</p>
 
-        <h2>Offres associees</h2>
-        <ul>
-            {% for offer in company.offers %}
-                <li><a href="?route=internship_show&id={{ offer.id }}">{{ offer.title }}</a></li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <h1>Entreprise introuvable</h1>
-        <p>L'identifiant de l'entreprise est absent ou incorrect.</p>
-    {% endif %}
+                <h2>Offres associees</h2>
+                <ul>
+                    {% for offer in company.offers %}
+                        <li><a class="link" href="?route=internship_show&id={{ offer.id }}">{{ offer.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <h1>Entreprise introuvable</h1>
+                <p>L identifiant de l entreprise est absent ou incorrect.</p>
+            {% endif %}
+        </article>
+    </div>
 </section>
 {% endblock %}

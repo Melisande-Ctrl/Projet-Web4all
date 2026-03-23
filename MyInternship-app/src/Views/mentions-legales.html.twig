@@ -1,17 +1,25 @@
-{% extends 'base/footer.html.twig' %}
+{% extends 'base/layout.html.twig' %}
+
+{% block pageTitle %}
+<title>{{ page_title }}</title>
+{% endblock %}
 
 {% block content %}
-<section>
-    <h1>Mentions legales</h1>
-    <p>Page provisoire a completer avec les informations legales du projet scolaire et de l'etablissement.</p>
+<section class="section">
+    <div class="container narrow">
+        <article class="card legal-card">
+            <h1>Mentions legales</h1>
+            <p class="muted">Page provisoire a completer avec les informations legales du projet scolaire et de l etablissement.</p>
 
-    <h2>Editeur du site</h2>
-    <p>Projet pedagogique realise dans le cadre de la formation CESI.</p>
+            <h2>Editeur du site</h2>
+            <p>Projet pedagogique realise dans le cadre de la formation CESI.</p>
 
-    <h2>Hebergement</h2>
-    <p>Informations d'hebergement a completer selon votre environnement final.</p>
+            <h2>Hebergement</h2>
+            <p>Informations d hebergement a completer selon votre environnement final.</p>
 
-    <h2>Donnees personnelles</h2>
-    <p>Les traitements et durees de conservation devront etre precises avant la soutenance finale.</p>
+            <h2>Donnees personnelles</h2>
+            <p>Les traitements et durees de conservation devront etre precises avant la soutenance finale.</p>
+        </article>
+    </div>
 </section>
 {% endblock %}

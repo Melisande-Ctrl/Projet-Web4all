@@ -4,14 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0fdbbba4-31ea-4c87-84db-95b055ed29c5" name="Changes" comment="Rectification home.html.twig, CompanyController.php, Controller.php">
+    <list default="true" id="0fdbbba4-31ea-4c87-84db-95b055ed29c5" name="Changes" comment="Modif extend base/footer.html.twig">
+      <change afterPath="$PROJECT_DIR$/MyInternship-app/src/Models/Login.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyInternship-app/src/Views/base/layout.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyInternship-app/assets/css_files/Style.css" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/assets/css_files/Style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Controllers/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Models/Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Models/Model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Views/base/footer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Views/base/footer.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Views/base/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Views/base/header.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Views/base/navbar.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Views/base/navbar.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Views/connexion.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Views/connexion.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Views/entreprises.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Views/entreprises.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Views/ficheEntreprise.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Views/ficheEntreprise.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Views/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Views/home.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Views/mentions-legales.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Views/mentions-legales.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Views/offreDeStage.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Views/offreDeStage.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Views/trouverUnStage.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Views/trouverUnStage.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,7 +157,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1773746578397</updated>
-      <workItem from="1773746579747" duration="27655000" />
+      <workItem from="1773746579747" duration="34976000" />
     </task>
     <task id="LOCAL-00001" summary="rectification index, création companyController et index.php">
       <option name="closed" value="true" />
@@ -164,7 +175,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774262339362</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Modif extend base/footer.html.twig">
+      <option name="closed" value="true" />
+      <created>1774270763218</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1774270763218</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -184,6 +203,23 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="rectification index, création companyController et index.php" />
     <MESSAGE value="Rectification home.html.twig, CompanyController.php, Controller.php" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rectification home.html.twig, CompanyController.php, Controller.php" />
+    <MESSAGE value="Modif extend base/footer.html.twig" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modif extend base/footer.html.twig" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/MyInternship-app/src/Controllers/HomeController.php</url>
+          <line>12</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/MyInternship-app/src/Controllers/HomeController.php</url>
+          <line>89</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

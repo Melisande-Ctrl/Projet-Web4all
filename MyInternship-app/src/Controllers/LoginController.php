@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 
-class AuthController extends Controller
+class LoginController extends Controller
 {
     public function showLoginForm(): void
     {

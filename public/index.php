@@ -26,7 +26,7 @@ use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 use Twig\Extension\DebugExtension;
 use App\Controllers\HomeController;
-use App\Controllers\AuthController;
+use App\Controllers\LoginController;
 use App\Controllers\InternshipController;
 use App\Controllers\CompanyController;
 
@@ -55,7 +55,7 @@ $id = isset($_GET['id']) ? (int) $_GET['id'] : null;
 $routes = [
     'GET' => [
         'home' => [HomeController::class, 'index'],
-        'connexion' => [AuthController::class, 'showLoginForm'],
+        'connexion' => [LoginController::class, 'showLoginForm'],
         'internships' => [InternshipController::class, 'index'],
         'internship_show' => [InternshipController::class, 'show'],
         'entreprises' => [CompanyController::class, 'index'],
@@ -63,8 +63,8 @@ $routes = [
         'mentions_legales' => [HomeController::class, 'legalNotices'],
     ],
     'POST' => [
-        'login' => [AuthController::class, 'login'],
-        'logout' => [AuthController::class, 'logout'],
+        'login' => [LoginController::class, 'login'],
+        'logout' => [LoginController::class, 'logout'],
     ],
 ];
 

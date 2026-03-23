@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% block pageTitle %}
+    <title>MyInternship - Offres de stage & alternance</title>
+    {% endblock %}
+    <meta
+        name="description"
+        content="Plateforme scolaire de recherche de stages, de suivi des candidatures et de gestion des entreprises partenaires."
+    >
+    {% block style %}
+    <link rel="stylesheet" href="assets/css_files/Style.css">
+    {% endblock %}
+</head>
+<body class="site-shell">
+    {% include 'base/header.html.twig' %}
+    {% include 'base/navbar.html.twig' %}
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    {% include 'base/footer.html.twig' %}
+</body>
+</html>

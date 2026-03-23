@@ -1,10 +1,7 @@
-{% extends "base/header.html.twig" %}
-{% block navbar %}
 <nav class="container nav" aria-label="Navigation principale">
-        <a class="nav__link" href="#recherche">Rechercher</a>
-        <a class="nav__link" href="#offreDeStage.html">Offres</a>
-        <a class="nav__link" href="#entreprises.html">Entreprises</a>
-        <a class="nav__link" href="#aide">Aide</a>
-        <a class="nav__link" href="../mentions-legales.html.twig">Mentions légales</a>
+    <a class="nav__link" href="?route=home">Accueil</a>
+    <a class="nav__link" href="?route=internships">Offres</a>
+    <a class="nav__link" href="?route=entreprises">Entreprises</a>
+    <a class="nav__link" href="?route=connexion">Connexion</a>
+    <a class="nav__link" href="?route=mentions_legales">Mentions legales</a>
 </nav>
-{% endblock %}
