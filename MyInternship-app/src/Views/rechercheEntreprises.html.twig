@@ -1,0 +1,10 @@
+{% extends "base/layout.html.twig" %}
+
+{% block main %}
+    {% for i in 1..50 %} // temporary
+        <form action="/?" method="post">
+            <label>{{ i }}</label>
+            <input name="numNewPage" type="hidden" value="{{ i }}">
+        </form>
+    {% endfor %}
+{% endblock %}

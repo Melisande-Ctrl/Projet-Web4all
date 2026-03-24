@@ -1,25 +1,32 @@
-{% extends 'base/layout.html.twig' %}
+{% extends "base/layout.html.twig" %}
 
-{% block content %}
-<section>
-    {% if company %}
-        <h1>{{ company.name }}</h1>
-        <p>{{ company.description }}</p>
-        <p><strong>Note moyenne :</strong> {{ company.rating }}</p>
+{% block main %}
+    <div class="container">
+        <div class="section">
+            <h1>{{ entreprise.Nom_Entreprise }} - Fiche d'entreprise</h1>
 
-        <h2>Contact</h2>
-        <p><strong>Email :</strong> {{ company.contact_email }}</p>
-        <p><strong>Telephone :</strong> {{ company.contact_phone }}</p>
+            <div class="card">
+                <h3>Siège social : {{ entreprise.Nom_Adresse }}</h3>
+                <p class="muted">Description : {{ entreprise.Description_Entreprise }}</p>
+                <p>Nombre de stagiaires recherchés : {{ entreprise.nbOffres }}, Note de l'entreprise : {{ entreprise.nbNotes }}</p>
+            </div>
 
-        <h2>Offres associees</h2>
-        <ul>
-            {% for offer in company.offers %}
-                <li><a href="?route=internship_show&id={{ offer.id }}">{{ offer.title }}</a></li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <h1>Entreprise introuvable</h1>
-        <p>L'identifiant de l'entreprise est absent ou incorrect.</p>
-    {% endif %}
-</section>
+            <div class="card">
+                <h2>Contact</h2>
+                <p>Email : {{ entreprise.Email }}</p>
+                <p>Numéro de Téléphone : {{ entreprise.Telephone }}</p>
+            </div>
+
+            <div class="card">
+                <h2>Liste des offres de stages proposées :</h2>
+                <ul class="list">
+                    {% for offre in entreprise.offres %}
+                        <li class="list__item">
+                            <a href="" class="link">{{ offre.Titre }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
 {% endblock %}

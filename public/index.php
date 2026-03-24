@@ -28,7 +28,7 @@ use Twig\Extension\DebugExtension;
 use App\Controllers\HomeController;
 use App\Controllers\LoginController;
 use App\Controllers\InternshipController;
-use App\Controllers\CompanyController;
+use App\Controllers\EntrepriseController;
 
 /**
 *Initialisation de Twig
@@ -58,8 +58,8 @@ $routes = [
         'connexion' => [LoginController::class, 'showLoginForm'],
         'internships' => [InternshipController::class, 'index'],
         'internship_show' => [InternshipController::class, 'show'],
-        'entreprises' => [CompanyController::class, 'index'],
-        'entreprise_show' => [CompanyController::class, 'show'],
+        'entreprises' => [EntrepriseController::class, 'index'],
+        'entreprise_show' => [EntrepriseController::class, 'show'],
         'mentions_legales' => [HomeController::class, 'legalNotices'],
     ],
     'POST' => [

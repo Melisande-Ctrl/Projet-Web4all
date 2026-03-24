@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% block pageTitle %}
+    <title>MyInternship - Offres de stage</title>
+    {% endblock %}
+    <meta
+        name="description"
+        content="Plateforme scolaire de recherche de stages et de suivi des candidatures."
+    >
+    {% block style %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+    <link rel="stylesheet" href="assets/css_files/Style.css">
+    {% endblock %}
+</head>
+<body class="site-shell">
+    {% include 'base/header.html.twig' %}
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    {% include 'base/footer.html.twig' %}
+</body>
+</html>

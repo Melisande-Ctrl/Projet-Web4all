@@ -1,23 +1,29 @@
 {% extends 'base/layout.html.twig' %}
 
-{% block content %}
-<section>
-    {% if offer %}
-        <h1>{{ offer.title }}</h1>
-        <p><strong>Entreprise :</strong> {{ offer.company }}</p>
-        <p><strong>Localisation :</strong> {{ offer.location }}</p>
-        <p><strong>Remuneration :</strong> {{ offer.salary }}</p>
-        <p>{{ offer.description }}</p>
+{% block pageTitle %}
+<title>{{ page_title }}</title>
+{% endblock %}
 
-        <h2>Competences recherchees</h2>
-        <ul>
-            {% for skill in offer.skills %}
-                <li>{{ skill }}</li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <h1>Offre introuvable</h1>
-        <p>L'identifiant de l'offre est absent ou incorrect.</p>
-    {% endif %}
+{% block content %}
+<section class="section">
+    <div class="container">
+        <article class="card">
+            {% if offer %}
+                <h1>{{ offer.title }}</h1>
+                <p class="muted">{{ offer.company }} • {{ offer.location }} • {{ offer.salary }}</p>
+                <p>{{ offer.description }}</p>
+
+                <h2>Competences recherchees</h2>
+                <ul class="tag-list">
+                    {% for skill in offer.skills %}
+                        <li class="badge">{{ skill }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <h1>Offre introuvable</h1>
+                <p>L identifiant de l offre est absent ou incorrect.</p>
+            {% endif %}
+        </article>
+    </div>
 </section>
 {% endblock %}

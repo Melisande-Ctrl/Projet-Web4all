@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0fdbbba4-31ea-4c87-84db-95b055ed29c5" name="Changes" comment="base/ footer navbar">
+    <list default="true" id="0fdbbba4-31ea-4c87-84db-95b055ed29c5" name="Changes" comment="Modifs style de la page, navbar, barre de recherche rapide">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Controllers/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Models/Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Models/Model.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Views/connexion.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Views/connexion.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +45,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/Melisande-Ctrl/Projet-Web4all.git&quot;,
-    &quot;accountId&quot;: &quot;3b281540-52c5-4a99-9bdd-3c8a096bd49d&quot;
+    &quot;accountId&quot;: &quot;f040ae7c-bf52-4092-b87e-6fc5ff3cb62e&quot;
   }
 }</component>
   <component name="McpProjectServerCommands">
@@ -93,7 +89,7 @@
     </include_path>
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="QODANA_PROBLEMS_VIEW_TAB" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
@@ -109,10 +105,9 @@
     &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
     &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;features/login&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;//wsl$/Ubuntu/var/www/projet-web4all&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -120,6 +115,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.php.debug.servers&quot;,
     &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
@@ -137,8 +133,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-PS-253.30387.85" />
-        <option value="bundled-php-predefined-a98d8de5180a-0e0d91225499-com.jetbrains.php.sharedIndexes-PS-253.30387.85" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-PS-253.31033.138" />
+        <option value="bundled-php-predefined-a98d8de5180a-0e0d91225499-com.jetbrains.php.sharedIndexes-PS-253.31033.138" />
       </set>
     </attachedChunks>
   </component>
@@ -149,21 +145,49 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1773746578397</updated>
-      <workItem from="1773746579747" duration="16541000" />
-      <workItem from="1774264699957" duration="5716000" />
-      <workItem from="1774274563079" duration="5022000" />
-      <workItem from="1774346870009" duration="35000" />
-      <workItem from="1774347333701" duration="9549000" />
+      <workItem from="1773746579747" duration="45124000" />
     </task>
-    <task id="LOCAL-00001" summary="base/ footer navbar">
+    <task id="LOCAL-00001" summary="rectification index, création companyController et index.php">
       <option name="closed" value="true" />
-      <created>1774265623105</created>
+      <created>1774255326868</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1774265623105</updated>
+      <updated>1774255326869</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Rectification home.html.twig, CompanyController.php, Controller.php">
+      <option name="closed" value="true" />
+      <created>1774262339361</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1774262339362</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Modif extend base/footer.html.twig">
+      <option name="closed" value="true" />
+      <created>1774270763218</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1774270763218</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Appliquation style.css, création layout.html.twig pour extend futur, modification de footer, navbar et header">
+      <option name="closed" value="true" />
+      <created>1774280000471</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1774280000472</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Modifs style de la page, navbar, barre de recherche rapide">
+      <option name="closed" value="true" />
+      <created>1774349246911</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1774349246911</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -181,7 +205,27 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="base/ footer navbar" />
-    <option name="LAST_COMMIT_MESSAGE" value="base/ footer navbar" />
+    <MESSAGE value="rectification index, création companyController et index.php" />
+    <MESSAGE value="Rectification home.html.twig, CompanyController.php, Controller.php" />
+    <MESSAGE value="Modif extend base/footer.html.twig" />
+    <MESSAGE value="Appliquation style.css, création layout.html.twig pour extend futur, modification de footer, navbar et header" />
+    <MESSAGE value="Modifs style de la page, navbar, barre de recherche rapide" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modifs style de la page, navbar, barre de recherche rapide" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/MyInternship-app/src/Controllers/HomeController.php</url>
+          <line>12</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/MyInternship-app/src/Controllers/HomeController.php</url>
+          <line>111</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
