@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ce49fa8-52a0-42af-8ce6-1c56055703e3" name="Changes" comment="Modif extend base/footer.html.twig">
+    <list default="true" id="9ce49fa8-52a0-42af-8ce6-1c56055703e3" name="Changes" comment="titles update in ficheEntreprise.html.twig and rechercheEntreprises.html.twig">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Views/ficheEntreprise.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Views/ficheEntreprise.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Controllers/EntrepriseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Controllers/EntrepriseController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Views/rechercheEntreprises.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Views/rechercheEntreprises.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -245,7 +246,15 @@
       <option name="project" value="LOCAL" />
       <updated>1773598531058</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="titles update in ficheEntreprise.html.twig and rechercheEntreprises.html.twig">
+      <option name="closed" value="true" />
+      <created>1774350628886</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1774350628886</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -269,7 +278,8 @@
     <MESSAGE value="Composer related" />
     <MESSAGE value="unversioned file" />
     <MESSAGE value="composer.json update" />
-    <option name="LAST_COMMIT_MESSAGE" value="composer.json update" />
+    <MESSAGE value="titles update in ficheEntreprise.html.twig and rechercheEntreprises.html.twig" />
+    <option name="LAST_COMMIT_MESSAGE" value="titles update in ficheEntreprise.html.twig and rechercheEntreprises.html.twig" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -5,10 +5,10 @@
 {% endblock %}
 
 {% block main %}
-    {% for i in 1..50 %} // temporary
-        <form action="/?" method="post">
+    <form action="/?" method="get">
+        {% for i in 1..50 %} {# // temporary#}
             <label>{{ i }}</label>
             <input name="numNewPage" type="hidden" value="{{ i }}">
-        </form>
-    {% endfor %}
+        {% endfor %}
+    </form>
 {% endblock %}

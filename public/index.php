@@ -58,8 +58,8 @@ $routes = [
         'connexion' => [LoginController::class, 'showLoginForm'],
         'internships' => [InternshipController::class, 'index'],
         'internship_show' => [InternshipController::class, 'show'],
-        'entreprises' => [EntrepriseController::class, 'index'],
-        'entreprise_show' => [EntrepriseController::class, 'show'],
+        'entreprises' => [EntrepriseController::class, 'pageRechercheEntreprise'],
+        'entreprise_show' => [EntrepriseController::class, 'ficheEntreprise'],
         'mentions_legales' => [HomeController::class, 'legalNotices'],
     ],
     'POST' => [
