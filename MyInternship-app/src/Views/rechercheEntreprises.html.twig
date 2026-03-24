@@ -1,5 +1,9 @@
 {% extends "base/layout.html.twig" %}
 
+{% block pageTitle %}
+    <title>Rechercher des entreprises - MyInternship</title>
+{% endblock %}
+
 {% block main %}
     {% for i in 1..50 %} // temporary
         <form action="/?" method="post">
