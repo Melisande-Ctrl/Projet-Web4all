@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0fdbbba4-31ea-4c87-84db-95b055ed29c5" name="Changes" comment="Appliquation style.css, création layout.html.twig pour extend futur, modification de footer, navbar et header">
+    <list default="true" id="0fdbbba4-31ea-4c87-84db-95b055ed29c5" name="Changes" comment="Modifs style de la page, navbar, barre de recherche rapide">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyInternship-app/assets/css_files/Style.css" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/assets/css_files/Style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Views/base/footer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Views/base/footer.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Views/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Views/home.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,7 +140,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1773746578397</updated>
-      <workItem from="1773746579747" duration="39474000" />
+      <workItem from="1773746579747" duration="45124000" />
     </task>
     <task id="LOCAL-00001" summary="rectification index, création companyController et index.php">
       <option name="closed" value="true" />
@@ -177,7 +174,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774280000472</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Modifs style de la page, navbar, barre de recherche rapide">
+      <option name="closed" value="true" />
+      <created>1774349246911</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1774349246911</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -199,7 +204,8 @@
     <MESSAGE value="Rectification home.html.twig, CompanyController.php, Controller.php" />
     <MESSAGE value="Modif extend base/footer.html.twig" />
     <MESSAGE value="Appliquation style.css, création layout.html.twig pour extend futur, modification de footer, navbar et header" />
-    <option name="LAST_COMMIT_MESSAGE" value="Appliquation style.css, création layout.html.twig pour extend futur, modification de footer, navbar et header" />
+    <MESSAGE value="Modifs style de la page, navbar, barre de recherche rapide" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modifs style de la page, navbar, barre de recherche rapide" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -211,7 +217,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/MyInternship-app/src/Controllers/HomeController.php</url>
-          <line>89</line>
+          <line>111</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
