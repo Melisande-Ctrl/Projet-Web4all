@@ -4,8 +4,16 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 
+use App\Models\LoginModel;
+
 class LoginController extends Controller
 {
+    private LoginModel $loginModel;
+
+    public function __construct($twig){
+        parent::__construct($twig);
+        $this->loginModel = new LoginModel();
+    }
     public function showLoginForm(): void
     {
         $this->render('connexion.html.twig', [
@@ -18,13 +26,59 @@ class LoginController extends Controller
 
     public function login(): void
     {
-        $_SESSION['auth_error'] = 'Authentification non implementee pour le moment.';
-        $this->redirect('connexion');
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+            $this->redirect('login');
+        }
+
+        $email = trim($_POST['email'] ?? '');
+        $password = $_POST['password'] ?? '';
+
+
+        if (empty($email) || empty($password)) {
+            $_SESSION['auth_error'] = 'Tous les champs sont obligatoires';
+            $this->redirect('login');
+        }
+
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $_SESSION['auth_error'] = 'Email invalide';
+            $this->redirect('login');
+        }
+
+
+        $user = $this->LoginModel->getUserByEmail($email);
+
+
+        if (!$user || !password_verify($password, $user['Password'])) {
+            $_SESSION['auth_error'] = 'Identifiants incorrects';
+            $this->redirect('login');
+        }
+
+
+        session_regenerate_id(true);
+
+        $_SESSION['user'] = [
+            'id' => $user['Id_Compte'],
+            'nom' => $user['Nom'],
+            'prenom' => $user['Prenom'],
+            'email' => $user['Email'],
+            'role' => $user['Id_Status']
+        ];
+
+        switch ($user['Id_Status']) {
+            case 1:
+                $this->redirect('admin_dashboard');
+            case 2:
+                $this->redirect('pilote_dashboard');
+            case 3:
+                $this->redirect('etudiant_dashboard');
+            default:
+                $this->redirect('login');
+        }
     }
 
     public function logout(): void
     {
-        unset($_SESSION['user']);
+        session_destroy();
         $this->redirect('home');
     }
 }
