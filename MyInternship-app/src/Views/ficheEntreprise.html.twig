@@ -1,33 +1,32 @@
-{% extends 'base/layout.html.twig' %}
+{% extends "base/footer.html.twig" %}
 
-{% block pageTitle %}
-<title>{{ page_title }}</title>
-{% endblock %}
-
-{% block content %}
-<section class="section">
+{% block main %}
     <div class="container">
-        <article class="card">
-            {% if company %}
-                <h1>{{ company.name }}</h1>
-                <p>{{ company.description }}</p>
-                <p class="muted">Note moyenne : {{ company.rating }}</p>
+        <div class="section">
+            <h1>{{ entreprise.Nom_Entreprise }} - Fiche d'entreprise</h1>
 
+            <div class="card">
+                <h3>Siège social : {{ entreprise.Nom_Adresse }}</h3>
+                <p class="muted">Description : {{ entreprise.Description_Entreprise }}</p>
+                <p>Nombre de stagiaires recherchés : {{ entreprise.nbOffres }}, Note de l'entreprise : {{ entreprise.nbNotes }}</p>
+            </div>
+
+            <div class="card">
                 <h2>Contact</h2>
-                <p><strong>Email :</strong> {{ company.contact_email }}</p>
-                <p><strong>Telephone :</strong> {{ company.contact_phone }}</p>
+                <p>Email : {{ entreprise.Email }}</p>
+                <p>Numéro de Téléphone : {{ entreprise.Telephone }}</p>
+            </div>
 
-                <h2>Offres associees</h2>
-                <ul>
-                    {% for offer in company.offers %}
-                        <li><a class="link" href="?route=internship_show&id={{ offer.id }}">{{ offer.title }}</a></li>
+            <div class="card">
+                <h2>Liste des offres de stages proposées :</h2>
+                <ul class="list">
+                    {% for offre in entreprise.offres %}
+                        <li class="list__item">
+                            <a href="" class="link">{{ offre.Titre }}</a>
+                        </li>
                     {% endfor %}
                 </ul>
-            {% else %}
-                <h1>Entreprise introuvable</h1>
-                <p>L identifiant de l entreprise est absent ou incorrect.</p>
-            {% endif %}
-        </article>
+            </div>
+        </div>
     </div>
-</section>
 {% endblock %}
