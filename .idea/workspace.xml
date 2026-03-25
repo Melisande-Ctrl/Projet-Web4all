@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0fdbbba4-31ea-4c87-84db-95b055ed29c5" name="Changes" comment="footer -&gt; layout">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Controllers/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Controllers/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Models/Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Models/Model.php" afterDir="false" />
-    </list>
+    <list default="true" id="0fdbbba4-31ea-4c87-84db-95b055ed29c5" name="Changes" comment="footer -&gt; layout" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,7 +29,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="feature/rechercheEntreprises" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -216,7 +212,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774432763355</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="footer -&gt; layout">
+      <option name="closed" value="true" />
+      <created>1774442970080</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1774442970080</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -242,21 +246,5 @@
     <MESSAGE value="Modifs après rebase" />
     <MESSAGE value="footer -&gt; layout" />
     <option name="LAST_COMMIT_MESSAGE" value="footer -&gt; layout" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/MyInternship-app/src/Controllers/HomeController.php</url>
-          <line>12</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/MyInternship-app/src/Controllers/HomeController.php</url>
-          <line>111</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
