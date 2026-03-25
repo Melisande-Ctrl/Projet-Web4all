@@ -15,6 +15,28 @@ class HomeController extends Controller
             ['value' => '3', 'label' => 'roles securises'],
         ];
 
+        $popularSearches = [
+            'Developpement web',
+            'Systemes et reseaux',
+            'Cybersecurite',
+            'Data',
+        ];
+
+        $benefits = [
+            [
+                'title' => 'Suivez chaque candidature',
+                'description' => 'Les etudiants visualisent les offres deja ciblees, la wish-list et l historique des candidatures.',
+            ],
+            [
+                'title' => 'Des entreprises plus lisibles',
+                'description' => 'Les fiches entreprise centralisent les contacts, les offres et les retours d experience utiles.',
+            ],
+            [
+                'title' => 'Un suivi pour les pilotes',
+                'description' => 'Les pilotes disposent d une vision claire sur l avancement des recherches de stage de leur promotion.',
+            ],
+        ];
+
         $profiles = [
             [
                 'title' => 'Etudiant',
@@ -93,6 +115,8 @@ class HomeController extends Controller
         $this->render('home.html.twig', [
             'page_title' => 'Accueil - MyInternship',
             'siteStats' => $siteStats,
+            'popularSearches' => $popularSearches,
+            'benefits' => $benefits,
             'profiles' => $profiles,
             'featuredInternships' => $featuredInternships,
             'featuredCompanies' => $featuredCompanies,

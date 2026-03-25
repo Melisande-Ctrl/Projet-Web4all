@@ -6,7 +6,7 @@
 
 {% block main %}
     <form action="/?" method="get">
-        {% for i in 1..50 %} {# // temporary#}
+        {% for i in 1..entreprises.nbPages %} {# // temporary#}
             <label>{{ i }}</label>
             <input name="numNewPage" type="hidden" value="{{ i }}">
         {% endfor %}
