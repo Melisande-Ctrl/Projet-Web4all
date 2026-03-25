@@ -47,9 +47,7 @@ class EntrepriseModel extends Model {
         // Combiner tout dans un tableau
         $entreprise['nbOffres'] = $nbOffres;
         $entreprise['offres'] = $offres;
-        var_dump($offres);
         $entreprise['nbNotes'] = $nbNotes;
-        var_dump($entreprise);
         return $entreprise; // Retourne les données de l'entreprise si trouvée
     }
     public function getEntreprises($numPage) : array | null
