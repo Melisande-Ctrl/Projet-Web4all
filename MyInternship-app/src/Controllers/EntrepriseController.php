@@ -36,7 +36,7 @@ class EntrepriseController extends Controller
      */
     public function pageRechercheEntreprise() : void
     {
-        $numPage = $_POST['numNewPage'];
+        $numPage = $_GET['numNewPage'];
         [$entreprises, $listesFiltres] = $this->model->getEntreprises($numPage);
 
         echo $this->templateEngine->render('rechercheEntreprises.html.twig',

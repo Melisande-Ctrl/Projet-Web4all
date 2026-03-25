@@ -74,9 +74,9 @@ class EntrepriseModel extends Model {
         }
         //Récupération des listes pour les filtres
         $queryVilles = $this->connection->query("SELECT Nom_Ville FROM Villes");
-        $listeVilles = $queryVilles->fetch(PDO::FETCH_ASSOC);
+        $listeVilles = $queryVilles->fetchAll(PDO::FETCH_ASSOC);
         $queryPays = $this->connection->query("SELECT Nom_Pays FROM Pays");
-        $listePays = $queryPays->fetch(PDO::FETCH_ASSOC);
+        $listePays = $queryPays->fetchAll(PDO::FETCH_ASSOC);
 
         $entreprises['nbPages'] = $nbPages; // Nécessaire pour la barre de pagination
         $filtres['listeVilles'] = $listeVilles;
