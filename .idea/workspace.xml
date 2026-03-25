@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0fdbbba4-31ea-4c87-84db-95b055ed29c5" name="Changes" comment="Modifs après rebase">
-      <change afterPath="$PROJECT_DIR$/public/assets/css_files/Style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/MyInternship_Logo.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/javascript_files/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyInternship-app/assets/css_files/Style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyInternship-app/assets/images/MyInternship_Logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyInternship-app/assets/javascript_files/script.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Views/connexion.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Views/connexion.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Views/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Views/home.html.twig" afterDir="false" />
-    </list>
+    <list default="true" id="0fdbbba4-31ea-4c87-84db-95b055ed29c5" name="Changes" comment="Modifs après rebase" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -145,6 +135,9 @@
         <option value="bundled-php-predefined-a98d8de5180a-0e0d91225499-com.jetbrains.php.sharedIndexes-PS-253.31033.138" />
       </set>
     </attachedChunks>
+  </component>
+  <component name="StructureViewState">
+    <option name="selectedTab" value="Twig" />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
