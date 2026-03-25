@@ -4,16 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0fdbbba4-31ea-4c87-84db-95b055ed29c5" name="Changes" comment="admin controller &amp; model add">
-      <change afterPath="$PROJECT_DIR$/MyInternship-app/src/Controllers/EtudiantController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyInternship-app/src/Controllers/PiloteController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyInternship-app/src/Models/EtudiantModel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyInternship-app/src/Models/PiloteModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Views/MonCompteAdmin.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Views/MonCompteAdmin.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Views/MonCompteEtudiant.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Views/MonCompteEtudiant.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Views/MonComptePilote.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Views/MonComptePilote.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
+    <list default="true" id="0fdbbba4-31ea-4c87-84db-95b055ed29c5" name="Changes" comment="Modif extend base/footer.html.twig">
+      <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Controllers/EntrepriseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Controllers/EntrepriseController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +31,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="feature/rechercheEntreprises" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -50,6 +42,17 @@
     &quot;assignee&quot;: &quot;Newton4708&quot;
   }
 }</component>
+  <component name="GitHubPullRequestState"><![CDATA[{
+  "prStates": [
+    {
+      "id": {
+        "id": "PR_kwDORDN7vM7NWL8O",
+        "number": 14
+      },
+      "lastSeen": 1774445199006
+    }
+  ]
+}]]></component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/Melisande-Ctrl/Projet-Web4all.git&quot;,
@@ -115,7 +118,7 @@
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "features/redirect__dashboard",
+    "git-widget-placeholder": "main",
     "junie.onboarding.icon.badge.shown": "true",
     "last_opened_file_path": "//wsl$/Ubuntu/var/www/projet-web4all",
     "node.js.detected.package.eslint": "true",

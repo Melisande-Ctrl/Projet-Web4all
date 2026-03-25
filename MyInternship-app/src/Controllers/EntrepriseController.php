@@ -11,7 +11,7 @@ class EntrepriseController extends Controller
 {
     public function __construct($templateEngine)
     {
-        $this->templateEngine = $templateEngine;
+        parent::__construct($templateEngine);//$this->templateEngine = $templateEngine;
         $this->model = new EntrepriseModel();
     }
     /**p
