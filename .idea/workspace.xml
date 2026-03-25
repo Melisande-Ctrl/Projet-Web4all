@@ -4,8 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0fdbbba4-31ea-4c87-84db-95b055ed29c5" name="Changes" comment="Modifs style de la page, navbar, barre de recherche rapide">
+    <list default="true" id="0fdbbba4-31ea-4c87-84db-95b055ed29c5" name="Changes" comment="Modifs après rebase">
+      <change afterPath="$PROJECT_DIR$/public/assets/css_files/Style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/MyInternship_Logo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/javascript_files/script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyInternship-app/assets/css_files/Style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyInternship-app/assets/images/MyInternship_Logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyInternship-app/assets/javascript_files/script.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Views/connexion.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Views/connexion.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Views/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Views/home.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +153,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1773746578397</updated>
-      <workItem from="1773746579747" duration="45124000" />
+      <workItem from="1773746579747" duration="50979000" />
     </task>
     <task id="LOCAL-00001" summary="rectification index, création companyController et index.php">
       <option name="closed" value="true" />
@@ -187,7 +195,23 @@
       <option name="project" value="LOCAL" />
       <updated>1774349246911</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Modifs après rebase">
+      <option name="closed" value="true" />
+      <created>1774362729427</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1774362729428</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Modifs après rebase">
+      <option name="closed" value="true" />
+      <created>1774362889117</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1774362889117</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -210,7 +234,8 @@
     <MESSAGE value="Modif extend base/footer.html.twig" />
     <MESSAGE value="Appliquation style.css, création layout.html.twig pour extend futur, modification de footer, navbar et header" />
     <MESSAGE value="Modifs style de la page, navbar, barre de recherche rapide" />
-    <option name="LAST_COMMIT_MESSAGE" value="Modifs style de la page, navbar, barre de recherche rapide" />
+    <MESSAGE value="Modifs après rebase" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modifs après rebase" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
