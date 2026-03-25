@@ -29,6 +29,7 @@ use App\Controllers\HomeController;
 use App\Controllers\LoginController;
 use App\Controllers\InternshipController;
 use App\Controllers\EntrepriseController;
+use App\Controllers\AdminController;
 
 /**
 *Initialisation de Twig
@@ -61,6 +62,7 @@ $routes = [
         'entreprises' => [EntrepriseController::class, 'index'],
         'entreprise_show' => [EntrepriseController::class, 'show'],
         'mentions_legales' => [HomeController::class, 'legalNotices'],
+        'admin_dashboard' => [AdminController::class, 'showDashboard'],
     ],
     'POST' => [
         'login' => [LoginController::class, 'login'],

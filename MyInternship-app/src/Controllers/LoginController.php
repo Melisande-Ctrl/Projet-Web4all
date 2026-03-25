@@ -27,7 +27,7 @@ class LoginController extends Controller
     public function login(): void
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-            $this->redirect('login');
+            $this->redirect('connexion');
         }
 
         $email = trim($_POST['email'] ?? '');
@@ -36,21 +36,21 @@ class LoginController extends Controller
 
         if (empty($email) || empty($password)) {
             $_SESSION['auth_error'] = 'Tous les champs sont obligatoires';
-            $this->redirect('login');
+            $this->redirect('connexion');
         }
 
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $_SESSION['auth_error'] = 'Email invalide';
-            $this->redirect('login');
+            $this->redirect('connexion');
         }
 
 
         $user = $this->loginModel->getUserByEmail($email);
 
 
-        if (!$user || !password_verify($password, $user['Password'])) {
+        if (!$user || $password !== $user['Password']) {
             $_SESSION['auth_error'] = 'Identifiants incorrects';
-            $this->redirect('login');
+            $this->redirect('connexion');
         }
 
 
