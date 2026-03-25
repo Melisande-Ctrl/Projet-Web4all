@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0fdbbba4-31ea-4c87-84db-95b055ed29c5" name="Changes" comment="LoginModel -&gt; loginModel">
+    <list default="true" id="0fdbbba4-31ea-4c87-84db-95b055ed29c5" name="Changes" comment="footer -&gt; layout">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Controllers/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Controllers/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Views/MonCompteAdmin.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Views/MonCompteAdmin.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Models/Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Models/Model.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -217,15 +216,7 @@
       <option name="project" value="LOCAL" />
       <updated>1774432763355</updated>
     </task>
-    <task id="LOCAL-00009" summary="LoginModel -&gt; loginModel">
-      <option name="closed" value="true" />
-      <created>1774434124618</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1774434124618</updated>
-    </task>
-    <option name="localTasksCounter" value="10" />
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -250,8 +241,7 @@
     <MESSAGE value="Modifs style de la page, navbar, barre de recherche rapide" />
     <MESSAGE value="Modifs après rebase" />
     <MESSAGE value="footer -&gt; layout" />
-    <MESSAGE value="LoginModel -&gt; loginModel" />
-    <option name="LAST_COMMIT_MESSAGE" value="LoginModel -&gt; loginModel" />
+    <option name="LAST_COMMIT_MESSAGE" value="footer -&gt; layout" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

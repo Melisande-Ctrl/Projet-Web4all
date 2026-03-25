@@ -5,15 +5,10 @@ declare(strict_types=1);
 namespace App\Controllers;
 
 use App\Models\LoginModel;
+use RuntimeException;
 
 class LoginController extends Controller
 {
-    private LoginModel $loginModel;
-
-    public function __construct($twig){
-        parent::__construct($twig);
-        $this->loginModel = new LoginModel();
-    }
     public function showLoginForm(): void
     {
         $this->render('connexion.html.twig', [
@@ -44,9 +39,13 @@ class LoginController extends Controller
             $this->redirect('connexion');
         }
 
-
-        $user = $this->loginModel->getUserByEmail($email);
-
+        try {
+            $loginModel = new LoginModel();
+            $user = $loginModel->getUserByEmail($email);
+        } catch (RuntimeException $e) {
+            $_SESSION['auth_error'] = 'La connexion au service d authentification est temporairement indisponible.';
+            $this->redirect('connexion');
+        }
 
         if (!$user || $password !== $user['Password']) {
             $_SESSION['auth_error'] = 'Identifiants incorrects';
@@ -72,7 +71,7 @@ class LoginController extends Controller
             case 3:
                 $this->redirect('etudiant_dashboard');
             default:
-                $this->redirect('login');
+                $this->redirect('connexion');
         }
     }
 
