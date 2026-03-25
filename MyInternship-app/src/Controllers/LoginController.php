@@ -45,7 +45,7 @@ class LoginController extends Controller
         }
 
 
-        $user = $this->LoginModel->getUserByEmail($email);
+        $user = $this->loginModel->getUserByEmail($email);
 
 
         if (!$user || !password_verify($password, $user['Password'])) {
