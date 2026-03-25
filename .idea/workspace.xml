@@ -7,6 +7,7 @@
     <list default="true" id="0fdbbba4-31ea-4c87-84db-95b055ed29c5" name="Changes" comment="footer -&gt; layout">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Controllers/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Controllers/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Models/Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Models/Model.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

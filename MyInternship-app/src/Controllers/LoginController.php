@@ -5,15 +5,10 @@ declare(strict_types=1);
 namespace App\Controllers;
 
 use App\Models\LoginModel;
+use RuntimeException;
 
 class LoginController extends Controller
 {
-    private LoginModel $loginModel;
-
-    public function __construct($twig){
-        parent::__construct($twig);
-        $this->loginModel = new LoginModel();
-    }
     public function showLoginForm(): void
     {
         $this->render('connexion.html.twig', [
@@ -27,7 +22,7 @@ class LoginController extends Controller
     public function login(): void
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-            $this->redirect('login');
+            $this->redirect('connexion');
         }
 
         $email = trim($_POST['email'] ?? '');
@@ -36,21 +31,25 @@ class LoginController extends Controller
 
         if (empty($email) || empty($password)) {
             $_SESSION['auth_error'] = 'Tous les champs sont obligatoires';
-            $this->redirect('login');
+            $this->redirect('connexion');
         }
 
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $_SESSION['auth_error'] = 'Email invalide';
-            $this->redirect('login');
+            $this->redirect('connexion');
         }
 
-
-        $user = $this->loginModel->getUserByEmail($email);
-
+        try {
+            $loginModel = new LoginModel();
+            $user = $loginModel->getUserByEmail($email);
+        } catch (RuntimeException $e) {
+            $_SESSION['auth_error'] = 'La connexion au service d authentification est temporairement indisponible.';
+            $this->redirect('connexion');
+        }
 
         if (!$user || !password_verify($password, $user['Password'])) {
             $_SESSION['auth_error'] = 'Identifiants incorrects';
-            $this->redirect('login');
+            $this->redirect('connexion');
         }
 
 
@@ -72,7 +71,7 @@ class LoginController extends Controller
             case 3:
                 $this->redirect('etudiant_dashboard');
             default:
-                $this->redirect('login');
+                $this->redirect('connexion');
         }
     }
 
