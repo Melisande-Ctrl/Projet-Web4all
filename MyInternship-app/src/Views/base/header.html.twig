@@ -10,15 +10,20 @@
 
         {% include 'base/navbar.html.twig' %}
 
-        <div class="header__actions">
-            <a class="btn btn--primary btn--account" href="?route=connexion">
-                <span class="btn__icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" role="img" focusable="false">
-                        <path d="M12 12.25a4.25 4.25 0 1 0-4.25-4.25A4.25 4.25 0 0 0 12 12.25Zm0 2.25c-4.26 0-7.75 2.24-7.75 5v.5a1 1 0 0 0 1 1h13.5a1 1 0 0 0 1-1v-.5c0-2.76-3.49-5-7.75-5Z" fill="currentColor"/>
-                    </svg>
-                </span>
-                <span>Connexion</span>
+        {% if session.user %}
+            <a class="btn btn--primary btn--account" href="?route=mon_espace">
+                Mon espace
             </a>
-        </div>
+
+            <form method="POST" action="?route=logout" style="display:inline;">
+                <button class="btn btn--ghost btn--account" type="submit">
+                    Déconnexion
+                </button>
+            </form>
+        {% else %}
+            <a class="btn btn--primary btn--account" href="?route=connexion">
+                Connexion
+            </a>
+        {% endif %}
     </div>
 </header>

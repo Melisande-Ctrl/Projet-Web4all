@@ -15,11 +15,16 @@ class PiloteController extends Controller {
         $this->piloteModel = new piloteModel();
     }
 
-    public function showDashboard(): void {
+    public function showDashboard(): void
+    {
+        if (!isset($_SESSION['user'])) {
+            $this->redirect('home');
+        }
 
-        $this->render('MonComptePilote.html.twig', [
+        if ($_SESSION['user']['role'] !== 2) {
+            $this->redirect('home');
+        }
 
-        ]);
-
+        $this->render('MonComptePilote.html.twig', []);
     }
 }

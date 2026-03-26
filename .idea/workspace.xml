@@ -4,9 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ce49fa8-52a0-42af-8ce6-1c56055703e3" name="Changes" comment="EntrepriseController.php constructor update">
+    <list default="true" id="0fdbbba4-31ea-4c87-84db-95b055ed29c5" name="Changes" comment="admin + etudiant + pilote Conctroller&amp;Model. Routes et show vues">
+      <change afterPath="$PROJECT_DIR$/MyInternship-app/src/Controllers/MainController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Models/EntrepriseModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Models/EntrepriseModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Controllers/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Controllers/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Controllers/Controller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Controllers/EtudiantController.php" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Controllers/EtudiantController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Controllers/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Controllers/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Controllers/PiloteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Controllers/PiloteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Views/MonCompteAdmin.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Views/MonCompteAdmin.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Views/base/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Views/base/header.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,12 +57,12 @@
     &quot;assignee&quot;: &quot;Melisande-Ctrl&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/Melisande-Ctrl/Projet-Web4all.git&quot;,
-    &quot;accountId&quot;: &quot;dc92444b-9101-4cae-a908-b41fec08f248&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Melisande-Ctrl/Projet-Web4all.git",
+    "accountId": "3b281540-52c5-4a99-9bdd-3c8a096bd49d"
   }
-}</component>
+}]]></component>
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
@@ -99,6 +107,14 @@
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
       <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
       <path value="$PROJECT_DIR$/vendor/twig/twig" />
+      <path value="$PROJECT_DIR$/vendor/phar-io/manifest" />
+      <path value="$PROJECT_DIR$/vendor/phar-io/version" />
+      <path value="$PROJECT_DIR$/vendor/theseer/tokenizer" />
+      <path value="$PROJECT_DIR$/vendor/staabm/side-effects-detector" />
+      <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/complexity" />
+      <path value="$PROJECT_DIR$" />
     </include_path>
   </component>
   <component name="ProblemsViewState">
@@ -114,25 +130,29 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
     &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm&quot;: &quot;WSL&quot;,
-    &quot;credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm&quot;: &quot;WSL&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;features/views-admin&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;//wsl.localhost/Ubuntu/home/wsl_user/Web4All_Projet/internship-app/src/Views/base&quot;,
+    &quot;last_opened_file_path&quot;: &quot;//wsl$/Ubuntu/var/www/projet-web4all&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;settings.php.debug.servers&quot;,
     &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
+    ]
   }
 }</component>
   <component name="RecentsManager">
@@ -155,13 +175,23 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-PS-253.31033.138" />
-        <option value="bundled-php-predefined-a98d8de5180a-0e0d91225499-com.jetbrains.php.sharedIndexes-PS-253.31033.138" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-PS-253.30387.85" />
+        <option value="bundled-php-predefined-a98d8de5180a-0e0d91225499-com.jetbrains.php.sharedIndexes-PS-253.30387.85" />
       </set>
     </attachedChunks>
   </component>
   <component name="TaskManager">
-    <task id="LOCAL-00001" summary="Unversioned files">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0fdbbba4-31ea-4c87-84db-95b055ed29c5" name="Changes" comment="" />
+      <created>1773746578397</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1773746578397</updated>
+      <workItem from="1773746579747" duration="50979000" />
+      <workItem from="1774510908209" duration="140000" />
+      <workItem from="1774511183527" duration="2443000" />
+    </task>
+    <task id="LOCAL-00001" summary="rectification index, création companyController et index.php">
       <option name="closed" value="true" />
       <created>1773143533117</created>
       <option name="number" value="00001" />

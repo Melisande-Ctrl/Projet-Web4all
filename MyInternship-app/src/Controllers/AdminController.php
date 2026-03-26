@@ -15,11 +15,16 @@ class AdminController extends Controller {
         $this->adminModel = new AdminModel();
     }
 
-    public function showDashboard(): void {
+    public function showDashboard(): void
+    {
+        if (!isset($_SESSION['user'])) {
+            $this->redirect('home');
+        }
 
-        $this->render('MonCompteAdmin.html.twig', [
+        if ($_SESSION['user']['role'] !== 1) {
+            $this->redirect('home');
+        }
 
-        ]);
-
+        $this->render('MonCompteAdmin.html.twig', []);
     }
 }

@@ -32,6 +32,7 @@ use App\Controllers\EntrepriseController;
 use App\Controllers\AdminController;
 use App\Controllers\PiloteController;
 use App\Controllers\EtudiantController;
+use App\Controllers\MainController;
 
 /**
 *Initialisation de Twig
@@ -67,11 +68,12 @@ $routes = [
         'admin_dashboard' => [AdminController::class, 'showDashboard'],
         'pilote_dashboard' => [PiloteController::class, 'showDashboard'],
         'etudiant_dashboard' => [EtudiantController::class, 'showDashboard'],
-    ],
+        'mon_espace' => [MainController::class, 'redirectToDashboard'],
+        ],
     'POST' => [
         'login' => [LoginController::class, 'login'],
         'logout' => [LoginController::class, 'logout'],
-    ],
+    ]
 ];
 
 /**
