@@ -47,9 +47,7 @@ class EntrepriseModel extends Model {
         // Combiner tout dans un tableau
         $entreprise['nbOffres'] = $nbOffres;
         $entreprise['offres'] = $offres;
-        var_dump($offres);
         $entreprise['nbNotes'] = $nbNotes;
-        var_dump($entreprise);
         return $entreprise; // Retourne les données de l'entreprise si trouvée
     }
     public function getEntreprises($numPage) : array | null
@@ -74,9 +72,9 @@ class EntrepriseModel extends Model {
         }
         //Récupération des listes pour les filtres
         $queryVilles = $this->connection->query("SELECT Nom_Ville FROM Villes");
-        $listeVilles = $queryVilles->fetch(PDO::FETCH_ASSOC);
+        $listeVilles = $queryVilles->fetchAll(PDO::FETCH_ASSOC);
         $queryPays = $this->connection->query("SELECT Nom_Pays FROM Pays");
-        $listePays = $queryPays->fetch(PDO::FETCH_ASSOC);
+        $listePays = $queryPays->fetchAll(PDO::FETCH_ASSOC);
 
         $entreprises['nbPages'] = $nbPages; // Nécessaire pour la barre de pagination
         $filtres['listeVilles'] = $listeVilles;

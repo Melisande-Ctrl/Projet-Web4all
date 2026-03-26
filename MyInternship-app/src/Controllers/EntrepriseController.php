@@ -11,7 +11,7 @@ class EntrepriseController extends Controller
 {
     public function __construct($templateEngine)
     {
-        $this->templateEngine = $templateEngine;
+        parent::__construct($templateEngine);//$this->templateEngine = $templateEngine;
         $this->model = new EntrepriseModel();
     }
     /**p
@@ -36,7 +36,7 @@ class EntrepriseController extends Controller
      */
     public function pageRechercheEntreprise() : void
     {
-        $numPage = $_POST['numNewPage'];
+        $numPage = $_GET['numNewPage'];
         [$entreprises, $listesFiltres] = $this->model->getEntreprises($numPage);
 
         echo $this->templateEngine->render('rechercheEntreprises.html.twig',

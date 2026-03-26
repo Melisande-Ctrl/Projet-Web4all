@@ -27,13 +27,19 @@
       <executable path="\\wsl.localhost\Ubuntu\usr\local\bin\composer" />
     </execution>
   </component>
-  <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="40" />
+  <component name="CopilotPersistence">
+    <persistenceIdMap>
+      <entry key="_//wsl.localhost/Ubuntu/var/www/Web4All" value="3At0akKtZr7WlXOIo5cko5M8dRi" />
+    </persistenceIdMap>
+  </component>
+  <component name="CopilotUserSelectedChatMode">
+    <option name="chatModeId" value="Ask" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="PHP File" />
+        <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -48,7 +54,7 @@
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
     &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;Newton4708&quot;
+    &quot;assignee&quot;: &quot;Melisande-Ctrl&quot;
   }
 }</component>
   <component name="GithubPullRequestsUISettings"><![CDATA[{
@@ -61,32 +67,45 @@
     <commands />
     <urls />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:/php/php.exe">
+  <component name="PhpServers">
+    <servers>
+      <server host="myinternship.fr" id="3a47ed0c-2770-44fc-b3c5-996fe19a0ae3" name="MyIntership" port="433" use_path_mappings="true" />
+    </servers>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="Ubuntu">
     <include_path>
-      <path value="$PROJECT_DIR$/vendor/sebastian/recursion-context" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/object-reflector" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/object-enumerator" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/cli-parser" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/lines-of-code" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/diff" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-timer" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/type" />
-      <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-file-iterator" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/version" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$" />
       <path value="$PROJECT_DIR$/vendor/sebastian/comparator" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-invoker" />
-      <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/exporter" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-code-coverage" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/environment" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/phpunit" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/code-unit" />
       <path value="$PROJECT_DIR$/vendor/sebastian/code-unit-reverse-lookup" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/lines-of-code" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/environment" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/vendor/theseer/tokenizer" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-invoker" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-code-coverage" />
+      <path value="$PROJECT_DIR$/vendor/phar-io/manifest" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/vendor/phar-io/version" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-file-iterator" />
+      <path value="$PROJECT_DIR$/vendor/staabm/side-effects-detector" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/object-enumerator" />
       <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/type" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/object-reflector" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/code-unit" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/complexity" />
+      <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/cli-parser" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/version" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
       <path value="$PROJECT_DIR$/vendor/twig/twig" />
       <path value="$PROJECT_DIR$/vendor/phar-io/manifest" />
       <path value="$PROJECT_DIR$/vendor/phar-io/version" />
@@ -102,9 +121,9 @@
     <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 6
+  &quot;associatedIndex&quot;: 5
 }</component>
-  <component name="ProjectId" id="3B4RuRED8qClUkh5ZsMzSysnWgj" />
+  <component name="ProjectId" id="3At0akKtZr7WlXOIo5cko5M8dRi" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -137,9 +156,21 @@
   }
 }</component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="\\wsl$\Ubuntu\var\www\projet-web4all\workshop-pdo" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="\\wsl.localhost\Ubuntu\home\wsl_user\Web4All_Projet\internship-app\src\Views\base" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="\\wsl.localhost\Ubuntu\home\wsl_user\Web4All_Projet\internship-app\src\Views\base" />
+      <recent name="\\wsl.localhost\Ubuntu\home\wsl_user\Web4All_Projet\internship-app\assets\css_files" />
+      <recent name="\\wsl.localhost\Ubuntu\home\wsl_user\Web4All_Projet\internship-app\assets\images" />
+      <recent name="\\wsl.localhost\Ubuntu\home\wsl_user\Web4All_Projet" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="ComposerRunConfigurationType" factoryName="Composer Script">
+      <option name="pathToComposerJson" value="$PROJECT_DIR$/arborescence/composer.json" />
+      <method v="2" />
+    </configuration>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -148,9 +179,6 @@
         <option value="bundled-php-predefined-a98d8de5180a-0e0d91225499-com.jetbrains.php.sharedIndexes-PS-253.30387.85" />
       </set>
     </attachedChunks>
-  </component>
-  <component name="StructureViewState">
-    <option name="selectedTab" value="Twig" />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -165,75 +193,86 @@
     </task>
     <task id="LOCAL-00001" summary="rectification index, création companyController et index.php">
       <option name="closed" value="true" />
-      <created>1774255326868</created>
+      <created>1773143533117</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1774255326869</updated>
+      <updated>1773143533117</updated>
     </task>
-    <task id="LOCAL-00002" summary="Rectification home.html.twig, CompanyController.php, Controller.php">
+    <task id="LOCAL-00002" summary="Unversioned files">
       <option name="closed" value="true" />
-      <created>1774262339361</created>
+      <created>1773144085491</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1774262339362</updated>
+      <updated>1773144085491</updated>
     </task>
-    <task id="LOCAL-00003" summary="Modif extend base/footer.html.twig">
+    <task id="LOCAL-00003" summary="assets organization">
       <option name="closed" value="true" />
-      <created>1774270763218</created>
+      <created>1773144268478</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1774270763218</updated>
+      <updated>1773144268478</updated>
     </task>
-    <task id="LOCAL-00004" summary="Appliquation style.css, création layout.html.twig pour extend futur, modification de footer, navbar et header">
+    <task id="LOCAL-00004" summary="assets organization">
       <option name="closed" value="true" />
-      <created>1774280000471</created>
+      <created>1773144368459</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1774280000472</updated>
+      <updated>1773144368459</updated>
     </task>
-    <task id="LOCAL-00005" summary="Modifs style de la page, navbar, barre de recherche rapide">
+    <task id="LOCAL-00005" summary="twig updates in Views">
       <option name="closed" value="true" />
-      <created>1774349246911</created>
+      <created>1773144958908</created>
       <option name="number" value="00005" />
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
-      <updated>1774349246911</updated>
+      <updated>1773144958908</updated>
     </task>
-    <task id="LOCAL-00006" summary="Modifs après rebase">
+    <task id="LOCAL-00006" summary="twig updates in Views">
       <option name="closed" value="true" />
-      <created>1774362729427</created>
+      <created>1773145079095</created>
       <option name="number" value="00006" />
       <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
-      <updated>1774362729428</updated>
+      <updated>1773145079095</updated>
     </task>
-    <task id="LOCAL-00007" summary="Modifs après rebase">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9ce49fa8-52a0-42af-8ce6-1c56055703e3" name="Changes" comment="twig updates in Views" />
+      <created>1773396624923</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1773396624923</updated>
+      <workItem from="1773396626012" duration="8369000" />
+      <workItem from="1773416125770" duration="2046000" />
+      <workItem from="1773597031853" duration="1701000" />
+      <workItem from="1773654128320" duration="3442000" />
+    </task>
+    <task id="LOCAL-00007" summary="Composer related">
       <option name="closed" value="true" />
-      <created>1774362889117</created>
+      <created>1773417688909</created>
       <option name="number" value="00007" />
       <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
-      <updated>1774362889117</updated>
+      <updated>1773417688909</updated>
     </task>
-    <task id="LOCAL-00008" summary="footer -&gt; layout">
+    <task id="LOCAL-00008" summary="unversioned file">
       <option name="closed" value="true" />
-      <created>1774432763355</created>
+      <created>1773417914476</created>
       <option name="number" value="00008" />
       <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
-      <updated>1774432763355</updated>
+      <updated>1773417914476</updated>
     </task>
-    <task id="LOCAL-00009" summary="admin controller &amp; model add">
+    <task id="LOCAL-00009" summary="composer.json update">
       <option name="closed" value="true" />
-      <created>1774436754807</created>
+      <created>1773598531058</created>
       <option name="number" value="00009" />
       <option name="presentableId" value="LOCAL-00009" />
       <option name="project" value="LOCAL" />
-      <updated>1774436754807</updated>
+      <updated>1773598531058</updated>
     </task>
     <option name="localTasksCounter" value="10" />
     <servers />
@@ -253,30 +292,24 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="rectification index, création companyController et index.php" />
-    <MESSAGE value="Rectification home.html.twig, CompanyController.php, Controller.php" />
-    <MESSAGE value="Modif extend base/footer.html.twig" />
-    <MESSAGE value="Appliquation style.css, création layout.html.twig pour extend futur, modification de footer, navbar et header" />
-    <MESSAGE value="Modifs style de la page, navbar, barre de recherche rapide" />
-    <MESSAGE value="Modifs après rebase" />
-    <MESSAGE value="footer -&gt; layout" />
-    <MESSAGE value="admin controller &amp; model add" />
-    <option name="LAST_COMMIT_MESSAGE" value="admin controller &amp; model add" />
+    <MESSAGE value="Unversioned files" />
+    <MESSAGE value="assets organization" />
+    <MESSAGE value="twig updates in Views" />
+    <MESSAGE value="Composer related" />
+    <MESSAGE value="unversioned file" />
+    <MESSAGE value="composer.json update" />
+    <option name="LAST_COMMIT_MESSAGE" value="composer.json update" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/MyInternship-app/src/Controllers/HomeController.php</url>
-          <line>12</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/MyInternship-app/src/Controllers/HomeController.php</url>
-          <line>111</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+  <component name="github-copilot-workspace">
+    <instructionFileLocations>
+      <option value=".github/instructions" />
+    </instructionFileLocations>
+    <promptFileLocations>
+      <option value=".github/prompts" />
+    </promptFileLocations>
   </component>
 </project>
