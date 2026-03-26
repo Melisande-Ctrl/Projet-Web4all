@@ -5,12 +5,19 @@ use PDO;
 
 class EntrepriseModel extends Model {
 
+    /**
+     * Récupère le nombre total d'entreprises
+     */
     public function getNbEntreprises() : int
     {
         $query = $this->connection->query("SELECT COUNT(Id_Entreprise) FROM Entreprises");
         $nb = $query->fetch(PDO::FETCH_ASSOC);
         return $nb['COUNT(Id_Entreprise)'];
     }
+
+    /**
+     * Récupère une entreprise par son ID avec toutes ses données
+     */
     public function getEntrepriseById($id) : array | null
     {
         $queryEntreprise = $this->connection->prepare(
@@ -38,23 +45,23 @@ class EntrepriseModel extends Model {
         $queryOffres->execute();
         $offres = $queryOffres->fetchAll(PDO::FETCH_ASSOC);
 
-        // Requête pour nbNotes
+        // Requête pour nbNotes     why????????? need the average... but need the nb to do the calculus...
         $queryNbNotes = $this->connection->prepare("SELECT COUNT(Id_Note) as nbNotes FROM Notes WHERE Id_Entreprise = :id");
         $queryNbNotes->bindParam(':id', $id, PDO::PARAM_INT);
         $queryNbNotes->execute();
         $nbNotes = $queryNbNotes->fetch(PDO::FETCH_ASSOC)['nbNotes'];
 
-        // Combiner tout dans un tableau
-        $entreprise['nbOffres'] = $nbOffres;
-        $entreprise['offres'] = $offres;
-        $entreprise['nbNotes'] = $nbNotes;
-        return $entreprise; // Retourne les données de l'entreprise si trouvée
+        return [$entreprise, $nbNotes, $nbOffres, $offres];
     }
+
+    /**
+     * Récupère les entreprises avec pagination
+     */
     public function getEntreprises($numPage) : array | null
     {
         $nbEntreprises = $this->getNbEntreprises(); // Nombre d'entreprises dans la base de données
-        $perPage = 9; // Nombre d'entreprises par page
-        $nbPages = ceil($nbEntreprises / $perPage); // Nombre total de pages (arrondi au supérieur)
+        $perPage = 10; // Nombre d'entreprises par page
+        $nbPages = (int)ceil($nbEntreprises / $perPage); // Nombre total de pages (arrondi au supérieur)
         // Calcul du décalage à appliquer lors de la récupération des entreprises dans la base de données
         $offset = ($numPage - 1) * $perPage + 1;
 
@@ -70,16 +77,16 @@ class EntrepriseModel extends Model {
         {
             return null; // Retourne null si les entreprises ne sont pas trouvées
         }
+        //var_dump($entreprises);
         //Récupération des listes pour les filtres
         $queryVilles = $this->connection->query("SELECT Nom_Ville FROM Villes");
         $listeVilles = $queryVilles->fetchAll(PDO::FETCH_ASSOC);
         $queryPays = $this->connection->query("SELECT Nom_Pays FROM Pays");
         $listePays = $queryPays->fetchAll(PDO::FETCH_ASSOC);
 
-        $entreprises['nbPages'] = $nbPages; // Nécessaire pour la barre de pagination
         $filtres['listeVilles'] = $listeVilles;
         $filtres['listePays'] = $listePays;
-        return [$entreprises, $filtres]; // to be modified...
+        return [$nbPages, $entreprises, $filtres]; // to be modified...
     }
     public function createEntreprise($dataEntreprise) : bool
     {

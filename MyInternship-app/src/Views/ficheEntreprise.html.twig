@@ -4,8 +4,7 @@
     <title>{{ entreprise.Nom_Entreprise }} - MyInternship</title>
 {% endblock %}
 
-
-{% block main %}
+{% block content %}
     <div class="container">
         <div class="section">
             <h1>{{ entreprise.Nom_Entreprise }} - Fiche d'entreprise</h1>
@@ -13,7 +12,7 @@
             <div class="card">
                 <h3>Siège social : {{ entreprise.Nom_Adresse }}</h3>
                 <p class="muted">Description : {{ entreprise.Description_Entreprise }}</p>
-                <p>Nombre de stagiaires recherchés : {{ entreprise.nbOffres }}, Note de l'entreprise : {{ entreprise.nbNotes }}</p>
+                <p>Nombre de stagiaires recherchés : {{ nbOffres }}, Note de l'entreprise : {{ nbNotes }}</p>
             </div>
 
             <div class="card">
@@ -25,7 +24,7 @@
             <div class="card">
                 <h2>Liste des offres de stages proposées :</h2>
                 <ul class="list">
-                    {% for offre in entreprise.offres %}
+                    {% for offre in offres %}
                         <li class="list__item">
                             <a href="" class="link">{{ offre.Titre }}</a>
                         </li>

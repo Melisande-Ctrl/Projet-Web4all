@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ce49fa8-52a0-42af-8ce6-1c56055703e3" name="Changes" comment="EntrepriseController.php constructor update">
+    <list default="true" id="9ce49fa8-52a0-42af-8ce6-1c56055703e3" name="Changes" comment="EntrepriseModel.php update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Controllers/EntrepriseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Controllers/EntrepriseController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Models/EntrepriseModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Models/EntrepriseModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Views/base/layout.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Views/base/layout.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Views/ficheEntreprise.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Views/ficheEntreprise.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Views/rechercheEntreprises.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Views/rechercheEntreprises.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +128,7 @@
     &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
     &quot;credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm&quot;: &quot;WSL&quot;,
     &quot;credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm&quot;: &quot;WSL&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/rechercheEntreprises&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;//wsl.localhost/Ubuntu/home/wsl_user/Web4All_Projet/internship-app/src/Views/base&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -244,7 +249,15 @@
       <option name="project" value="LOCAL" />
       <updated>1773598531058</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="EntrepriseModel.php update">
+      <option name="closed" value="true" />
+      <created>1774445661317</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1774445661317</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -268,7 +281,8 @@
     <MESSAGE value="Composer related" />
     <MESSAGE value="unversioned file" />
     <MESSAGE value="composer.json update" />
-    <option name="LAST_COMMIT_MESSAGE" value="composer.json update" />
+    <MESSAGE value="EntrepriseModel.php update" />
+    <option name="LAST_COMMIT_MESSAGE" value="EntrepriseModel.php update" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -51,6 +51,7 @@ $twig->addExtension(new DebugExtension());
 $route = $_GET['route'] ?? 'home';
 $httpMethod = $_SERVER['REQUEST_METHOD'];
 $id = isset($_GET['id']) ? (int) $_GET['id'] : null;
+$page = isset($_GET['page']) ? (int) $_GET['page'] : 1;
 
 /**
 *Définition des routes
@@ -81,6 +82,10 @@ try {
     if (!isset($routes[$httpMethod][$route])) {
         http_response_code(404);
         echo '<h1>404 - Page non trouvée</h1>';
+//        echo $twig->render('404.html.twig', [
+//            'page_title' => 'Erreur 404',
+//            'message' => 'La page demandée n\'existe pas.',
+//        ]);
         exit;
     }
 
@@ -97,9 +102,19 @@ try {
     } else {
         $controller->$method();
     }
-
+//    if (!method_exists($controller, $method)) {
+//        throw new Exception("La méthode {$method} n'existe pas dans {$controllerClass}.");
+//    }
+//
+//    // Appel de la méthode avec les paramètres appropriés
+//    call_user_func_array([$controller, $method], array_filter([$id, $page], fn($v) => $v !== null));
 } catch (Throwable $e) {
     http_response_code(500);
     echo '<h1>500 - Erreur interne du serveur</h1>';
     echo '<p>' . htmlspecialchars($e->getMessage()) . '</p>';
+//    echo $twig->render('500.html.twig', [
+//        'page_title' => 'Erreur serveur',
+//        'message' => $e->getMessage(),
+//    ]);
+//    error_log($e->getMessage());
 }
