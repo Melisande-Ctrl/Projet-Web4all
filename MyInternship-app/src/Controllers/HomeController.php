@@ -4,12 +4,18 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 
+use App\Models\Internship;
+
 class HomeController extends Controller
 {
     public function index(): void
     {
+        $internshipModel = new Internship();
+        $featuredInternships = $internshipModel->getFeaturedInternships();
+        $totalInternships = $internshipModel->getTotalInternshipsCount();
+
         $siteStats = [
-            ['value' => '128', 'label' => 'offres actives'],
+            ['value' => (string) $totalInternships, 'label' => 'offres actives'],
             ['value' => '46', 'label' => 'entreprises partenaires'],
             ['value' => '312', 'label' => 'candidatures suivies'],
             ['value' => '3', 'label' => 'roles securises'],
@@ -55,36 +61,6 @@ class HomeController extends Controller
                 'description' => 'Administre les comptes, les offres, les entreprises et les permissions de la plateforme.',
                 'cta_route' => 'connexion',
                 'cta_label' => 'Acceder a l administration',
-            ],
-        ];
-
-        $featuredInternships = [
-            [
-                'id' => 1,
-                'title' => 'Developpeur Web',
-                'company' => 'Tech Atlantique',
-                'location' => 'La Rochelle',
-                'contract' => 'Stage',
-                'duration' => '2 mois',
-                'salary' => '4,35 EUR / heure',
-            ],
-            [
-                'id' => 2,
-                'title' => 'Administrateur Reseau',
-                'company' => 'Infra Ouest',
-                'location' => 'Nantes',
-                'contract' => 'Stage',
-                'duration' => '6 mois',
-                'salary' => '4,35 EUR / heure',
-            ],
-            [
-                'id' => 3,
-                'title' => 'Technicien Support',
-                'company' => 'HelpDesk 17',
-                'location' => 'Bordeaux',
-                'contract' => 'Stage',
-                'duration' => '3 mois',
-                'salary' => '4,35 EUR / heure',
             ],
         ];
 

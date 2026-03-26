@@ -9,25 +9,117 @@
     <div class="container">
         <div class="section__head">
             <h1>Offres de stage</h1>
-            <p class="muted">Base de listing qui accueillera ensuite les filtres et la pagination.</p>
+            <p class="muted">
+                Recherche par mot-cle, entreprise, competence ou ville, avec une pagination simple pour garder la liste lisible.
+            </p>
+        </div>
+
+        <div class="card filters-card">
+            <form class="search filters-search" method="get" action="">
+                <input type="hidden" name="route" value="internships">
+
+                <label class="field">
+                    <span class="field__label">Mot-cle</span>
+                    <input
+                        class="input"
+                        name="keyword"
+                        type="text"
+                        value="{{ filters.keyword }}"
+                        placeholder="Titre, competence, entreprise"
+                    >
+                </label>
+
+                <label class="field">
+                    <span class="field__label">Ville</span>
+                    <input
+                        class="input"
+                        name="location"
+                        type="text"
+                        value="{{ filters.location }}"
+                        placeholder="Ex. Nantes"
+                    >
+                </label>
+
+                <button class="btn btn--primary" type="submit">Rechercher</button>
+                <a class="btn btn--ghost" href="?route=internships">Reinitialiser</a>
+            </form>
+        </div>
+
+        <div class="results-bar">
+            <p class="muted">
+                {{ total_results }} offre{% if total_results > 1 %}s{% endif %}
+                {% if filters.keyword or filters.location %}
+                    trouvee{% if total_results > 1 %}s{% endif %}
+                    avec les filtres actifs.
+                {% else %}
+                    disponible{% if total_results > 1 %}s{% endif %} actuellement.
+                {% endif %}
+            </p>
         </div>
 
         {% if internships is not empty %}
             <div class="list">
                 {% for internship in internships %}
                     <article class="list__item">
-                        <div>
+                        <div class="list__body list__body--stack">
                             <div class="list__title">{{ internship.title }}</div>
-                            <div class="muted">
-                                {{ internship.company }} • {{ internship.location }} • {{ internship.salary }}
+
+                            <div class="list__meta">
+                                <span>{{ internship.company }}</span>
+                                <span>{{ internship.location }}</span>
+                                <span>{{ internship.duration_weeks }} semaines</span>
+                                {% if internship.salary %}
+                                    <span>{{ internship.salary }}</span>
+                                {% endif %}
                             </div>
+
+                            <p class="muted list__excerpt">{{ internship.description|slice(0, 180) }}{% if internship.description|length > 180 %}...{% endif %}</p>
+
+                            {% if internship.skills is not empty %}
+                                <ul class="tag-list">
+                                    {% for skill in internship.skills %}
+                                        <li class="badge">{{ skill }}</li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
                         </div>
+
                         <a class="btn btn--small" href="?route=internship_show&id={{ internship.id }}">Voir le detail</a>
                     </article>
                 {% endfor %}
             </div>
+
+            {% if pagination.total_pages > 1 %}
+                <nav class="pagination" aria-label="Pagination des offres">
+                    {% if pagination.previous_url %}
+                        <a class="btn btn--ghost btn--small" href="{{ pagination.previous_url }}">Precedent</a>
+                    {% endif %}
+
+                    <div class="pagination__pages">
+                        {% for link in pagination.links %}
+                            <a
+                                class="pagination__link{% if link.is_current %} pagination__link--current{% endif %}"
+                                href="{{ link.url }}"
+                                {% if link.is_current %}aria-current="page"{% endif %}
+                            >
+                                {{ link.page }}
+                            </a>
+                        {% endfor %}
+                    </div>
+
+                    {% if pagination.next_url %}
+                        <a class="btn btn--ghost btn--small" href="{{ pagination.next_url }}">Suivant</a>
+                    {% endif %}
+                </nav>
+            {% endif %}
         {% else %}
-            <p>Aucune offre disponible.</p>
+            <div class="card empty-state">
+                <h2>Aucune offre ne correspond a la recherche</h2>
+                <p class="muted">
+                    Essaie avec un mot-cle plus large, une autre ville, ou reviens a la liste complete des offres.
+                </p>
+                <a class="btn btn--ghost" href="?route=internships">Afficher toutes les offres</a>
+            </div>
         {% endif %}
     </div>
 </section>

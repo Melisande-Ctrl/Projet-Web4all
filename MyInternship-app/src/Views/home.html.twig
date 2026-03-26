@@ -58,15 +58,6 @@
                     <input class="input" name="location" type="text" placeholder="Ville, departement">
                 </label>
 
-                <label class="field field--search">
-                    <span class="field__label">Contrat</span>
-                    <select class="input" name="contract">
-                        <option value="">Stage</option>
-                        <option value="stage">Stage</option>
-                        <option value="alternance">Alternance</option>
-                    </select>
-                </label>
-
                 <button class="btn btn--primary btn--search search__submit" type="submit">
                     <span class="btn__icon" aria-hidden="true">
                         <svg viewBox="0 0 24 24" role="img" focusable="false">
@@ -156,9 +147,11 @@
                             <div class="list__meta">
                                 <span>{{ internship.company }}</span>
                                 <span>{{ internship.location }}</span>
-                                <span>{{ internship.contract }}</span>
-                                <span>{{ internship.duration }}</span>
-                                <span>{{ internship.salary }}</span>
+                                <span>Stage</span>
+                                <span>{{ internship.duration_weeks }} semaines</span>
+                                {% if internship.salary %}
+                                    <span>{{ internship.salary }}</span>
+                                {% endif %}
                             </div>
                         </div>
                         <a class="btn btn--small" href="?route=internship_show&id={{ internship.id }}">Voir</a>
