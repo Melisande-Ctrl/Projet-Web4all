@@ -15,11 +15,16 @@ class EtudiantController extends Controller {
         $this->etudiantModel = new etudiantModel();
     }
 
-    public function showDashboard(): void {
+    public function showDashboard(): void
+    {
+        if (!isset($_SESSION['user'])) {
+            $this->redirect('home');
+        }
 
-        $this->render('MonCompteEtudiant.html.twig', [
+        if ($_SESSION['user']['role'] !== 3) {
+            $this->redirect('home');
+        }
 
-        ]);
-
+        $this->render('MonCompteEtudiant.html.twig', []);
     }
 }

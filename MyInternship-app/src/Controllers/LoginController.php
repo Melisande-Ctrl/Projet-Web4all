@@ -77,6 +77,7 @@ class LoginController extends Controller
 
     public function logout(): void
     {
+        $_SESSION = [];
         session_destroy();
         $this->redirect('home');
     }

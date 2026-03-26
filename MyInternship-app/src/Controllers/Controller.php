@@ -21,6 +21,8 @@ abstract class Controller
 
     protected function render(string $template, array $data = []): void
     {
+        $data['session'] = $_SESSION;
+
         echo $this->templateEngine->render($template, $data);
     }
 
