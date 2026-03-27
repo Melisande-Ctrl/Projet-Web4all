@@ -1,0 +1,28 @@
+{% extends "dashboard/layout_dashboard.html.twig" %}
+
+{% block dashboard_content %}
+
+    {% if section == 'users' %}
+
+        <div class="card">
+            <h3>Gestion des utilisateurs</h3>
+            <p>À venir...</p>
+        </div>
+
+    {% elseif section == 'entreprises' %}
+
+        <div class="card">
+            <h3>Gestion des entreprises</h3>
+            <p>À venir...</p>
+        </div>
+
+    {% elseif section == 'stats' %}
+
+        <div class="card">
+            <h3>Statistiques</h3>
+            <p>À venir...</p>
+        </div>
+
+    {% endif %}
+
+{% endblock %}

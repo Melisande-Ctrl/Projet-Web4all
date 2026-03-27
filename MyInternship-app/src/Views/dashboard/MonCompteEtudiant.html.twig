@@ -1,0 +1,44 @@
+{% extends "dashboard/layout_dashboard.html.twig" %}
+
+{% block dashboard_content %}
+
+    {% if section == 'infos' %}
+
+        <div class="card form-card">
+            <h3>Informations du compte</h3>
+
+            <div class="form-grid">
+                <div class="field">
+                    <label class="field__label">Nom</label>
+                    <input class="input" value="{{ session.user.nom }}" disabled>
+                </div>
+
+                <div class="field">
+                    <label class="field__label">Prénom</label>
+                    <input class="input" value="{{ session.user.prenom }}" disabled>
+                </div>
+
+                <div class="field">
+                    <label class="field__label">Email</label>
+                    <input class="input" value="{{ session.user.email }}" disabled>
+                </div>
+            </div>
+        </div>
+
+    {% elseif section == 'candidatures' %}
+
+        <div class="card">
+            <h3>Mes candidatures</h3>
+            <p>À venir...</p>
+        </div>
+
+    {% elseif section == 'wishlist' %}
+
+        <div class="card">
+            <h3>Ma wishlist</h3>
+            <p>À venir...</p>
+        </div>
+
+    {% endif %}
+
+{% endblock %}
