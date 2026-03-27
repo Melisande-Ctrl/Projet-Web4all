@@ -3,7 +3,7 @@ namespace App\Models;
 
 use PDO;
 
-class EntrepriseModel extends Model {
+class EntrepriseModel extends Modele {
 
     public function getNbEntreprises() : int
     {

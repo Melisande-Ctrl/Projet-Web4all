@@ -8,10 +8,7 @@ use PDO;
 use PDOException;
 use RuntimeException;
 
-/*
- * The Model class is a parent class that serves as the base class for all models in the application.
-*/
-class Model
+class Modele
 {
     protected PDO $connection;
 

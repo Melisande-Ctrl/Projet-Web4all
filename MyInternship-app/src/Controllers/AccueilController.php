@@ -4,18 +4,18 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 
-use App\Models\Internship;
+use App\Models\OffreStage;
 
-class HomeController extends Controller
+class AccueilController extends Controleur
 {
     public function index(): void
     {
-        $internshipModel = new Internship();
-        $featuredInternships = $internshipModel->getFeaturedInternships();
-        $totalInternships = $internshipModel->getTotalInternshipsCount();
+        $modeleOffreStage = new OffreStage();
+        $offresMisesEnAvant = $modeleOffreStage->getOffresMisesEnAvant();
+        $totalOffresStage = $modeleOffreStage->getNombreTotalOffresStage();
 
         $siteStats = [
-            ['value' => (string) $totalInternships, 'label' => 'offres actives'],
+            ['value' => (string) $totalOffresStage, 'label' => 'offres actives'],
             ['value' => '46', 'label' => 'entreprises partenaires'],
             ['value' => '312', 'label' => 'candidatures suivies'],
             ['value' => '3', 'label' => 'roles securises'],
@@ -88,19 +88,19 @@ class HomeController extends Controller
             'Suivre l avancement depuis son espace personnel.',
         ];
 
-        $this->render('home.html.twig', [
+        $this->render('accueil.html.twig', [
             'page_title' => 'Accueil - MyInternship',
             'siteStats' => $siteStats,
             'popularSearches' => $popularSearches,
             'benefits' => $benefits,
             'profiles' => $profiles,
-            'featuredInternships' => $featuredInternships,
+            'offresMisesEnAvant' => $offresMisesEnAvant,
             'featuredCompanies' => $featuredCompanies,
             'processSteps' => $processSteps,
         ]);
     }
 
-    public function legalNotices(): void
+    public function mentionsLegales(): void
     {
         $this->render('mentions-legales.html.twig', [
             'page_title' => 'Mentions legales - MyInternship',

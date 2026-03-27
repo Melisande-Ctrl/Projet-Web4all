@@ -1,4 +1,4 @@
-{% extends 'base/layout.html.twig' %}
+{% extends 'base/mise-en-page.html.twig' %}
 
 {% block pageTitle %}
 <title>{{ page_title }}</title>
@@ -16,7 +16,7 @@
             </p>
 
             <div class="hero__actions">
-                <a class="btn btn--primary" href="?route=internships">Trouver un stage</a>
+                <a class="btn btn--primary" href="?route=offres_stage">Trouver un stage</a>
                 <a class="btn btn--ghost" href="?route=connexion">Acceder a mon espace</a>
             </div>
 
@@ -46,7 +46,7 @@
             </div>
 
             <form class="search search--hello" method="get" action="">
-                <input type="hidden" name="route" value="internships">
+                <input type="hidden" name="route" value="offres_stage">
 
                 <label class="field field--search">
                     <span class="field__label">Quoi ?</span>
@@ -70,7 +70,7 @@
 
             <div class="chips">
                 {% for search in popularSearches %}
-                    <a class="chip" href="?route=internships">{{ search }}</a>
+                    <a class="chip" href="?route=offres_stage">{{ search }}</a>
                 {% endfor %}
             </div>
 
@@ -138,23 +138,23 @@
             <p class="muted">Une presentation claire et dense, inspiree des codes des plateformes emploi modernes.</p>
         </div>
 
-        {% if featuredInternships is not empty %}
+        {% if offresMisesEnAvant is not empty %}
             <div class="list">
-                {% for internship in featuredInternships %}
+                {% for offre_stage in offresMisesEnAvant %}
                     <article class="list__item">
                         <div class="list__body">
-                            <div class="list__title">{{ internship.title }}</div>
+                            <div class="list__title">{{ offre_stage.title }}</div>
                             <div class="list__meta">
-                                <span>{{ internship.company }}</span>
-                                <span>{{ internship.location }}</span>
+                                <span>{{ offre_stage.company }}</span>
+                                <span>{{ offre_stage.location }}</span>
                                 <span>Stage</span>
-                                <span>{{ internship.duration_weeks }} semaines</span>
-                                {% if internship.salary %}
-                                    <span>{{ internship.salary }}</span>
+                                <span>{{ offre_stage.duration_weeks }} semaines</span>
+                                {% if offre_stage.salary %}
+                                    <span>{{ offre_stage.salary }}</span>
                                 {% endif %}
                             </div>
                         </div>
-                        <a class="btn btn--small" href="?route=internship_show&id={{ internship.id }}">Voir</a>
+                        <a class="btn btn--small" href="?route=offre_stage&id={{ offre_stage.id }}">Voir</a>
                     </article>
                 {% endfor %}
             </div>
@@ -163,7 +163,7 @@
         {% endif %}
 
         <div class="section__foot">
-            <a class="btn btn--ghost" href="?route=internships">Voir toutes les offres</a>
+            <a class="btn btn--ghost" href="?route=offres_stage">Voir toutes les offres</a>
         </div>
     </div>
 </section>

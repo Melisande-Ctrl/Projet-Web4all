@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-class LoginModel extends Model {
-    public function getUserByEmail(string $email): ?array {
+class ConnexionModel extends Modele {
+    public function getUtilisateurParEmail(string $email): ?array {
         $sql = "SELECT * FROM Comptes WHERE Email = :email";
 
         $stmt = $this->connection->prepare($sql);
@@ -12,8 +12,8 @@ class LoginModel extends Model {
 
         $stmt->execute();
 
-        $user = $stmt->fetch(\PDO::FETCH_ASSOC);
+        $utilisateur = $stmt->fetch(\PDO::FETCH_ASSOC);
 
-        return $user ?: null;
+        return $utilisateur ?: null;
     }
 }
