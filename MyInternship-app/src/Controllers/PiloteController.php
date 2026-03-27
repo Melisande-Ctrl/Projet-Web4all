@@ -25,6 +25,17 @@ class PiloteController extends Controller {
             $this->redirect('home');
         }
 
-        $this->render('MonComptePilote.html.twig', []);
+        $section = $_GET['section'] ?? 'etudiants';
+
+        $menu = [
+            'etudiants' => 'Étudiants',
+            'offres' => 'Offres de stage'
+        ];
+
+        $this->render('dashboard/MonComptePilote.html.twig', [
+            'section' => $section,
+            'menu' => $menu,
+            'route' => 'pilote_dashboard'
+        ]);
     }
 }

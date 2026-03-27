@@ -25,6 +25,18 @@ class EtudiantController extends Controller {
             $this->redirect('home');
         }
 
-        $this->render('MonCompteEtudiant.html.twig', []);
+        $section = $_GET['section'] ?? 'infos';
+
+        $menu = [
+            'infos' => 'Informations',
+            'candidatures' => 'Liste des candidatures',
+            'wishlist' => 'Ma Wishlist'
+        ];
+
+        $this->render('dashboard/MonCompteEtudiant.html.twig', [
+            'section' => $section,
+            'menu' => $menu,
+            'route' => 'etudiant_dashboard'
+        ]);
     }
 }

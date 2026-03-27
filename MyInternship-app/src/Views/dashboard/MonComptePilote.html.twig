@@ -1,0 +1,21 @@
+{% extends "dashboard/layout_dashboard.html.twig" %}
+
+{% block dashboard_content %}
+
+    {% if section == 'etudiants' %}
+
+        <div class="card">
+            <h3>Liste des étudiants</h3>
+            <p>À venir...</p>
+        </div>
+
+    {% elseif section == 'offres' %}
+
+        <div class="card">
+            <h3>Offres de stage</h3>
+            <p>À venir...</p>
+        </div>
+
+    {% endif %}
+
+{% endblock %}

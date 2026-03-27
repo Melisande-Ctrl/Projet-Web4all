@@ -1,0 +1,32 @@
+{% extends "base/layout.html.twig" %}
+
+{% block content %}
+
+    <section class="section">
+        <div class="container">
+            <div class="dashboard">
+
+                <!-- SIDEBAR -->
+                <aside class="dashboard__sidebar">
+                    <h3 class="dashboard__title">Mon compte</h3>
+
+                    <nav class="dashboard__nav">
+                        {% for key, label in menu %}
+                            <a href="?route={{ route }}&section={{ key }}"
+                               class="dashboard__link {{ section == key ? 'active' : '' }}">
+                                {{ label }}
+                            </a>
+                        {% endfor %}
+                    </nav>
+                </aside>
+
+                <!-- CONTENU -->
+                <main class="dashboard__content">
+                    {% block dashboard_content %}{% endblock %}
+                </main>
+
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

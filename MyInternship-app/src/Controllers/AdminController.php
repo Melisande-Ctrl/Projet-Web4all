@@ -25,6 +25,18 @@ class AdminController extends Controller {
             $this->redirect('home');
         }
 
-        $this->render('MonCompteAdmin.html.twig', []);
+        $section = $_GET['section'] ?? 'users';
+
+        $menu = [
+            'users' => 'Utilisateurs',
+            'entreprises' => 'Entreprises',
+            'stats' => 'Statistiques'
+        ];
+
+        $this->render('dashboard/MonCompteAdmin.html.twig', [
+            'section' => $section,
+            'menu' => $menu,
+            'route' => 'admin_dashboard'
+        ]);
     }
 }
