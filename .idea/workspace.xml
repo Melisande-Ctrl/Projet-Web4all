@@ -5,16 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0fdbbba4-31ea-4c87-84db-95b055ed29c5" name="Changes" comment="modiffs connexion et redirection ajout de MainController pour la redirection">
-      <change afterPath="$PROJECT_DIR$/MyInternship-app/src/Views/dashboard/MonCompteEtudiant.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyInternship-app/src/Views/dashboard/layout_dashboard.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Controllers/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Controllers/EtudiantController.php" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Controllers/EtudiantController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Controllers/MainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Controllers/MainController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Controllers/PiloteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Controllers/PiloteController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Views/MonCompteAdmin.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Views/dashboard/MonCompteAdmin.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Views/MonCompteEtudiant.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Views/MonComptePilote.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Views/dashboard/MonComptePilote.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css_files/Style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css_files/Style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Models/LoginModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Models/LoginModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Views/dashboard/MonCompteEtudiant.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Views/dashboard/MonCompteEtudiant.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +126,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "features/dashboard-view",
+    "git-widget-placeholder": "features/changer-de-mot-de-passe",
     "junie.onboarding.icon.badge.shown": "true",
     "last_opened_file_path": "//wsl$/Ubuntu/var/www/projet-web4all",
     "node.js.detected.package.eslint": "true",

@@ -73,6 +73,7 @@ $routes = [
     'POST' => [
         'login' => [LoginController::class, 'login'],
         'logout' => [LoginController::class, 'logout'],
+        'change_password' => [MainController::class, 'changePassword'],
     ]
 ];
 

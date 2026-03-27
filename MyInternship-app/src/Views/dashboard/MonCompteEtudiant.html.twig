@@ -22,6 +22,19 @@
                     <label class="field__label">Email</label>
                     <input class="input" value="{{ session.user.email }}" disabled>
                 </div>
+
+                <div class="field">
+                    <label class="field__label">Mot de passe</label>
+
+                    <div style="display:flex; gap:10px; align-items:center;">
+                        <input class="input" type="password" value="********" disabled>
+
+                        <a href="?route=etudiant_dashboard&section=password"
+                           class="btn btn--ghost btn--small">
+                            Modifier le mot de passe
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -38,6 +51,45 @@
             <h3>Ma wishlist</h3>
             <p>À venir...</p>
         </div>
+
+    {% elseif section == 'password' %}
+
+        <div class="card form-card">
+
+            <h3>Changer le mot de passe</h3>
+
+            <form method="POST" action="?route=change_password">
+
+                <div class="form-grid">
+
+                    <div class="field">
+                        <label class="field__label">Mot de passe actuel</label>
+                        <input class="input" type="password" name="current_password" required>
+                    </div>
+
+                    <div class="field">
+                        <label class="field__label">Nouveau mot de passe</label>
+                        <input class="input" type="password" name="new_password" required>
+                    </div>
+
+                    <div class="field">
+                        <label class="field__label">Confirmer le mot de passe</label>
+                        <input class="input" type="password" name="confirm_password" required>
+                    </div>
+
+                </div>
+
+                <div style="margin-top:20px;">
+                    <button class="btn btn--primary" type="submit">
+                        Mettre à jour le mot de passe
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+
+
 
     {% endif %}
 
