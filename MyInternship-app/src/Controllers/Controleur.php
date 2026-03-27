@@ -9,7 +9,7 @@ use Twig\Environment;
 /**
  * Base technique commune a tous les controleurs.
  */
-abstract class Controller
+abstract class Controleur
 {
     protected ?object $model = null;
     protected Environment $templateEngine;

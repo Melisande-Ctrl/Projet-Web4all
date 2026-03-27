@@ -2,6 +2,6 @@
 
 namespace App\Models;
 
-class PiloteModel extends Model {
+class PiloteModel extends Modele {
 
 }

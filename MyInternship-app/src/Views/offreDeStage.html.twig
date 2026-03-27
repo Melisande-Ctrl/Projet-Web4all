@@ -1,4 +1,4 @@
-{% extends 'base/layout.html.twig' %}
+{% extends 'base/mise-en-page.html.twig' %}
 
 {% block pageTitle %}
 <title>{{ page_title }}</title>
@@ -7,38 +7,38 @@
 {% block content %}
 <section class="section">
     <div class="container narrow">
-        {% if offer %}
+        {% if offre %}
             <article class="card offer-card">
-                <a class="link" href="?route=internships">Retour a la liste des offres</a>
+                <a class="link" href="?route=offres_stage">Retour a la liste des offres</a>
 
-                <h1>{{ offer.title }}</h1>
+                <h1>{{ offre.title }}</h1>
 
                 <div class="list__meta">
-                    <span>{{ offer.company }}</span>
-                    <span>{{ offer.location }}</span>
-                    <span>{{ offer.duration_weeks }} semaines</span>
-                    {% if offer.salary %}
-                        <span>{{ offer.salary }}</span>
+                    <span>{{ offre.company }}</span>
+                    <span>{{ offre.location }}</span>
+                    <span>{{ offre.duration_weeks }} semaines</span>
+                    {% if offre.salary %}
+                        <span>{{ offre.salary }}</span>
                     {% endif %}
-                    <span>Publiee le {{ offer.created_at }}</span>
+                    <span>Publiee le {{ offre.created_at }}</span>
                 </div>
 
                 <div class="offer-card__section">
                     <h2>Description</h2>
-                    <p>{{ offer.description }}</p>
+                    <p>{{ offre.description }}</p>
                 </div>
 
                 <div class="offer-card__section">
                     <h2>Localisation</h2>
-                    <p>{{ offer.address }}, {{ offer.location }}{% if offer.country %}, {{ offer.country }}{% endif %}</p>
+                    <p>{{ offre.address }}, {{ offre.location }}{% if offre.country %}, {{ offre.country }}{% endif %}</p>
                 </div>
 
                 <div class="offer-card__section">
                     <h2>Competences recherchees</h2>
-                    {% if offer.skills is not empty %}
+                    {% if offre.skills is not empty %}
                         <ul class="tag-list">
-                            {% for skill in offer.skills %}
-                                <li class="badge">{{ skill }}</li>
+                            {% for competence in offre.skills %}
+                                <li class="badge">{{ competence }}</li>
                             {% endfor %}
                         </ul>
                     {% else %}
@@ -50,7 +50,7 @@
             <article class="card empty-state">
                 <h1>Offre introuvable</h1>
                 <p class="muted">L identifiant de l offre est absent, invalide, ou l offre n existe plus en base.</p>
-                <a class="btn btn--ghost" href="?route=internships">Retour aux offres</a>
+                <a class="btn btn--ghost" href="?route=offres_stage">Retour aux offres</a>
             </article>
         {% endif %}
     </div>

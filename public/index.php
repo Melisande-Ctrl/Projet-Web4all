@@ -25,9 +25,9 @@ require_once __DIR__ . '/../vendor/autoload.php';
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 use Twig\Extension\DebugExtension;
-use App\Controllers\HomeController;
-use App\Controllers\LoginController;
-use App\Controllers\InternshipController;
+use App\Controllers\AccueilController;
+use App\Controllers\ConnexionController;
+use App\Controllers\OffreStageController;
 use App\Controllers\EntrepriseController;
 use App\Controllers\AdminController;
 use App\Controllers\PiloteController;
@@ -49,7 +49,7 @@ $twig->addExtension(new DebugExtension());
 /**
 *Lecture de la requête
 */
-$route = $_GET['route'] ?? 'home';
+$route = $_GET['route'] ?? 'accueil';
 $httpMethod = $_SERVER['REQUEST_METHOD'];
 $id = isset($_GET['id']) ? (int) $_GET['id'] : null;
 
@@ -58,22 +58,24 @@ $id = isset($_GET['id']) ? (int) $_GET['id'] : null;
 */
 $routes = [
     'GET' => [
-        'home' => [HomeController::class, 'index'],
-        'connexion' => [LoginController::class, 'showLoginForm'],
-        'internships' => [InternshipController::class, 'index'],
-        'internship_show' => [InternshipController::class, 'show'],
+        'accueil' => [AccueilController::class, 'index'],
+        'connexion' => [ConnexionController::class, 'afficherFormulaireConnexion'],
+        'offres_stage' => [OffreStageController::class, 'index'],
+        'offre_stage' => [OffreStageController::class, 'show'],
         'entreprises' => [EntrepriseController::class, 'pageRechercheEntreprise'],
         'entreprise_show' => [EntrepriseController::class, 'ficheEntreprise'],
-        'mentions_legales' => [HomeController::class, 'legalNotices'],
+        'mentions_legales' => [AccueilController::class, 'mentionsLegales'],
         'admin_dashboard' => [AdminController::class, 'showDashboard'],
         'pilote_dashboard' => [PiloteController::class, 'showDashboard'],
         'etudiant_dashboard' => [EtudiantController::class, 'showDashboard'],
         'mon_espace' => [MainController::class, 'redirectToDashboard'],
         ],
     'POST' => [
-        'login' => [LoginController::class, 'login'],
-        'logout' => [LoginController::class, 'logout'],
-    ]
+        'traitement_connexion' => [ConnexionController::class, 'connecter'],
+        'deconnexion' => [ConnexionController::class, 'deconnecter'],
+        'login' => [ConnexionController::class, 'connecter'],
+        'logout' => [ConnexionController::class, 'deconnecter'],
+    ],
 ];
 
 /**
@@ -94,7 +96,11 @@ try {
         throw new Exception("La méthode {$method} n'existe pas dans le contrôleur {$controllerClass}.");
     }
 
-    if ($id !== null) {
+    if ($route === 'offres_stage') {
+        $page = filter_input(INPUT_GET, 'page', FILTER_VALIDATE_INT);
+        $page = $page !== false && $page !== null ? max(1, $page) : 1;
+        $controller->$method($page);
+    } elseif ($id !== null) {
         $controller->$method($id);
     } else {
         $controller->$method();

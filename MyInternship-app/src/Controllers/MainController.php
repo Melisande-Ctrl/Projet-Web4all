@@ -2,12 +2,12 @@
 
 namespace App\Controllers;
 
-class MainController extends Controller
+class MainController extends Controleur
 {
     public function redirectToDashboard(): void
     {
         if (!isset($_SESSION['user'])) {
-            $this->redirect('home');
+            $this->redirect('accueil');
         }
 
         $role = $_SESSION['user']['role'];

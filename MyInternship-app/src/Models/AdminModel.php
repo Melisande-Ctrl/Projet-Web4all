@@ -2,6 +2,6 @@
 
 namespace App\Models;
 
-class AdminModel extends Model {
+class AdminModel extends Modele {
 
 }

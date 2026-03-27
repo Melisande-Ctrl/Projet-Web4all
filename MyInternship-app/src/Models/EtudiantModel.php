@@ -2,6 +2,6 @@
 
 namespace App\Models;
 
-class EtudiantModel extends Model {
+class EtudiantModel extends Modele {
 
 }

@@ -6,7 +6,7 @@ namespace App\Controllers;
 
 use App\Models\PiloteModel;
 
-class PiloteController extends Controller {
+class PiloteController extends Controleur {
 
     private PiloteModel $piloteModel;
 
