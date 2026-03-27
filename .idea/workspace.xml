@@ -4,17 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0fdbbba4-31ea-4c87-84db-95b055ed29c5" name="Changes" comment="admin + etudiant + pilote Conctroller&amp;Model. Routes et show vues">
-      <change afterPath="$PROJECT_DIR$/MyInternship-app/src/Controllers/MainController.php" afterDir="false" />
+    <list default="true" id="0fdbbba4-31ea-4c87-84db-95b055ed29c5" name="Changes" comment="modiffs connexion et redirection ajout de MainController pour la redirection">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Controllers/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Controllers/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Controllers/Controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Controllers/EtudiantController.php" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Controllers/EtudiantController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Controllers/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Controllers/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Controllers/PiloteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Controllers/PiloteController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Views/MonCompteAdmin.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Views/MonCompteAdmin.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyInternship-app/src/Views/base/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/MyInternship-app/src/Views/base/header.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,12 +48,12 @@
     &quot;assignee&quot;: &quot;Melisande-Ctrl&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Melisande-Ctrl/Projet-Web4all.git",
-    "accountId": "3b281540-52c5-4a99-9bdd-3c8a096bd49d"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Melisande-Ctrl/Projet-Web4all.git&quot;,
+    &quot;accountId&quot;: &quot;3b281540-52c5-4a99-9bdd-3c8a096bd49d&quot;
   }
-}]]></component>
+}</component>
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
@@ -74,38 +65,30 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="Ubuntu">
     <include_path>
-      <path value="$PROJECT_DIR$" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/comparator" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/code-unit-reverse-lookup" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/lines-of-code" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/environment" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/diff" />
-      <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
-      <path value="$PROJECT_DIR$/vendor/theseer/tokenizer" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/phpunit" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-invoker" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-code-coverage" />
-      <path value="$PROJECT_DIR$/vendor/phar-io/manifest" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-timer" />
-      <path value="$PROJECT_DIR$/vendor/phar-io/version" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-text-template" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-file-iterator" />
-      <path value="$PROJECT_DIR$/vendor/staabm/side-effects-detector" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/object-enumerator" />
-      <path value="$PROJECT_DIR$/vendor/composer" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/type" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/object-reflector" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/code-unit" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/complexity" />
-      <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/exporter" />
       <path value="$PROJECT_DIR$/vendor/sebastian/recursion-context" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/object-reflector" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/object-enumerator" />
       <path value="$PROJECT_DIR$/vendor/sebastian/cli-parser" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/lines-of-code" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/type" />
+      <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-file-iterator" />
       <path value="$PROJECT_DIR$/vendor/sebastian/version" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-invoker" />
       <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-code-coverage" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/environment" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/code-unit" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/code-unit-reverse-lookup" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
       <path value="$PROJECT_DIR$/vendor/twig/twig" />
       <path value="$PROJECT_DIR$/vendor/phar-io/manifest" />
       <path value="$PROJECT_DIR$/vendor/phar-io/version" />
@@ -137,7 +120,7 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
     &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;features/views-admin&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;features/etudiant-dashboard&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;//wsl$/Ubuntu/var/www/projet-web4all&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -182,14 +165,16 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="0fdbbba4-31ea-4c87-84db-95b055ed29c5" name="Changes" comment="" />
-      <created>1773746578397</created>
+      <changelist id="0fdbbba4-31ea-4c87-84db-95b055ed29c5" name="Changes" comment="modiffs connexion et redirection ajout de MainController pour la redirection" />
+      <created>1773396624923</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1773746578397</updated>
-      <workItem from="1773746579747" duration="50979000" />
-      <workItem from="1774510908209" duration="140000" />
-      <workItem from="1774511183527" duration="2443000" />
+      <updated>1773396624923</updated>
+      <workItem from="1773396626012" duration="8369000" />
+      <workItem from="1773416125770" duration="2046000" />
+      <workItem from="1773597031853" duration="1701000" />
+      <workItem from="1773654128320" duration="3442000" />
+      <workItem from="1774598552478" duration="757000" />
     </task>
     <task id="LOCAL-00001" summary="rectification index, création companyController et index.php">
       <option name="closed" value="true" />
@@ -238,17 +223,6 @@
       <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
       <updated>1773145079095</updated>
-    </task>
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="9ce49fa8-52a0-42af-8ce6-1c56055703e3" name="Changes" comment="twig updates in Views" />
-      <created>1773396624923</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1773396624923</updated>
-      <workItem from="1773396626012" duration="8369000" />
-      <workItem from="1773416125770" duration="2046000" />
-      <workItem from="1773597031853" duration="1701000" />
-      <workItem from="1773654128320" duration="3442000" />
     </task>
     <task id="LOCAL-00007" summary="Composer related">
       <option name="closed" value="true" />
