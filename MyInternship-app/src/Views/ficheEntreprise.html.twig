@@ -7,29 +7,28 @@
 {% block content %}
     <div class="container">
         <div class="section">
-            <h1>{{ entreprise.Nom_Entreprise }} - Fiche d'entreprise</h1>
-
             <div class="card">
-                <h3>Siège social : {{ entreprise.Nom_Adresse }}</h3>
-                <p class="muted">Description : {{ entreprise.Description_Entreprise }}</p>
-                <p>Nombre de stagiaires recherchés : {{ nbOffres }}, Note de l'entreprise : {{ nbNotes }}</p>
-            </div>
+                <div class="company-card__top">
+                    <h1>{{ entreprise.Nom_Entreprise }}</h1>
+                    <p class="company-note">{{ note }}/5</p>
+                </div>
+                <p class="muted">Siège social : {{ entreprise.Nom_Adresse }}, {{ entreprise.Nom_Ville }}, {{ entreprise.Nom_Pays }}</p>
 
-            <div class="card">
+                <p>{{ entreprise.Description_Entreprise }}</p>
+
                 <h2>Contact</h2>
                 <p>Email : {{ entreprise.Email }}</p>
                 <p>Numéro de Téléphone : {{ entreprise.Telephone }}</p>
-            </div>
 
-            <div class="card">
-                <h2>Liste des offres de stages proposées :</h2>
-                <ul class="list">
+                <h2>Liste des offres de stages proposées par l'entreprise :</h2>
+                <div class="list">
                     {% for offre in offres %}
-                        <li class="list__item">
-                            <a href="" class="link">{{ offre.Titre }}</a>
-                        </li>
+                        <div class="list__item">
+                            <div class="list__title">{{ offre.Titre }}</div>
+                            <a class="btn btn--small" href="?route=internship_show&id={{ offre.Id_Offre }}">Voir</a>
+                        </div>
                     {% endfor %}
-                </ul>
+                </div>
             </div>
         </div>
     </div>

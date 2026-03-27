@@ -14,25 +14,26 @@ class EntrepriseController extends Controller
         parent::__construct($templateEngine);//$this->templateEngine = $templateEngine;
         $this->model = new EntrepriseModel();
     }
+
     /**
-     * @throws SyntaxError
-     * @throws RuntimeError
+     * @param $id
+     * @return void
      * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
      *
      * Affiche la fiche détaillée d'une entreprise
      */
     public function ficheEntreprise($id) : void //?int $id = null
     {
-        [$entreprise, $nbNotes, $nbOffres, $offres] = $this->model->getEntrepriseById($id);
+        [$entreprise, $note, $offres] = $this->model->getEntrepriseById($id);
         if (!$entreprise) { // le ! fait une vérification qui renvoie un booléen true si $entreprise est null
-            // Gérer le cas où l'entreprise n'est pas trouvée
             echo $this->templateEngine->render('404.html.twig', ['erreur' => "Entreprise non trouvée"]);
             return;
         }
         echo $this->templateEngine->render('ficheEntreprise.html.twig',
             ['entreprise' => $entreprise,
-                'nbNotes' => $nbNotes,
-                'nbOffres' => $nbOffres,
+                'note' => $note,
                 'offres' => $offres]);
     }
 
@@ -42,17 +43,66 @@ class EntrepriseController extends Controller
      * @throws LoaderError
      *
      * Affiche la page de recherche/listing des entreprises
+     * @return void
      */
     public function pageRechercheEntreprise() : void // ?int $page = null
     {
         $numPage = 2;//$_GET['numNewPage']
-        [$nbPages, $entreprises, $listesFiltres] = $this->model->getEntreprises($numPage);
+        [$nbPages, $entreprises, $nbOffres, $listesFiltres] = $this->model->getEntreprises($numPage);
         var_dump($entreprises);
         var_dump($listesFiltres);
         echo $this->templateEngine->render('rechercheEntreprises.html.twig',
             ['nbPages' => $nbPages,
                 'entreprises' => $entreprises,
+                'nbOffres' => $nbOffres,
                 'listesFiltres' => $listesFiltres]);//'current_page' => $page,
     }
 
+    /**
+     * @param $dataEntreprise
+     * @return void
+     */
+    public function createEntreprise($dataEntreprise) : void {
+        if (!is_array($dataEntreprise)) {
+            echo '<h1>Erreur - Entrée utilisateur</h1>';
+        }
+        foreach ($dataEntreprise as $key => $value) {
+            if (!is_string($key) or !is_string($value)) {
+                echo '<h1>Erreur - Entrée utilisateur</h1>';
+            }
+        }
+        if ($this->model->createEntreprise($dataEntreprise)) {
+            echo '<h1>Entreprise créée</h1>';
+        }
+        else {
+            echo '<h1>Erreur - Entreprise non créée</h1>';
+        }
+    }
+
+    /**
+     * @param $dataEntreprise
+     * @return void
+     */
+    public function updateEntreprise($dataEntreprise) : void {
+        if (!is_array($dataEntreprise)) {
+            echo '<h1>Erreur - Entrée utilisateur</h1>';
+        }
+        foreach ($dataEntreprise as $key => $value) {
+            if (!is_string($key) or !is_string($value)) {
+                echo '<h1>Erreur - Entrée utilisateur</h1>';
+            }
+        }
+        if ($this->model->updateEntreprise($dataEntreprise)) {
+            echo '<h1>Entreprise créée</h1>';
+        }
+        else {
+            echo '<h1>Erreur - Entreprise non créée</h1>';
+        }
+    }
+
+    public function deleteEntreprise($id) : void {
+        if ($this->model->deleteEntreprise($id)) {
+            echo '<h1>Entreprise supprimée</h1>';
+        }
+    }
 }

@@ -17,15 +17,15 @@
                     <article class="card card--company">
                         <div class="company-card__top">
                             <h3>{{ entreprise.Nom_Entreprise }}</h3>
-                            <p class="muted">{{ entreprise.Nom_Ville }}</p>
+                            <h4 class="muted">{{ entreprise.Nom_Ville }}</h4>
                         </div>
-                        <p>{{ entreprise.Description_Entreprise }}</p>
+                        <p>{{ nbOffres[loop.index0]['nbOffres'] }} stagiaire(s) recherché(s)</p>
                         <a class="link" href="?route=entreprise_show&id={{ entreprise.Id_Entreprise }}">Voir la fiche</a>
                     </article>
                     {% endfor %}
                 </div>
                 <form action="/?" method="get">
-                    {% for i in 1..entreprises.nbPages %} {# // temporary#}
+                    {% for i in 1..nbPages %} {# // temporary#}
                         <label>{{ i }}</label>
                         <input name="numNewPage" type="hidden" value="{{ i }}">
                     {% endfor %}
