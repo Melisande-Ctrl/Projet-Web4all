@@ -26,7 +26,7 @@ class EntrepriseController extends Controller
      */
     public function ficheEntreprise($id) : void //?int $id = null
     {
-        [$entreprise, $note, $offres] = $this->model->getEntrepriseById($id);
+        [$entreprise, $note, $offres] = $this->model->ficheEntreprise($id);
         if (!$entreprise) { // le ! fait une vérification qui renvoie un booléen true si $entreprise est null
             echo $this->templateEngine->render('404.html.twig', ['erreur' => "Entreprise non trouvée"]);
             return;
@@ -83,8 +83,9 @@ class EntrepriseController extends Controller
      * @param $dataEntreprise
      * @return void
      */
-    public function updateEntreprise($dataEntreprise) : void {
-        if (!is_array($dataEntreprise)) {
+    public function updateEntreprise($id, $dataEntreprise) : void //faire en sorte que l'id ne vienne pas du user (recup when update button clicked for ex)
+    {
+        if (!is_array($dataEntreprise) or !is_int($id)) {
             echo '<h1>Erreur - Entrée utilisateur</h1>';
         }
         foreach ($dataEntreprise as $key => $value) {
@@ -92,7 +93,7 @@ class EntrepriseController extends Controller
                 echo '<h1>Erreur - Entrée utilisateur</h1>';
             }
         }
-        if ($this->model->updateEntreprise($dataEntreprise)) {
+        if ($this->model->updateEntreprise($id, $dataEntreprise)) {
             echo '<h1>Entreprise créée</h1>';
         }
         else {

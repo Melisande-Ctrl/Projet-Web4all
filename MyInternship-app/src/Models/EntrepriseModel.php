@@ -15,17 +15,21 @@ class EntrepriseModel extends Model {
         return $nb['COUNT(Id_Entreprise)'];
     }
 
+
     /**
-     * Récupère une entreprise par son ID avec toutes ses données
+     * @param $idEntreprise
+     * @return array|null
+     *
+     * Récupère une entreprise par son identifiant unique avec toutes ses données (y compris l'adresse complète)
      */
-    public function getEntrepriseById($id) : array | null
+    public function getEntrepriseById($idEntreprise) : array | null
     {
         $queryEntreprise = $this->connection->prepare(
             "SELECT en.*, a.Nom_Adresse, v.Nom_Ville, Pays.Nom_Pays FROM Entreprises en 
                         JOIN Adresses a ON en.Siege_social = a.Id_Adresse 
                         JOIN Villes v ON a.Id_Ville = v.Id_Ville 
                         JOIN Pays ON v.Id_Pays = Pays.Id_Pays WHERE Id_Entreprise = :id");
-        $queryEntreprise->bindParam(':id',$id, PDO::PARAM_INT);
+        $queryEntreprise->bindParam(':id',$idEntreprise, PDO::PARAM_INT);
         $queryEntreprise->execute();
         $entreprise = $queryEntreprise->fetch(PDO::FETCH_ASSOC);
 
@@ -33,16 +37,27 @@ class EntrepriseModel extends Model {
         {
             return null; // Retourne null si l'entreprise n'est pas trouvée
         }
+        return $entreprise;
+    }
+
+    /**
+     * @param $idEntreprise
+     * @return array
+     */
+    public function ficheEntreprise($idEntreprise) : array
+    {
+        // Récupération des données d'une entreprise avec son adresse complète
+        $entreprise = $this->getEntrepriseById($idEntreprise);
 
         // Requête pour les offres
         $queryOffres = $this->connection->prepare("SELECT Id_Offre, Titre FROM Offres_Stages WHERE Id_Entreprise = :id");
-        $queryOffres->bindParam(':id', $id, PDO::PARAM_INT);
+        $queryOffres->bindParam(':id', $idEntreprise, PDO::PARAM_INT);
         $queryOffres->execute();
         $offres = $queryOffres->fetchAll(PDO::FETCH_ASSOC);
 
         // Requête pour la note de l'entreprise
         $queryNote = $this->connection->prepare("SELECT AVG(Valeur_Note) as note FROM Notes WHERE Id_Entreprise = :id");
-        $queryNote->bindParam(':id', $id, PDO::PARAM_INT);
+        $queryNote->bindParam(':id', $idEntreprise, PDO::PARAM_INT);
         $queryNote->execute();
         $note = round($queryNote->fetch(PDO::FETCH_ASSOC)['note'], 1);
 
@@ -146,11 +161,40 @@ class EntrepriseModel extends Model {
 
         return $queryCreateEntreprise->execute(); // Retourne true si la création a réussi, sinon false
     }
-    public function updateEntreprise($id, $dataEntreprise) : bool
+    public function updateEntreprise($Id_Entreprise, $dataEntreprise) : bool
     {
-        $query = $this->connection->prepare();
-        $modification = $query->execute();
+        // Récupération des données de l'entreprise avec son adresse complète
+        $databaseDataEntreprise = $this->getEntrepriseById($Id_Entreprise);
 
+        if ($databaseDataEntreprise['Nom'] !== $dataEntreprise['Nom'])
+        {
+            $queryUpdateNomEntreprise = $this->connection->prepare("UPDATE Entreprises SET Nom_Entreprise = ? WHERE Id_Entreprise = ?");
+            $queryUpdateNomEntreprise->bindParam(1, $dataEntreprise['Nom'], PDO::PARAM_STR);
+            $queryUpdateNomEntreprise->bindParam(2,$Id_Entreprise, PDO::PARAM_INT);
+            $modification = $queryUpdateNomEntreprise->execute();
+        }
+        if ($databaseDataEntreprise['Description'] !== $dataEntreprise['Description'])
+        {
+            $queryUpdateDescriptionEntreprise = $this->connection->prepare("UPDATE Entreprises SET Description_Entreprise = ? WHERE Id_Entreprise = ?");
+            $queryUpdateDescriptionEntreprise->bindParam(1, $dataEntreprise['Description'], PDO::PARAM_STR);
+            $queryUpdateDescriptionEntreprise->bindParam(2,$Id_Entreprise, PDO::PARAM_INT);
+            $modification2 = $queryUpdateDescriptionEntreprise->execute();
+        }
+        if ($databaseDataEntreprise['Email'] !== $dataEntreprise['Email'])
+        {
+            $queryUpdateEmailEntreprise = $this->connection->prepare("UPDATE Entreprises SET Email = ? WHERE Id_Entreprise = ?");
+            $queryUpdateEmailEntreprise->bindParam(1, $dataEntreprise['Email'], PDO::PARAM_STR);
+            $queryUpdateEmailEntreprise->bindParam(2,$Id_Entreprise, PDO::PARAM_INT);
+            $modification3 = $queryUpdateEmailEntreprise->execute();
+        }
+        if ($databaseDataEntreprise['Telephone'] !== $dataEntreprise['Telephone'])
+        {
+            $queryUpdateTelephoneEntreprise = $this->connection->prepare("UPDATE Entreprises SET Telephone = ? WHERE Id_Entreprise = ?");
+            $queryUpdateTelephoneEntreprise->bindParam(1, $dataEntreprise['Telephone'], PDO::PARAM_STR);
+            $queryUpdateTelephoneEntreprise->bindParam(2,$Id_Entreprise, PDO::PARAM_INT);
+            $modification4 = $queryUpdateTelephoneEntreprise->execute();
+        }
+// figure out the adresse mess
         return $modification; // Retourne true si la modification a réussi, sinon false
     }
     public function deleteEntreprise($id) : bool {
