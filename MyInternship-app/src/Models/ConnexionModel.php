@@ -16,4 +16,15 @@ class ConnexionModel extends Modele {
 
         return $utilisateur ?: null;
     }
+
+    public function updatePassword(int $id, string $newPassword): void {
+        $sql = "UPDATE Comptes SET Password = :newPassword WHERE id_Compte = :id";
+
+        $stmt = $this->connection->prepare($sql);
+
+        $stmt->bindValue(':id', $id, \PDO::PARAM_INT);
+        $stmt->bindValue(':newPassword', $newPassword, \PDO::PARAM_STR);
+
+        $stmt->execute();
+    }
 }

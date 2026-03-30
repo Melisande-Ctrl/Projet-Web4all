@@ -75,6 +75,7 @@ $routes = [
         'deconnexion' => [ConnexionController::class, 'deconnecter'],
         'login' => [ConnexionController::class, 'connecter'],
         'logout' => [ConnexionController::class, 'deconnecter'],
+        'change_password' => [MainController::class, 'changePassword'],
     ],
 ];
 
