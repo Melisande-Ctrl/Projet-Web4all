@@ -49,8 +49,6 @@ class EntrepriseController extends Controller
     {
         $numPage = 2;//$_GET['numNewPage']
         [$nbPages, $entreprises, $nbOffres, $listesFiltres] = $this->model->getEntreprises($numPage);
-        var_dump($entreprises);
-        var_dump($listesFiltres);
         echo $this->templateEngine->render('rechercheEntreprises.html.twig',
             ['nbPages' => $nbPages,
                 'entreprises' => $entreprises,

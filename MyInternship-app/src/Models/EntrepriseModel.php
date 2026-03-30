@@ -95,7 +95,6 @@ class EntrepriseModel extends Model {
         $queryNbOffres->execute();
         $nbOffres = $queryNbOffres->fetchAll(PDO::FETCH_ASSOC);
 
-        var_dump($nbOffres);
         //Récupération des listes pour les filtres
         $queryVilles = $this->connection->query("SELECT Nom_Ville FROM Villes");
         $listeVilles = $queryVilles->fetchAll(PDO::FETCH_ASSOC);
