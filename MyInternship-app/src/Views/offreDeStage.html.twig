@@ -11,6 +11,10 @@
             <article class="card offer-card">
                 <a class="link" href="?route=offres_stage">Retour a la liste des offres</a>
 
+                {% if wishlist_feedback %}
+                    <p class="muted">{{ wishlist_feedback.message }}</p>
+                {% endif %}
+
                 <h1>{{ offre.title }}</h1>
 
                 <div class="list__meta">
@@ -22,6 +26,14 @@
                     {% endif %}
                     <span>Publiee le {{ offre.created_at }}</span>
                 </div>
+
+                {% if session.user is defined and session.user.role == 3 %}
+                    <form class="offer-card__actions" method="post" action="?route=wishlist_ajouter">
+                        <input type="hidden" name="offre_id" value="{{ offre.id }}">
+                        <input type="hidden" name="return_url" value="?route=offre_stage&id={{ offre.id }}">
+                        <button class="btn btn--ghost btn--small" type="submit">+ Ajouter a ma wishlist</button>
+                    </form>
+                {% endif %}
 
                 <div class="offer-card__section">
                     <h2>Description</h2>

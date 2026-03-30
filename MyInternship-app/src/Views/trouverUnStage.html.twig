@@ -57,6 +57,12 @@
             </p>
         </div>
 
+        {% if wishlist_feedback %}
+            <div class="card empty-state">
+                <p class="muted">{{ wishlist_feedback.message }}</p>
+            </div>
+        {% endif %}
+
         {% if offres_stage is not empty %}
             <div class="list">
                 {% for offre_stage in offres_stage %}
@@ -84,7 +90,9 @@
                             {% endif %}
                         </div>
 
-                        <a class="btn btn--small" href="?route=offre_stage&id={{ offre_stage.id }}">Voir le detail</a>
+                        <div class="list__actions">
+                            <a class="btn btn--small" href="?route=offre_stage&id={{ offre_stage.id }}">Voir le detail</a>
+                        </div>
                     </article>
                 {% endfor %}
             </div>

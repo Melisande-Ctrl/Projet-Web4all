@@ -174,6 +174,20 @@ class OffreStage extends Modele
         return $offre;
     }
 
+    public function ajouterOffreDansWishlist(int $compteId, int $offreId): bool
+    {
+        $query = $this->connection->prepare(
+            'INSERT IGNORE INTO Wishlist (Id_Compte, Id_Offre)
+             VALUES (:compte_id, :offre_id)'
+        );
+
+        $query->bindValue(':compte_id', $compteId, PDO::PARAM_INT);
+        $query->bindValue(':offre_id', $offreId, PDO::PARAM_INT);
+        $query->execute();
+
+        return $query->rowCount() > 0;
+    }
+
     private function buildFilters(array $filters): array
     {
         $conditions = [];
