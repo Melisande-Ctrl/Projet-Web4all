@@ -10,6 +10,7 @@ class PiloteController extends Controleur {
 
     private PiloteModel $piloteModel;
 
+
     public function __construct($twig){
         parent::__construct($twig);
         $this->piloteModel = new piloteModel();
