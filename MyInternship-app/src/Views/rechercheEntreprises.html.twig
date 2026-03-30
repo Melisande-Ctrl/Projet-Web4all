@@ -16,7 +16,7 @@
                     {% for entreprise in entreprises %}
                     <article class="card card--company">
                         <div class="company-card__top">
-                            <h3>{{ entreprise.Nom_Entreprise }}</h3>
+                            <h2>{{ entreprise.Nom_Entreprise }}</h2>
                             <h4 class="muted">{{ entreprise.Nom_Ville }}</h4>
                         </div>
                         <p>{{ nbOffres[loop.index0]['nbOffres'] }} stagiaire(s) recherché(s)</p>

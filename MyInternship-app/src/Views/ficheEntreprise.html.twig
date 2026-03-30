@@ -11,6 +11,12 @@
                 <div class="company-card__top">
                     <h1>{{ entreprise.Nom_Entreprise }}</h1>
                     <p class="company-note">{{ note }}/5</p>
+                    {% if affichageBoutons %}
+                        <div class="company-actions">
+                            <a class="btn btn--primary" href="?route=entreprise_edit&id={{ entreprise.Id_Entreprise }}">Modifier</a>
+                            <a class="btn btn--primary" href="?route=entreprise_delete&id={{ entreprise.Id_Entreprise }}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette entreprise ?');">Supprimer</a>
+                        </div>
+                    {% endif %}
                 </div>
                 <p class="muted">Siège social : {{ entreprise.Nom_Adresse }}, {{ entreprise.Nom_Ville }}, {{ entreprise.Nom_Pays }}</p>
 

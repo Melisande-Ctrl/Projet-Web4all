@@ -105,7 +105,7 @@ class EntrepriseModel extends Model {
         $filtres['listePays'] = $listePays;
         return [$nbPages, $entreprises, $nbOffres, $filtres];
     }
-    public function createEntreprise($dataEntreprise) : bool
+    public function createEntreprise($dataEntreprise) : int | bool
     {
         //Vérification de la présence du pays dans la table, récupération si oui, sinon insertion
         $queryVerifyPays = $this->connection->prepare("SELECT Id_Pays FROM Pays WHERE Nom_Pays = ?");
@@ -158,9 +158,12 @@ class EntrepriseModel extends Model {
         $queryCreateEntreprise->bindParam(4, $dataEntreprise['Telephone'], PDO::PARAM_STR);
         $queryCreateEntreprise->bindParam(5, $Id_Adresse, PDO::PARAM_INT);
 
-        return $queryCreateEntreprise->execute(); // Retourne true si la création a réussi, sinon false
+        if ($queryCreateEntreprise->execute()) { // Retourne true si la création a réussi, sinon false
+            return (int)$this->connection->lastInsertId(); // Renvoie l'id pour rediriger vers la fiche de l'entreprise
+        }
+        return false;
     }
-    public function updateEntreprise($Id_Entreprise, $dataEntreprise) : bool
+    public function updateEntreprise($Id_Entreprise, $dataEntreprise) : bool //Nom, Description, Email, Telephone, Adresse, Ville, Pays
     {
         // Récupération des données de l'entreprise avec son adresse complète
         $databaseDataEntreprise = $this->getEntrepriseById($Id_Entreprise);
