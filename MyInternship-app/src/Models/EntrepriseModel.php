@@ -74,7 +74,7 @@ class EntrepriseModel extends Model {
         $nbPages = (int)ceil($nbEntreprises / $perPage); // Nombre total de pages (arrondi au supérieur)
         // Calcul du décalage à appliquer lors de la récupération des entreprises dans la base de données
         $offset = ($numPage - 1) * $perPage;
-        echo $offset;
+
         //Récupération des entreprises pour la page actuelle
         $queryEntreprises = $this->connection->prepare("SELECT en.*, v.Nom_Ville FROM Entreprises en 
                         JOIN Adresses a ON en.Siege_social = a.Id_Adresse 
