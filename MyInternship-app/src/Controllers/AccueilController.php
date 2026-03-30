@@ -18,49 +18,49 @@ class AccueilController extends Controleur
             ['value' => (string) $totalOffresStage, 'label' => 'offres actives'],
             ['value' => '46', 'label' => 'entreprises partenaires'],
             ['value' => '312', 'label' => 'candidatures suivies'],
-            ['value' => '3', 'label' => 'roles securises'],
+            ['value' => '3', 'label' => 'rôles sécurisés'],
         ];
 
         $popularSearches = [
-            'Developpement web',
-            'Systemes et reseaux',
-            'Cybersecurite',
+            'Développement web',
+            'Systèmes et réseaux',
+            'Cybersécurité',
             'Data',
         ];
 
         $benefits = [
             [
                 'title' => 'Suivez chaque candidature',
-                'description' => 'Les etudiants visualisent les offres deja ciblees, la wish-list et l historique des candidatures.',
+                'description' => 'Les étudiants visualisent les offres déjà ciblées, la wish-list et l’historique des candidatures.',
             ],
             [
                 'title' => 'Des entreprises plus lisibles',
-                'description' => 'Les fiches entreprise centralisent les contacts, les offres et les retours d experience utiles.',
+                'description' => 'Les fiches entreprise centralisent les contacts, les offres et les retours d’expérience utiles.',
             ],
             [
                 'title' => 'Un suivi pour les pilotes',
-                'description' => 'Les pilotes disposent d une vision claire sur l avancement des recherches de stage de leur promotion.',
+                'description' => 'Les pilotes disposent d’une vision claire sur l’avancement des recherches de stage de leur promotion.',
             ],
         ];
 
         $profiles = [
             [
-                'title' => 'Etudiant',
-                'description' => 'Recherche une offre, gere sa wish-list et suit ses candidatures depuis un espace personnel.',
+                'title' => 'Étudiant',
+                'description' => 'Recherche une offre, gère sa wish-list et suit ses candidatures depuis un espace personnel.',
                 'cta_route' => 'connexion',
-                'cta_label' => 'Acceder au compte etudiant',
+                'cta_label' => 'Accéder au compte étudiant',
             ],
             [
                 'title' => 'Pilote',
-                'description' => 'Consulte l avancement des etudiants, les candidatures envoyees et les entreprises sollicitees.',
+                'description' => 'Consulte l’avancement des étudiants, les candidatures envoyées et les entreprises sollicitées.',
                 'cta_route' => 'connexion',
-                'cta_label' => 'Acceder au compte pilote',
+                'cta_label' => 'Accéder au compte pilote',
             ],
             [
                 'title' => 'Administrateur',
                 'description' => 'Administre les comptes, les offres, les entreprises et les permissions de la plateforme.',
                 'cta_route' => 'connexion',
-                'cta_label' => 'Acceder a l administration',
+                'cta_label' => 'Accéder à l’administration',
             ],
         ];
 
@@ -68,24 +68,24 @@ class AccueilController extends Controleur
             [
                 'id' => 1,
                 'name' => 'Tech Atlantique',
-                'sector' => 'Developpement web',
+                'sector' => 'Développement web',
                 'rating' => '4,5/5',
-                'summary' => 'Entreprise locale qui accueille regulierement des profils developpement et QA.',
+                'summary' => 'Entreprise locale qui accueille régulièrement des profils développement et QA.',
             ],
             [
                 'id' => 2,
                 'name' => 'Infra Ouest',
-                'sector' => 'Systemes et reseaux',
+                'sector' => 'Systèmes et réseaux',
                 'rating' => '4,2/5',
-                'summary' => 'Structure orientee infrastructures, administration reseau et support de proximite.',
+                'summary' => 'Structure orientée infrastructures, administration réseau et support de proximité.',
             ],
         ];
 
         $processSteps = [
             'Consulter les offres et filtrer selon son profil.',
-            'Ajouter les opportunites interessantes en wish-list.',
+            'Ajouter les opportunités intéressantes en wish-list.',
             'Envoyer une candidature avec CV et lettre de motivation.',
-            'Suivre l avancement depuis son espace personnel.',
+            'Suivre l’avancement depuis son espace personnel.',
         ];
 
         $this->render('accueil.html.twig', [
@@ -103,7 +103,7 @@ class AccueilController extends Controleur
     public function mentionsLegales(): void
     {
         $this->render('mentions-legales.html.twig', [
-            'page_title' => 'Mentions legales - MyInternship',
+            'page_title' => 'Mentions légales - MyInternship',
         ]);
     }
 }

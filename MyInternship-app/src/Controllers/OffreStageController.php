@@ -54,7 +54,7 @@ class OffreStageController extends Controleur
         $offre = $this->model->getOffreStageById($id);
 
         $this->render('offreDeStage.html.twig', [
-            'page_title' => 'Detail de l offre - MyInternship',
+            'page_title' => 'Détail de l’offre - MyInternship',
             'offre' => $offre,
             'wishlist_feedback' => $this->consumeWishlistFeedback(),
         ]);
@@ -69,7 +69,7 @@ class OffreStageController extends Controleur
         if (!isset($_SESSION['user']) || (int) ($_SESSION['user']['role'] ?? 0) !== 3) {
             $_SESSION['wishlist_feedback'] = [
                 'type' => 'error',
-                'message' => 'Tu dois etre connecte comme etudiant pour ajouter une offre a ta wishlist.',
+                'message' => 'Tu dois être connecté comme étudiant pour ajouter une offre à ta wishlist.',
             ];
             $this->redirectToReturnUrl();
         }
@@ -78,7 +78,7 @@ class OffreStageController extends Controleur
         if ($offreId === false || $offreId === null || $offreId < 1) {
             $_SESSION['wishlist_feedback'] = [
                 'type' => 'error',
-                'message' => 'Impossible d ajouter cette offre a la wishlist.',
+                'message' => 'Impossible d’ajouter cette offre à la wishlist.',
             ];
             $this->redirectToReturnUrl();
         }
@@ -89,8 +89,8 @@ class OffreStageController extends Controleur
         $_SESSION['wishlist_feedback'] = [
             'type' => $offreAjoutee ? 'success' : 'info',
             'message' => $offreAjoutee
-                ? 'Offre ajoutee a la wishlist.'
-                : 'Cette offre est deja dans la wishlist.',
+                ? 'Offre ajoutée à la wishlist.'
+                : 'Cette offre est déjà dans la wishlist.',
         ];
 
         $this->redirectToReturnUrl();

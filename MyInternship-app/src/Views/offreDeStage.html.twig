@@ -9,7 +9,7 @@
     <div class="container narrow">
         {% if offre %}
             <article class="card offer-card">
-                <a class="link" href="?route=offres_stage">Retour a la liste des offres</a>
+                <a class="link" href="?route=offres_stage">Retour à la liste des offres</a>
 
                 {% if wishlist_feedback %}
                     <p class="muted">{{ wishlist_feedback.message }}</p>
@@ -24,14 +24,14 @@
                     {% if offre.salary %}
                         <span>{{ offre.salary }}</span>
                     {% endif %}
-                    <span>Publiee le {{ offre.created_at }}</span>
+                    <span>Publiée le {{ offre.created_at }}</span>
                 </div>
 
                 {% if session.user is defined and session.user.role == 3 %}
                     <form class="offer-card__actions" method="post" action="?route=wishlist_ajouter">
                         <input type="hidden" name="offre_id" value="{{ offre.id }}">
                         <input type="hidden" name="return_url" value="?route=offre_stage&id={{ offre.id }}">
-                        <button class="btn btn--ghost btn--small" type="submit">+ Ajouter a ma wishlist</button>
+                        <button class="btn btn--ghost btn--small" type="submit">+ Ajouter à ma wishlist</button>
                     </form>
                 {% endif %}
 
@@ -46,7 +46,7 @@
                 </div>
 
                 <div class="offer-card__section">
-                    <h2>Competences recherchees</h2>
+                    <h2>Compétences recherchées</h2>
                     {% if offre.skills is not empty %}
                         <ul class="tag-list">
                             {% for competence in offre.skills %}
@@ -54,14 +54,14 @@
                             {% endfor %}
                         </ul>
                     {% else %}
-                        <p class="muted">Aucune competence n est encore renseignee pour cette offre.</p>
+                        <p class="muted">Aucune compétence n’est encore renseignée pour cette offre.</p>
                     {% endif %}
                 </div>
             </article>
         {% else %}
             <article class="card empty-state">
                 <h1>Offre introuvable</h1>
-                <p class="muted">L identifiant de l offre est absent, invalide, ou l offre n existe plus en base.</p>
+                <p class="muted">L’identifiant de l’offre est absent, invalide, ou l’offre n’existe plus en base.</p>
                 <a class="btn btn--ghost" href="?route=offres_stage">Retour aux offres</a>
             </article>
         {% endif %}
