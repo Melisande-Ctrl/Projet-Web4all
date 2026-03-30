@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 
-use App\Models\LoginModel;
+use App\Models\ConnexionModel;
 use RuntimeException;
 
-class LoginController extends Controller
+class ConnexionController extends Controleur
 {
-    public function showLoginForm(): void
+    public function afficherFormulaireConnexion(): void
     {
         $this->render('connexion.html.twig', [
             'page_title' => 'Connexion - MyInternship',
@@ -19,7 +19,7 @@ class LoginController extends Controller
         unset($_SESSION['auth_error']);
     }
 
-    public function login(): void
+    public function connecter(): void
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
             $this->redirect('connexion');
@@ -28,8 +28,7 @@ class LoginController extends Controller
         $email = trim($_POST['email'] ?? '');
         $password = $_POST['password'] ?? '';
 
-
-        if (empty($email) || empty($password)) {
+        if ($email === '' || $password === '') {
             $_SESSION['auth_error'] = 'Tous les champs sont obligatoires';
             $this->redirect('connexion');
         }
@@ -40,30 +39,29 @@ class LoginController extends Controller
         }
 
         try {
-            $loginModel = new LoginModel();
-            $user = $loginModel->getUserByEmail($email);
+            $modeleConnexion = new ConnexionModel();
+            $utilisateur = $modeleConnexion->getUtilisateurParEmail($email);
         } catch (RuntimeException $e) {
             $_SESSION['auth_error'] = 'La connexion au service d authentification est temporairement indisponible.';
             $this->redirect('connexion');
         }
 
-        if (!$user || $password !== $user['Password']) {
+        if (!$utilisateur || $password !== $utilisateur['Password']) {
             $_SESSION['auth_error'] = 'Identifiants incorrects';
             $this->redirect('connexion');
         }
 
-
         session_regenerate_id(true);
 
         $_SESSION['user'] = [
-            'id' => $user['Id_Compte'],
-            'nom' => $user['Nom'],
-            'prenom' => $user['Prenom'],
-            'email' => $user['Email'],
-            'role' => $user['Id_Status']
+            'id' => $utilisateur['Id_Compte'],
+            'nom' => $utilisateur['Nom'],
+            'prenom' => $utilisateur['Prenom'],
+            'email' => $utilisateur['Email'],
+            'role' => $utilisateur['Id_Status'],
         ];
 
-        switch ($user['Id_Status']) {
+        switch ($utilisateur['Id_Status']) {
             case 1:
                 $this->redirect('admin_dashboard');
             case 2:
@@ -75,10 +73,10 @@ class LoginController extends Controller
         }
     }
 
-    public function logout(): void
+    public function deconnecter(): void
     {
         $_SESSION = [];
         session_destroy();
-        $this->redirect('home');
+        $this->redirect('accueil');
     }
 }

@@ -6,7 +6,7 @@ namespace App\Controllers;
 
 use App\Models\AdminModel;
 
-class AdminController extends Controller {
+class AdminController extends Controleur {
 
         private AdminModel $adminModel;
 

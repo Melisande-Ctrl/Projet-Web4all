@@ -1,4 +1,4 @@
-{% extends 'base/layout.html.twig' %}
+{% extends 'base/mise-en-page.html.twig' %}
 
 {% block pageTitle %}
 <title>{{ page_title }}</title>
@@ -16,7 +16,7 @@
 
         <div class="card filters-card">
             <form class="search filters-search" method="get" action="">
-                <input type="hidden" name="route" value="internships">
+                <input type="hidden" name="route" value="offres_stage">
 
                 <label class="field">
                     <span class="field__label">Mot-cle</span>
@@ -41,7 +41,7 @@
                 </label>
 
                 <button class="btn btn--primary" type="submit">Rechercher</button>
-                <a class="btn btn--ghost" href="?route=internships">Reinitialiser</a>
+                <a class="btn btn--ghost" href="?route=offres_stage">Reinitialiser</a>
             </form>
         </div>
 
@@ -57,34 +57,34 @@
             </p>
         </div>
 
-        {% if internships is not empty %}
+        {% if offres_stage is not empty %}
             <div class="list">
-                {% for internship in internships %}
+                {% for offre_stage in offres_stage %}
                     <article class="list__item">
                         <div class="list__body list__body--stack">
-                            <div class="list__title">{{ internship.title }}</div>
+                            <div class="list__title">{{ offre_stage.title }}</div>
 
                             <div class="list__meta">
-                                <span>{{ internship.company }}</span>
-                                <span>{{ internship.location }}</span>
-                                <span>{{ internship.duration_weeks }} semaines</span>
-                                {% if internship.salary %}
-                                    <span>{{ internship.salary }}</span>
+                                <span>{{ offre_stage.company }}</span>
+                                <span>{{ offre_stage.location }}</span>
+                                <span>{{ offre_stage.duration_weeks }} semaines</span>
+                                {% if offre_stage.salary %}
+                                    <span>{{ offre_stage.salary }}</span>
                                 {% endif %}
                             </div>
 
-                            <p class="muted list__excerpt">{{ internship.description|slice(0, 180) }}{% if internship.description|length > 180 %}...{% endif %}</p>
+                            <p class="muted list__excerpt">{{ offre_stage.description|slice(0, 180) }}{% if offre_stage.description|length > 180 %}...{% endif %}</p>
 
-                            {% if internship.skills is not empty %}
+                            {% if offre_stage.skills is not empty %}
                                 <ul class="tag-list">
-                                    {% for skill in internship.skills %}
-                                        <li class="badge">{{ skill }}</li>
+                                    {% for competence in offre_stage.skills %}
+                                        <li class="badge">{{ competence }}</li>
                                     {% endfor %}
                                 </ul>
                             {% endif %}
                         </div>
 
-                        <a class="btn btn--small" href="?route=internship_show&id={{ internship.id }}">Voir le detail</a>
+                        <a class="btn btn--small" href="?route=offre_stage&id={{ offre_stage.id }}">Voir le detail</a>
                     </article>
                 {% endfor %}
             </div>
@@ -118,7 +118,7 @@
                 <p class="muted">
                     Essaie avec un mot-cle plus large, une autre ville, ou reviens a la liste complete des offres.
                 </p>
-                <a class="btn btn--ghost" href="?route=internships">Afficher toutes les offres</a>
+                <a class="btn btn--ghost" href="?route=offres_stage">Afficher toutes les offres</a>
             </div>
         {% endif %}
     </div>

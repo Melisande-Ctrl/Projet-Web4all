@@ -4,38 +4,36 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 
-use App\Models\Internship;
+use App\Models\OffreStage;
+use Twig\Environment;
 
-class InternshipController extends Controller
+class OffreStageController extends Controleur
 {
-    public function __construct($templateEngine)
+    public function __construct(Environment $templateEngine)
     {
-        $this->templateEngine = $templateEngine;
-        $this->model = new Internship();
+        parent::__construct($templateEngine);
+        $this->model = new OffreStage();
     }
 
-    public function index(): void
+    public function index(int $page = 1): void
     {
         $filters = [
             'keyword' => trim((string) ($_GET['keyword'] ?? '')),
             'location' => trim((string) ($_GET['location'] ?? '')),
         ];
 
-        $page = filter_input(INPUT_GET, 'page', FILTER_VALIDATE_INT);
-        $page = $page !== false && $page !== null ? max(1, $page) : 1;
-
-        $results = $this->model->searchInternships($filters, $page);
+        $resultats = $this->model->rechercherOffresStage($filters, $page);
         $pagination = $this->buildPagination(
-            $results['current_page'],
-            $results['total_pages'],
+            $resultats['current_page'],
+            $resultats['total_pages'],
             $filters
         );
 
         $this->render('trouverUnStage.html.twig', [
             'page_title' => 'Offres de stage - MyInternship',
-            'internships' => $results['items'],
+            'offres_stage' => $resultats['items'],
             'filters' => $filters,
-            'total_results' => $results['total'],
+            'total_results' => $resultats['total'],
             'pagination' => $pagination,
         ]);
     }
@@ -46,16 +44,16 @@ class InternshipController extends Controller
             http_response_code(404);
             $this->render('offreDeStage.html.twig', [
                 'page_title' => 'Offre introuvable - MyInternship',
-                'offer' => null,
+                'offre' => null,
             ]);
             return;
         }
 
-        $offer = $this->model->getInternshipById($id);
+        $offre = $this->model->getOffreStageById($id);
 
         $this->render('offreDeStage.html.twig', [
             'page_title' => 'Detail de l offre - MyInternship',
-            'offer' => $offer,
+            'offre' => $offre,
         ]);
     }
 
@@ -66,7 +64,7 @@ class InternshipController extends Controller
         for ($page = 1; $page <= $totalPages; $page++) {
             $links[] = [
                 'page' => $page,
-                'url' => $this->buildInternshipUrl($page, $filters),
+                'url' => $this->buildOffreStageUrl($page, $filters),
                 'is_current' => $page === $currentPage,
             ];
         }
@@ -75,15 +73,15 @@ class InternshipController extends Controller
             'current_page' => $currentPage,
             'total_pages' => $totalPages,
             'links' => $links,
-            'previous_url' => $currentPage > 1 ? $this->buildInternshipUrl($currentPage - 1, $filters) : null,
-            'next_url' => $currentPage < $totalPages ? $this->buildInternshipUrl($currentPage + 1, $filters) : null,
+            'previous_url' => $currentPage > 1 ? $this->buildOffreStageUrl($currentPage - 1, $filters) : null,
+            'next_url' => $currentPage < $totalPages ? $this->buildOffreStageUrl($currentPage + 1, $filters) : null,
         ];
     }
 
-    private function buildInternshipUrl(int $page, array $filters): string
+    private function buildOffreStageUrl(int $page, array $filters): string
     {
         $query = [
-            'route' => 'internships',
+            'route' => 'offres_stage',
             'page' => $page,
         ];
 

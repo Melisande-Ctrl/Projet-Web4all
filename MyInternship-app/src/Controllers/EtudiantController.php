@@ -6,7 +6,7 @@ namespace App\Controllers;
 
 use App\Models\EtudiantModel;
 
-class EtudiantController extends Controller {
+class EtudiantController extends Controleur {
 
     private EtudiantModel $etudiantModel;
 

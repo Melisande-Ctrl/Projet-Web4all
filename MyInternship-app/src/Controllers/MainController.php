@@ -1,23 +1,23 @@
 <?php
 
 namespace App\Controllers;
-use App\Models\LoginModel;
 
-class MainController extends Controller
+use App\Models\ConnexionModel;
+
+class MainController extends Controleur
 {
-
-    private LoginModel $loginModel;
+    private ConnexionModel $connexionModel;
 
     public function __construct($twig)
     {
         parent::__construct($twig);
-        $this->loginModel = new LoginModel();
+        $this->connexionModel = new ConnexionModel();
     }
 
     public function redirectToDashboard(): void
     {
         if (!isset($_SESSION['user'])) {
-            $this->redirect('home');
+            $this->redirect('accueil');
         }
 
         $role = $_SESSION['user']['role'];
@@ -34,17 +34,16 @@ class MainController extends Controller
     public function changePassword(): void
     {
         if (!isset($_SESSION['user'])) {
-            $this->redirect('home');
+            $this->redirect('accueil');
         }
 
         $currentPassword = $_POST['current_password'] ?? '';
         $newPassword = $_POST['new_password'] ?? '';
         $confirmPassword = $_POST['confirm_password'] ?? '';
 
+        $utilisateur = $this->connexionModel->getUtilisateurParEmail($_SESSION['user']['email']);
 
-        $user = $this->loginModel->getUserByEmail($_SESSION['user']['email']);
-
-        if ($user['Password'] !== $currentPassword) {
+        if ($utilisateur['Password'] !== $currentPassword) {
             die("Mot de passe incorrect");
         }
 
@@ -52,10 +51,7 @@ class MainController extends Controller
             die("Les mots de passe ne correspondent pas");
         }
 
-
-
-        $this->loginModel->updatePassword($_SESSION['user']['id'], $newPassword);
-
+        $this->connexionModel->updatePassword((int) $_SESSION['user']['id'], $newPassword);
 
         $this->redirectToDashboard();
     }

@@ -6,12 +6,12 @@ namespace App\Models;
 
 use PDO;
 
-class Internship extends Model
+class OffreStage extends Modele
 {
     private const HOME_FEATURED_LIMIT = 3;
     private const LIST_PER_PAGE = 6;
 
-    public function getTotalInternshipsCount(array $filters = []): int
+    public function getNombreTotalOffresStage(array $filters = []): int
     {
         [$whereSql, $parameters] = $this->buildFilters($filters);
 
@@ -35,7 +35,7 @@ class Internship extends Model
         return (int) $query->fetchColumn();
     }
 
-    public function getFeaturedInternships(int $limit = self::HOME_FEATURED_LIMIT): array
+    public function getOffresMisesEnAvant(int $limit = self::HOME_FEATURED_LIMIT): array
     {
         $query = $this->connection->prepare(
             'SELECT
@@ -59,13 +59,13 @@ class Internship extends Model
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function searchInternships(array $filters, int $page, int $perPage = self::LIST_PER_PAGE): array
+    public function rechercherOffresStage(array $filters, int $page, int $perPage = self::LIST_PER_PAGE): array
     {
         $page = max(1, $page);
         $perPage = max(1, $perPage);
         [$whereSql, $parameters] = $this->buildFilters($filters);
 
-        $total = $this->getTotalInternshipsCount($filters);
+        $total = $this->getNombreTotalOffresStage($filters);
         $totalPages = max(1, (int) ceil($total / $perPage));
         $currentPage = min($page, $totalPages);
         $offset = ($currentPage - 1) * $perPage;
@@ -109,15 +109,15 @@ class Internship extends Model
         $query->bindValue(':offset', $offset, PDO::PARAM_INT);
         $query->execute();
 
-        $internships = $query->fetchAll(PDO::FETCH_ASSOC);
+        $offresStage = $query->fetchAll(PDO::FETCH_ASSOC);
 
-        foreach ($internships as &$internship) {
-            $internship['skills'] = $this->hydrateSkills($internship['skills'] ?? null);
+        foreach ($offresStage as &$offreStage) {
+            $offreStage['skills'] = $this->hydrateSkills($offreStage['skills'] ?? null);
         }
-        unset($internship);
+        unset($offreStage);
 
         return [
-            'items' => $internships,
+            'items' => $offresStage,
             'total' => $total,
             'current_page' => $currentPage,
             'per_page' => $perPage,
@@ -125,7 +125,7 @@ class Internship extends Model
         ];
     }
 
-    public function getInternshipById(int $id): ?array
+    public function getOffreStageById(int $id): ?array
     {
         $query = $this->connection->prepare(
             'SELECT
@@ -163,15 +163,15 @@ class Internship extends Model
         $query->bindValue(':id', $id, PDO::PARAM_INT);
         $query->execute();
 
-        $offer = $query->fetch(PDO::FETCH_ASSOC);
+        $offre = $query->fetch(PDO::FETCH_ASSOC);
 
-        if ($offer === false) {
+        if ($offre === false) {
             return null;
         }
 
-        $offer['skills'] = $this->hydrateSkills($offer['skills'] ?? null);
+        $offre['skills'] = $this->hydrateSkills($offre['skills'] ?? null);
 
-        return $offer;
+        return $offre;
     }
 
     private function buildFilters(array $filters): array
