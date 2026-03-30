@@ -45,7 +45,7 @@ class EntrepriseController extends Controller
      * Affiche la page de recherche/listing des entreprises
      * @return void
      */
-    public function pageRechercheEntreprise() : void // ?int $page = null
+    public function pageRechercheEntreprises() : void // ?int $page = null ??????
     {
         $numPage = 2;//$_GET['numNewPage']
         [$nbPages, $entreprises, $nbOffres, $listesFiltres] = $this->model->getEntreprises($numPage);
@@ -80,6 +80,7 @@ class EntrepriseController extends Controller
     }
 
     /**
+     * @param $id
      * @param $dataEntreprise
      * @return void
      */
