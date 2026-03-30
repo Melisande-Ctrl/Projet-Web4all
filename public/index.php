@@ -78,6 +78,7 @@ $routes = [
         'logout' => [ConnexionController::class, 'deconnecter'],
         'change_password' => [MainController::class, 'changePassword'],
         'wishlist_ajouter' => [OffreStageController::class, 'ajouterWishlist'],
+        'new_entreprise' => [EntrepriseController::class, 'createEntreprise'],
         'candidature_ajouter' => [OffreStageController::class, 'ajouterCandidature'],
     ],
 ];

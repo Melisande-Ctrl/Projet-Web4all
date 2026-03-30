@@ -12,8 +12,51 @@
     {% elseif section == 'entreprises' %}
 
         <div class="card">
-            <h3>Gestion des entreprises</h3>
-            <p>À venir...</p>
+            <h3>Créer une entreprise </h3>
+            <form method="POST" action="?route=new_entreprise">
+                <div class="form-grid">
+                    <div class="field">
+                        <label class="field__label">Nom</label>
+                        <input class="input" type="text" placeholder="Ex : Nike" name="Nom" required >
+                    </div>
+
+                    <div class="field">
+                        <label class="field__label">Description</label>
+                        <input class="input" type="text" placeholder="Ex : ESN..." name="Description" required>
+                    </div>
+
+                    <div class="field">
+                        <label class="field__label">Email</label>
+                        <input class="input" type="email" placeholder="Ex : entreprise@nike.com" name="Email" required>
+                    </div>
+
+                    <div class="field">
+                        <label class="field__label">Telephone</label>
+                        <input class="input" type="" placeholder="Ex : 0784156478" name="Telephone" pattern="[0-9]+" maxlength="15" required>
+                    </div>
+
+                    <div class="field">
+                        <label class="field__label">Adresse</label>
+                        <input class="input" type="text" placeholder="Ex : 56 Rue du château" name="Adresse" required>
+                    </div>
+
+                    <div class="field">
+                        <label class="field__label">Ville</label>
+                        <input class="input" type="text" placeholder="Ex : La Rochelle" name="Ville" pattern="[A-Za-zÀ-ÿ\- ]+" required>
+                    </div>
+
+                    <div class="field">
+                        <label class="field__label">Pays</label>
+                        <input class="input" type="text" placeholder="Ex : France" name="Pays" pattern="[A-Za-zÀ-ÿ\- ]+" required>
+                    </div>
+                </div>
+
+                <div style="margin-top:20px;">
+                    <button class="btn btn--primary" type="submit">
+                        Créer cette entreprise
+                    </button>
+                </div>
+            </form>
         </div>
 
     {% elseif section == 'stats' %}
