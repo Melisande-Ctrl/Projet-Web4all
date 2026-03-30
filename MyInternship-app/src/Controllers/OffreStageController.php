@@ -35,6 +35,8 @@ class OffreStageController extends Controleur
             'filters' => $filters,
             'total_results' => $resultats['total'],
             'pagination' => $pagination,
+            'current_list_url' => $this->buildOffreStageUrl($resultats['current_page'], $filters),
+            'wishlist_feedback' => $this->consumeWishlistFeedback(),
         ]);
     }
 
@@ -52,9 +54,46 @@ class OffreStageController extends Controleur
         $offre = $this->model->getOffreStageById($id);
 
         $this->render('offreDeStage.html.twig', [
-            'page_title' => 'Detail de l offre - MyInternship',
+            'page_title' => 'Détail de l’offre - MyInternship',
             'offre' => $offre,
+            'wishlist_feedback' => $this->consumeWishlistFeedback(),
         ]);
+    }
+
+    public function ajouterWishlist(): void
+    {
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+            $this->redirect('offres_stage');
+        }
+
+        if (!isset($_SESSION['user']) || (int) ($_SESSION['user']['role'] ?? 0) !== 3) {
+            $_SESSION['wishlist_feedback'] = [
+                'type' => 'error',
+                'message' => 'Tu dois être connecté comme étudiant pour ajouter une offre à ta wishlist.',
+            ];
+            $this->redirectToReturnUrl();
+        }
+
+        $offreId = filter_input(INPUT_POST, 'offre_id', FILTER_VALIDATE_INT);
+        if ($offreId === false || $offreId === null || $offreId < 1) {
+            $_SESSION['wishlist_feedback'] = [
+                'type' => 'error',
+                'message' => 'Impossible d’ajouter cette offre à la wishlist.',
+            ];
+            $this->redirectToReturnUrl();
+        }
+
+        $compteId = (int) $_SESSION['user']['id'];
+        $offreAjoutee = $this->model->ajouterOffreDansWishlist($compteId, (int) $offreId);
+
+        $_SESSION['wishlist_feedback'] = [
+            'type' => $offreAjoutee ? 'success' : 'info',
+            'message' => $offreAjoutee
+                ? 'Offre ajoutée à la wishlist.'
+                : 'Cette offre est déjà dans la wishlist.',
+        ];
+
+        $this->redirectToReturnUrl();
     }
 
     private function buildPagination(int $currentPage, int $totalPages, array $filters): array
@@ -94,5 +133,25 @@ class OffreStageController extends Controleur
         }
 
         return '?' . http_build_query($query);
+    }
+
+    private function consumeWishlistFeedback(): ?array
+    {
+        $feedback = $_SESSION['wishlist_feedback'] ?? null;
+        unset($_SESSION['wishlist_feedback']);
+
+        return is_array($feedback) ? $feedback : null;
+    }
+
+    private function redirectToReturnUrl(): never
+    {
+        $returnUrl = $_POST['return_url'] ?? '?route=offres_stage';
+
+        if (!is_string($returnUrl) || $returnUrl === '' || $returnUrl[0] !== '?') {
+            $returnUrl = '?route=offres_stage';
+        }
+
+        header('Location: ' . $returnUrl);
+        exit;
     }
 }

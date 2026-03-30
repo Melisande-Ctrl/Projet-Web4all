@@ -8,22 +8,22 @@
 {% block main %}
     <div class="container">
         <div class="section">
-            <h1>{{ entreprise.Nom_Entreprise }} - Fiche d'entreprise</h1>
+            <h1>{{ entreprise.Nom_Entreprise }} - Fiche d’entreprise</h1>
 
             <div class="card">
                 <h3>Siège social : {{ entreprise.Nom_Adresse }}</h3>
                 <p class="muted">Description : {{ entreprise.Description_Entreprise }}</p>
-                <p>Nombre de stagiaires recherchés : {{ entreprise.nbOffres }}, Note de l'entreprise : {{ entreprise.nbNotes }}</p>
+                <p>Nombre de stagiaires recherchés : {{ entreprise.nbOffres }}, note de l’entreprise : {{ entreprise.nbNotes }}</p>
             </div>
 
             <div class="card">
                 <h2>Contact</h2>
                 <p>Email : {{ entreprise.Email }}</p>
-                <p>Numéro de Téléphone : {{ entreprise.Telephone }}</p>
+                <p>Numéro de téléphone : {{ entreprise.Telephone }}</p>
             </div>
 
             <div class="card">
-                <h2>Liste des offres de stages proposées :</h2>
+                <h2>Liste des offres de stage proposées :</h2>
                 <ul class="list">
                     {% for offre in entreprise.offres %}
                         <li class="list__item">

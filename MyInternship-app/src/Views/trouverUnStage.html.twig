@@ -10,7 +10,7 @@
         <div class="section__head">
             <h1>Offres de stage</h1>
             <p class="muted">
-                Recherche par mot-cle, entreprise, competence ou ville, avec une pagination simple pour garder la liste lisible.
+                Consultez les offres disponibles et filtrez les résultats selon vos critères.
             </p>
         </div>
 
@@ -19,13 +19,13 @@
                 <input type="hidden" name="route" value="offres_stage">
 
                 <label class="field">
-                    <span class="field__label">Mot-cle</span>
+                    <span class="field__label">Mot-clé</span>
                     <input
                         class="input"
                         name="keyword"
                         type="text"
                         value="{{ filters.keyword }}"
-                        placeholder="Titre, competence, entreprise"
+                        placeholder="Titre, compétence, entreprise"
                     >
                 </label>
 
@@ -41,7 +41,7 @@
                 </label>
 
                 <button class="btn btn--primary" type="submit">Rechercher</button>
-                <a class="btn btn--ghost" href="?route=offres_stage">Reinitialiser</a>
+                <a class="btn btn--ghost" href="?route=offres_stage">Réinitialiser</a>
             </form>
         </div>
 
@@ -49,13 +49,19 @@
             <p class="muted">
                 {{ total_results }} offre{% if total_results > 1 %}s{% endif %}
                 {% if filters.keyword or filters.location %}
-                    trouvee{% if total_results > 1 %}s{% endif %}
+                    trouvée{% if total_results > 1 %}s{% endif %}
                     avec les filtres actifs.
                 {% else %}
                     disponible{% if total_results > 1 %}s{% endif %} actuellement.
                 {% endif %}
             </p>
         </div>
+
+        {% if wishlist_feedback %}
+            <div class="card empty-state">
+                <p class="muted">{{ wishlist_feedback.message }}</p>
+            </div>
+        {% endif %}
 
         {% if offres_stage is not empty %}
             <div class="list">
@@ -84,7 +90,9 @@
                             {% endif %}
                         </div>
 
-                        <a class="btn btn--small" href="?route=offre_stage&id={{ offre_stage.id }}">Voir le detail</a>
+                        <div class="list__actions">
+                            <a class="btn btn--small" href="?route=offre_stage&id={{ offre_stage.id }}">Voir le détail</a>
+                        </div>
                     </article>
                 {% endfor %}
             </div>
@@ -92,7 +100,7 @@
             {% if pagination.total_pages > 1 %}
                 <nav class="pagination" aria-label="Pagination des offres">
                     {% if pagination.previous_url %}
-                        <a class="btn btn--ghost btn--small" href="{{ pagination.previous_url }}">Precedent</a>
+                        <a class="btn btn--ghost btn--small" href="{{ pagination.previous_url }}">Précédent</a>
                     {% endif %}
 
                     <div class="pagination__pages">
@@ -114,9 +122,9 @@
             {% endif %}
         {% else %}
             <div class="card empty-state">
-                <h2>Aucune offre ne correspond a la recherche</h2>
+                <h2>Aucune offre ne correspond à la recherche</h2>
                 <p class="muted">
-                    Essaie avec un mot-cle plus large, une autre ville, ou reviens a la liste complete des offres.
+                    Essaie avec un mot-clé plus large, une autre ville, ou reviens à la liste complète des offres.
                 </p>
                 <a class="btn btn--ghost" href="?route=offres_stage">Afficher toutes les offres</a>
             </div>

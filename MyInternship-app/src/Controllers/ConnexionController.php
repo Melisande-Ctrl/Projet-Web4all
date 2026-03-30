@@ -42,7 +42,7 @@ class ConnexionController extends Controleur
             $modeleConnexion = new ConnexionModel();
             $utilisateur = $modeleConnexion->getUtilisateurParEmail($email);
         } catch (RuntimeException $e) {
-            $_SESSION['auth_error'] = 'La connexion au service d authentification est temporairement indisponible.';
+            $_SESSION['auth_error'] = 'La connexion au service d’authentification est temporairement indisponible.';
             $this->redirect('connexion');
         }
 
