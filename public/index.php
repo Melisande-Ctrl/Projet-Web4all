@@ -62,6 +62,7 @@ $routes = [
         'connexion' => [ConnexionController::class, 'afficherFormulaireConnexion'],
         'offres_stage' => [OffreStageController::class, 'index'],
         'offre_stage' => [OffreStageController::class, 'show'],
+        'offre_stage_candidature' => [OffreStageController::class, 'showCandidatureForm'],
         'entreprises' => [EntrepriseController::class, 'pageRechercheEntreprise'],
         'entreprise_show' => [EntrepriseController::class, 'ficheEntreprise'],
         'mentions_legales' => [AccueilController::class, 'mentionsLegales'],
@@ -78,6 +79,7 @@ $routes = [
         'change_password' => [MainController::class, 'changePassword'],
         'wishlist_ajouter' => [OffreStageController::class, 'ajouterWishlist'],
         'new_entreprise' => [EntrepriseController::class, 'createEntreprise'],
+        'candidature_ajouter' => [OffreStageController::class, 'ajouterCandidature'],
     ],
 ];
 
