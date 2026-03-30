@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 
+use App\Models\Candidature;
 use App\Models\OffreStage;
+use RuntimeException;
 use Twig\Environment;
 
 class OffreStageController extends Controleur
@@ -57,6 +59,39 @@ class OffreStageController extends Controleur
             'page_title' => 'Détail de l’offre - MyInternship',
             'offre' => $offre,
             'wishlist_feedback' => $this->consumeWishlistFeedback(),
+            'candidature_feedback' => $this->consumeCandidatureFeedback(),
+        ]);
+    }
+
+    public function showCandidatureForm(?int $id = null): void
+    {
+        if (!isset($_SESSION['user']) || (int) ($_SESSION['user']['role'] ?? 0) !== 3) {
+            $_SESSION['candidature_feedback'] = [
+                'type' => 'error',
+                'message' => 'Tu dois être connecté comme étudiant pour postuler à une offre.',
+            ];
+            $this->redirect('connexion');
+        }
+
+        if ($id === null) {
+            http_response_code(404);
+            $this->render('candidatureOffre.html.twig', [
+                'page_title' => 'Candidature introuvable - MyInternship',
+                'offre' => null,
+            ]);
+            return;
+        }
+
+        $offre = $this->model->getOffreStageById($id);
+
+        if ($offre === null) {
+            http_response_code(404);
+        }
+
+        $this->render('candidatureOffre.html.twig', [
+            'page_title' => 'Postuler à une offre - MyInternship',
+            'offre' => $offre,
+            'candidature_feedback' => $this->consumeCandidatureFeedback(),
         ]);
     }
 
@@ -91,6 +126,60 @@ class OffreStageController extends Controleur
             'message' => $offreAjoutee
                 ? 'Offre ajoutée à la wishlist.'
                 : 'Cette offre est déjà dans la wishlist.',
+        ];
+
+        $this->redirectToReturnUrl();
+    }
+
+    public function ajouterCandidature(): void
+    {
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+            $this->redirect('offres_stage');
+        }
+
+        if (!isset($_SESSION['user']) || (int) ($_SESSION['user']['role'] ?? 0) !== 3) {
+            $_SESSION['candidature_feedback'] = [
+                'type' => 'error',
+                'message' => 'Tu dois être connecté comme étudiant pour postuler à une offre.',
+            ];
+            $this->redirectToReturnUrl();
+        }
+
+        $offreId = filter_input(INPUT_POST, 'offre_id', FILTER_VALIDATE_INT);
+        if ($offreId === false || $offreId === null || $offreId < 1) {
+            $_SESSION['candidature_feedback'] = [
+                'type' => 'error',
+                'message' => 'Impossible d’enregistrer cette candidature.',
+            ];
+            $this->redirectToReturnUrl();
+        }
+
+        $candidatureModel = new Candidature();
+        $compteId = (int) $_SESSION['user']['id'];
+
+        if ($candidatureModel->etudiantAPostule($compteId, (int) $offreId)) {
+            $_SESSION['candidature_feedback'] = [
+                'type' => 'info',
+                'message' => 'Tu as déjà postulé à cette offre.',
+            ];
+            $this->redirectToReturnUrl();
+        }
+
+        try {
+            $cvPath = $this->uploadCandidatureFile('cv', 'cv');
+            $lmPath = $this->uploadCandidatureFile('lettre_motivation', 'lm');
+            $candidatureModel->enregistrerCandidature($compteId, (int) $offreId, $cvPath, $lmPath);
+        } catch (RuntimeException $e) {
+            $_SESSION['candidature_feedback'] = [
+                'type' => 'error',
+                'message' => $e->getMessage(),
+            ];
+            $this->redirectToReturnUrl();
+        }
+
+        $_SESSION['candidature_feedback'] = [
+            'type' => 'success',
+            'message' => 'Ta candidature a bien été envoyée.',
         ];
 
         $this->redirectToReturnUrl();
@@ -141,6 +230,52 @@ class OffreStageController extends Controleur
         unset($_SESSION['wishlist_feedback']);
 
         return is_array($feedback) ? $feedback : null;
+    }
+
+    private function consumeCandidatureFeedback(): ?array
+    {
+        $feedback = $_SESSION['candidature_feedback'] ?? null;
+        unset($_SESSION['candidature_feedback']);
+
+        return is_array($feedback) ? $feedback : null;
+    }
+
+    private function uploadCandidatureFile(string $fieldName, string $prefix): string
+    {
+        if (!isset($_FILES[$fieldName]) || !is_array($_FILES[$fieldName])) {
+            throw new RuntimeException('Les fichiers demandés sont obligatoires.');
+        }
+
+        $file = $_FILES[$fieldName];
+
+        if (($file['error'] ?? UPLOAD_ERR_NO_FILE) !== UPLOAD_ERR_OK) {
+            throw new RuntimeException('Le téléversement des fichiers a échoué.');
+        }
+
+        $originalName = (string) ($file['name'] ?? '');
+        $extension = strtolower((string) pathinfo($originalName, PATHINFO_EXTENSION));
+        if ($extension !== 'pdf') {
+            throw new RuntimeException('Seuls les fichiers PDF sont autorisés pour les candidatures.');
+        }
+
+        $uploadDirectory = __DIR__ . '/../../../public/uploads/candidatures';
+        if (!is_dir($uploadDirectory) && !mkdir($uploadDirectory, 0775, true) && !is_dir($uploadDirectory)) {
+            throw new RuntimeException('Impossible de préparer le dossier des candidatures.');
+        }
+
+        $filename = sprintf(
+            '%s_%d_%s.pdf',
+            $prefix,
+            (int) ($_SESSION['user']['id'] ?? 0),
+            bin2hex(random_bytes(8))
+        );
+
+        $destination = $uploadDirectory . '/' . $filename;
+        if (!move_uploaded_file((string) $file['tmp_name'], $destination)) {
+            throw new RuntimeException('Impossible d’enregistrer les fichiers envoyés.');
+        }
+
+        return 'uploads/candidatures/' . $filename;
     }
 
     private function redirectToReturnUrl(): never
