@@ -32,7 +32,7 @@
 
                         <div class="field">
                             <label class="field__label">Telephone</label>
-                            <input class="input" type="text" name="Telephone" pattern="[0-9]+.{10,20}" value="{{ entreprise.Telephone }}" required>
+                            <input class="input" type="text" name="Telephone" pattern="^\+?[0-9][0-9\s\-]{7,}$" value="{{ entreprise.Telephone }}" required>
                         </div>
 
                         <div class="field">
@@ -42,12 +42,12 @@
 
                         <div class="field">
                             <label class="field__label">Ville</label>
-                            <input class="input" type="text" name="Ville" pattern="[A-Za-zÀ-ÿ\- ]+.{1,60}" value="{{ entreprise.Nom_Ville }}" required>
+                            <input class="input" type="text" name="Ville" pattern="^[A-Za-zÀ-ÿ\- ]{1,60}$" value="{{ entreprise.Nom_Ville }}" required>
                         </div>
 
                         <div class="field">
                             <label class="field__label">Pays</label>
-                            <input class="input" type="text" name="Pays" pattern="[A-Za-zÀ-ÿ\- ]+.{1,50}" value="{{ entreprise.Nom_Pays }}" required>
+                            <input class="input" type="text" name="Pays" pattern="^[A-Za-zÀ-ÿ\- ]{1,50}$" value="{{ entreprise.Nom_Pays }}" required>
                         </div>
                     </div>
 
