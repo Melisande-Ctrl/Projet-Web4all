@@ -4,11 +4,54 @@
     <title>Rechercher des entreprises - MyInternship</title>
 {% endblock %}
 
-{% block main %}
-    <form action="/?" method="get">
-        {% for i in 1..entreprises.nbPages %} {# // temporary#}
-            <label>{{ i }}</label>
-            <input name="numNewPage" type="hidden" value="{{ i }}">
-        {% endfor %}
-    </form>
+{% block content %}
+    <section class="section">
+        <div class="container">
+            <div class="section__head">
+                <h1>Rechercher des entreprises</h1>
+                <p class="muted">Découvrez les entreprises partenaires et leurs offres de stage.</p>
+            </div>
+            {% if entreprises is not empty %}
+                <div class="cards">
+                    {% for entreprise in entreprises %}
+                    <article class="card card--company">
+                        <div class="company-card__top">
+                            <h2>{{ entreprise.Nom_Entreprise }}</h2>
+                            <h4 class="muted">{{ entreprise.Nom_Ville }}</h4>
+                        </div>
+                        <p>{{ entreprise.nbOffres }} stagiaire(s) recherché(s)</p>
+                        <a class="link" href="?route=entreprise_show&id={{ entreprise.Id_Entreprise }}">Voir la fiche</a>
+                    </article>
+                    {% endfor %}
+                </div>
+                <form action="/?" method="get">
+                    {% for i in 1..nbPages %} {# // temporary#}
+                        <label>{{ i }}</label>
+                        <input name="numNewPage" type="hidden" value="{{ i }}">
+                    {% endfor %}
+                </form>
+{#                {% if total_pages > 1 %}
+                    <div class="pagination">
+                        {% if current_page > 1 %}
+                            <a class="btn btn--ghost" href="?route=entreprises&page=1">« Première</a>
+                            <a class="btn btn--ghost" href="?route=entreprises&page={{ current_page - 1 }}">‹ Précédente</a>
+                        {% endif %}
+
+                        <div class="pagination__info">
+                            Page {{ current_page }} sur {{ total_pages }}
+                        </div>
+
+                        {% if current_page < total_pages %}
+                            <a class="btn btn--ghost" href="?route=entreprises&page={{ current_page + 1 }}">Suivante ›</a>
+                            <a class="btn btn--ghost" href="?route=entreprises&page={{ total_pages }}">Dernière »</a>
+                        {% endif %}
+                    </div>
+                {% endif %}
+            {% else %}
+                <div class="alert alert--info">
+                    <p>Aucune entreprise trouvée pour le moment.</p>
+                </div>#}
+            {% endif %}
+        </div>
+    </section>
 {% endblock %}

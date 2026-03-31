@@ -4,33 +4,37 @@
     <title>{{ entreprise.Nom_Entreprise }} - MyInternship</title>
 {% endblock %}
 
-
-{% block main %}
+{% block content %}
     <div class="container">
         <div class="section">
-            <h1>{{ entreprise.Nom_Entreprise }} - Fiche d’entreprise</h1>
-
             <div class="card">
-                <h3>Siège social : {{ entreprise.Nom_Adresse }}</h3>
-                <p class="muted">Description : {{ entreprise.Description_Entreprise }}</p>
-                <p>Nombre de stagiaires recherchés : {{ entreprise.nbOffres }}, note de l’entreprise : {{ entreprise.nbNotes }}</p>
-            </div>
+                <div class="company-card__top">
+                    <h1>{{ entreprise.Nom_Entreprise }}</h1>
+                    <p class="company-note">{{ note }}/5</p>
+                    {% if affichageBoutons %}
+                        <div class="company-actions">
+                            <a class="btn btn--primary" href="?route=entreprise_edit&id={{ entreprise.Id_Entreprise }}">Modifier</a>
+                            <a class="btn btn--primary" style="background-color: red; border-color: red" href="?route=entreprise_delete&id={{ entreprise.Id_Entreprise }}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette entreprise ?');">Supprimer</a>
+                        </div>
+                    {% endif %}
+                </div>
+                <p class="muted">Siège social : {{ entreprise.Nom_Adresse }}, {{ entreprise.Nom_Ville }}, {{ entreprise.Nom_Pays }}</p>
 
-            <div class="card">
+                <p>{{ entreprise.Description_Entreprise }}</p>
+
                 <h2>Contact</h2>
                 <p>Email : {{ entreprise.Email }}</p>
-                <p>Numéro de téléphone : {{ entreprise.Telephone }}</p>
-            </div>
+                <p>Numéro de Téléphone : {{ entreprise.Telephone }}</p>
 
-            <div class="card">
-                <h2>Liste des offres de stage proposées :</h2>
-                <ul class="list">
-                    {% for offre in entreprise.offres %}
-                        <li class="list__item">
-                            <a href="" class="link">{{ offre.Titre }}</a>
-                        </li>
+                <h2>Liste des offres de stages proposées par l'entreprise :</h2>
+                <div class="list">
+                    {% for offre in offres %}
+                        <div class="list__item">
+                            <div class="list__title">{{ offre.Titre }}</div>
+                            <a class="btn btn--small" href="?route=offre_stage&id={{ offre.Id_Offre }}">Voir</a>
+                        </div>
                     {% endfor %}
-                </ul>
+                </div>
             </div>
         </div>
     </div>
