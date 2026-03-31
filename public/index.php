@@ -66,7 +66,6 @@ $routes = [
         'entreprises' => [EntrepriseController::class, 'pageRechercheEntreprises'],
         'entreprise_show' => [EntrepriseController::class, 'ficheEntreprise'],
         'entreprise_edit' => [EntrepriseController::class, 'formUpdateEntreprise'],
-        'updateEntreprise' => [EntrepriseController::class, 'updateEntreprise'],
         'entreprise_delete' => [EntrepriseController::class, 'deleteEntreprise'],
         'mentions_legales' => [AccueilController::class, 'mentionsLegales'],
         'admin_dashboard' => [AdminController::class, 'showDashboard'],
@@ -84,6 +83,7 @@ $routes = [
         'new_entreprise' => [EntrepriseController::class, 'createEntreprise'],
         'candidature_ajouter' => [OffreStageController::class, 'ajouterCandidature'],
         'remove_wishlist' => [EtudiantController::class, 'removeFromWishlist'],
+        'updateEntreprise' => [EntrepriseController::class, 'updateEntreprise'],
     ],
 ];
 
