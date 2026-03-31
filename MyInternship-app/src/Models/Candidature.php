@@ -38,4 +38,27 @@ class Candidature extends Modele
         $query->bindValue(':lm', $lmPath, PDO::PARAM_STR);
         $query->execute();
     }
+
+    public function getCandidaturesByUser(int $compteId): array
+    {
+        $sql = "
+        SELECT 
+            c.*,
+            o.Titre,
+            o.Description,
+            o.Duree_Semaines
+        FROM Candidatures c
+        JOIN Offres_Stages o ON c.Id_Offre = o.Id_Offre
+        WHERE c.Id_Compte = :compte_id
+        ORDER BY c.Date_Candidature DESC
+    ";
+
+        $stmt = $this->connection->prepare($sql);
+        $stmt->bindValue(':compte_id', $compteId, PDO::PARAM_INT);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+
 }
