@@ -35,7 +35,7 @@ class EtudiantController extends Controleur {
 
         $menu = [
             'infos' => 'Informations',
-            'candidatures' => 'Liste des candidatures',
+            'candidatures' => 'Mes Candidatures',
             'wishlist' => 'Ma Wishlist'
         ];
 
