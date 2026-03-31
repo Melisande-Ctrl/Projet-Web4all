@@ -105,19 +105,8 @@ try {
     } else {
         $controller->$method();
     }
-//    if (!method_exists($controller, $method)) {
-//        throw new Exception("La méthode {$method} n'existe pas dans {$controllerClass}.");
-//    }
-//
-//    // Appel de la méthode avec les paramètres appropriés
-//    call_user_func_array([$controller, $method], array_filter([$id, $page], fn($v) => $v !== null));
 } catch (Throwable $e) {
     http_response_code(500);
     echo '<h1>500 - Erreur interne du serveur</h1>';
     echo '<p>' . htmlspecialchars($e->getMessage()) . '</p>';
-//    echo $twig->render('500.html.twig', [
-//        'page_title' => 'Erreur serveur',
-//        'message' => $e->getMessage(),
-//    ]);
-//    error_log($e->getMessage());
 }

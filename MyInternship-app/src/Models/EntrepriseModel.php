@@ -275,6 +275,14 @@ class EntrepriseModel extends Model {
         return $modification; // Retourne true si la modification a réussi, sinon false
     }
     public function deleteEntreprise($id) : bool {
+        $queryNbOffres = $this->connection->prepare("SELECT COALESCE(COUNT(Id_Offre), 0) AS nbOffres 
+                        FROM Offres_Stages WHERE Id_Entreprise = :id GROUP BY en.Id_Entreprise");
+        $queryNbOffres->bindParam(':id',$id, PDO::PARAM_INT);
+        $queryNbOffres->execute();
+        $nbOffres = $queryNbOffres->fetch(PDO::FETCH_ASSOC)['nbOffres'];
+        if ($nbOffres > 0) {
+            return false; // Retourne false si l'entreprise a des offres de stage associées
+        }
         //Récupération de l'identifiant unique de l'adresse de l'entreprise
         $queryId_Adresse = $this->connection->prepare("SELECT Siege_social FROM Entreprises WHERE Id_Entreprise = :id");
         $queryId_Adresse->bindParam(':id',$id, PDO::PARAM_INT);

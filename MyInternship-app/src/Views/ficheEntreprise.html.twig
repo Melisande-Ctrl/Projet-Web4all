@@ -14,7 +14,7 @@
                     {% if affichageBoutons %}
                         <div class="company-actions">
                             <a class="btn btn--primary" href="?route=entreprise_edit&id={{ entreprise.Id_Entreprise }}">Modifier</a>
-                            <a class="btn btn--primary" href="?route=entreprise_delete&id={{ entreprise.Id_Entreprise }}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette entreprise ?');">Supprimer</a>
+                            <a class="btn btn--primary" style="background-color: red; border-color: red" href="?route=entreprise_delete&id={{ entreprise.Id_Entreprise }}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette entreprise ?');">Supprimer</a>
                         </div>
                     {% endif %}
                 </div>
