@@ -1,4 +1,4 @@
-{% extends 'base/layout.html.twig' %}
+{% extends 'base/mise-en-page.html.twig' %}
 
 {% block pageTitle %}
 <title>{{ page_title }}</title>
@@ -6,24 +6,73 @@
 
 {% block content %}
 <section class="section">
-    <div class="container">
-        <article class="card">
-            {% if offer %}
-                <h1>{{ offer.title }}</h1>
-                <p class="muted">{{ offer.company }} • {{ offer.location }} • {{ offer.salary }}</p>
-                <p>{{ offer.description }}</p>
+    <div class="container narrow">
+        {% if offre %}
+            <article class="card offer-card">
+                <a class="link" href="?route=offres_stage">Retour à la liste des offres</a>
 
-                <h2>Competences recherchees</h2>
-                <ul class="tag-list">
-                    {% for skill in offer.skills %}
-                        <li class="badge">{{ skill }}</li>
-                    {% endfor %}
-                </ul>
-            {% else %}
+                {% if wishlist_feedback %}
+                    <p class="muted">{{ wishlist_feedback.message }}</p>
+                {% endif %}
+
+                {% if candidature_feedback %}
+                    <p class="muted">{{ candidature_feedback.message }}</p>
+                {% endif %}
+
+                <h1>{{ offre.title }}</h1>
+
+                <div class="list__meta">
+                    <span>{{ offre.company }}</span>
+                    <span>{{ offre.location }}</span>
+                    <span>{{ offre.duration_weeks }} semaines</span>
+                    {% if offre.salary %}
+                        <span>{{ offre.salary }}</span>
+                    {% endif %}
+                    <span>Publiée le {{ offre.created_at }}</span>
+                </div>
+
+                {% if session.user is defined and session.user.role == 3 %}
+                    <form class="offer-card__actions" method="post" action="?route=wishlist_ajouter">
+                        <input type="hidden" name="offre_id" value="{{ offre.id }}">
+                        <input type="hidden" name="return_url" value="?route=offre_stage&id={{ offre.id }}">
+                        <button class="btn btn--ghost btn--small" type="submit">+ Ajouter à ma wishlist</button>
+                    </form>
+                {% endif %}
+
+                <div class="offer-card__section">
+                    <h2>Description</h2>
+                    <p>{{ offre.description }}</p>
+                </div>
+
+                <div class="offer-card__section">
+                    <h2>Localisation</h2>
+                    <p>{{ offre.address }}, {{ offre.location }}{% if offre.country %}, {{ offre.country }}{% endif %}</p>
+                </div>
+
+                <div class="offer-card__section">
+                    <h2>Compétences recherchées</h2>
+                    {% if offre.skills is not empty %}
+                        <ul class="tag-list">
+                            {% for competence in offre.skills %}
+                                <li class="badge">{{ competence }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <p class="muted">Aucune compétence n’est encore renseignée pour cette offre.</p>
+                    {% endif %}
+                </div>
+
+                {% if session.user is defined and session.user.role == 3 %}
+                    <a class="btn btn--primary" href="?route=offre_stage_candidature&id={{ offre.id }}">Postuler</a>
+                {% endif %}
+            </article>
+        {% else %}
+            <article class="card empty-state">
                 <h1>Offre introuvable</h1>
-                <p>L identifiant de l offre est absent ou incorrect.</p>
-            {% endif %}
-        </article>
+                <p class="muted">L’identifiant de l’offre est absent, invalide, ou l’offre n’existe plus en base.</p>
+                <a class="btn btn--ghost" href="?route=offres_stage">Retour aux offres</a>
+            </article>
+        {% endif %}
     </div>
 </section>
 {% endblock %}

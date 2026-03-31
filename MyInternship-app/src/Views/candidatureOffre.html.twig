@@ -1,0 +1,61 @@
+{% extends 'base/mise-en-page.html.twig' %}
+
+{% block pageTitle %}
+<title>{{ page_title }}</title>
+{% endblock %}
+
+{% block content %}
+<section class="section">
+    <div class="container narrow">
+        {% if offre %}
+            <article class="card offer-card">
+                <a class="link" href="?route=offre_stage&id={{ offre.id }}">Retour au détail de l’offre</a>
+
+                {% if candidature_feedback %}
+                    <p class="muted">{{ candidature_feedback.message }}</p>
+                {% endif %}
+
+                <h1>Postuler à {{ offre.title }}</h1>
+
+                <div class="list__meta">
+                    <span>{{ offre.company }}</span>
+                    <span>{{ offre.location }}</span>
+                    <span>{{ offre.duration_weeks }} semaines</span>
+                </div>
+
+                <div class="offer-card__section">
+                    <h2>Documents à envoyer</h2>
+                    <p>Merci de joindre votre CV et votre lettre de motivation au format PDF.</p>
+                </div>
+
+                <form class="card form-card" method="post" action="?route=candidature_ajouter" enctype="multipart/form-data">
+                    <input type="hidden" name="offre_id" value="{{ offre.id }}">
+                    <input type="hidden" name="return_url" value="?route=offre_stage_candidature&id={{ offre.id }}">
+
+                    <div class="form-grid">
+                        <label class="field">
+                            <span class="field__label">CV (PDF)</span>
+                            <input class="input" type="file" name="cv" accept="application/pdf" required>
+                        </label>
+
+                        <label class="field">
+                            <span class="field__label">Lettre de motivation (PDF)</span>
+                            <input class="input" type="file" name="lettre_motivation" accept="application/pdf" required>
+                        </label>
+                    </div>
+
+                    <div style="margin-top:20px;">
+                        <button class="btn btn--primary" type="submit">Envoyer ma candidature</button>
+                    </div>
+                </form>
+            </article>
+        {% else %}
+            <article class="card empty-state">
+                <h1>Offre introuvable</h1>
+                <p class="muted">Impossible d’ouvrir le formulaire de candidature pour cette offre.</p>
+                <a class="btn btn--ghost" href="?route=offres_stage">Retour aux offres</a>
+            </article>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

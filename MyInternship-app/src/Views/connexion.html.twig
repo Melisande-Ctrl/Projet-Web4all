@@ -1,4 +1,4 @@
-{% extends 'base/layout.html.twig' %}
+{% extends 'base/mise-en-page.html.twig' %}
 
 {% block pageTitle %}
 <title>{{ page_title }}</title>
@@ -9,13 +9,13 @@
     <div class="container narrow">
         <div class="card form-card">
             <h1>Connexion</h1>
-            <p class="muted">Connectez vous pour accéder a vos informations.</p>
+            <p class="muted">Connectez-vous pour accéder à vos informations.</p>
 
             {% if error %}
                 <p class="alert">{{ error }}</p>
             {% endif %}
 
-            <form class="form-grid" method="post" action="?route=login">
+            <form class="form-grid" method="post" action="?route=traitement_connexion">
                 <label class="field" for="email">
                     <span class="field__label">Email</span>
                     <input class="input" id="email" name="email" type="email" required>

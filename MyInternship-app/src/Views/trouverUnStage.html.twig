@@ -1,4 +1,4 @@
-{% extends 'base/layout.html.twig' %}
+{% extends 'base/mise-en-page.html.twig' %}
 
 {% block pageTitle %}
 <title>{{ page_title }}</title>
@@ -9,25 +9,125 @@
     <div class="container">
         <div class="section__head">
             <h1>Offres de stage</h1>
-            <p class="muted">Base de listing qui accueillera ensuite les filtres et la pagination.</p>
+            <p class="muted">
+                Consultez les offres disponibles et filtrez les résultats selon vos critères.
+            </p>
         </div>
 
-        {% if internships is not empty %}
+        <div class="card filters-card">
+            <form class="search filters-search" method="get" action="">
+                <input type="hidden" name="route" value="offres_stage">
+
+                <label class="field">
+                    <span class="field__label">Mot-clé</span>
+                    <input
+                        class="input"
+                        name="keyword"
+                        type="text"
+                        value="{{ filters.keyword }}"
+                        placeholder="Titre, compétence, entreprise"
+                    >
+                </label>
+
+                <label class="field">
+                    <span class="field__label">Ville</span>
+                    <input
+                        class="input"
+                        name="location"
+                        type="text"
+                        value="{{ filters.location }}"
+                        placeholder="Ex. Nantes"
+                    >
+                </label>
+
+                <button class="btn btn--primary" type="submit">Rechercher</button>
+                <a class="btn btn--ghost" href="?route=offres_stage">Réinitialiser</a>
+            </form>
+        </div>
+
+        <div class="results-bar">
+            <p class="muted">
+                {{ total_results }} offre{% if total_results > 1 %}s{% endif %}
+                {% if filters.keyword or filters.location %}
+                    trouvée{% if total_results > 1 %}s{% endif %}
+                    avec les filtres actifs.
+                {% else %}
+                    disponible{% if total_results > 1 %}s{% endif %} actuellement.
+                {% endif %}
+            </p>
+        </div>
+
+        {% if wishlist_feedback %}
+            <div class="card empty-state">
+                <p class="muted">{{ wishlist_feedback.message }}</p>
+            </div>
+        {% endif %}
+
+        {% if offres_stage is not empty %}
             <div class="list">
-                {% for internship in internships %}
+                {% for offre_stage in offres_stage %}
                     <article class="list__item">
-                        <div>
-                            <div class="list__title">{{ internship.title }}</div>
-                            <div class="muted">
-                                {{ internship.company }} • {{ internship.location }} • {{ internship.salary }}
+                        <div class="list__body list__body--stack">
+                            <div class="list__title">{{ offre_stage.title }}</div>
+
+                            <div class="list__meta">
+                                <span>{{ offre_stage.company }}</span>
+                                <span>{{ offre_stage.location }}</span>
+                                <span>{{ offre_stage.duration_weeks }} semaines</span>
+                                {% if offre_stage.salary %}
+                                    <span>{{ offre_stage.salary }}</span>
+                                {% endif %}
                             </div>
+
+                            <p class="muted list__excerpt">{{ offre_stage.description|slice(0, 180) }}{% if offre_stage.description|length > 180 %}...{% endif %}</p>
+
+                            {% if offre_stage.skills is not empty %}
+                                <ul class="tag-list">
+                                    {% for competence in offre_stage.skills %}
+                                        <li class="badge">{{ competence }}</li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
                         </div>
-                        <a class="btn btn--small" href="?route=internship_show&id={{ internship.id }}">Voir le detail</a>
+
+                        <div class="list__actions">
+                            <a class="btn btn--small" href="?route=offre_stage&id={{ offre_stage.id }}">Voir le détail</a>
+                        </div>
                     </article>
                 {% endfor %}
             </div>
+
+            {% if pagination.total_pages > 1 %}
+                <nav class="pagination" aria-label="Pagination des offres">
+                    {% if pagination.previous_url %}
+                        <a class="btn btn--ghost btn--small" href="{{ pagination.previous_url }}">Précédent</a>
+                    {% endif %}
+
+                    <div class="pagination__pages">
+                        {% for link in pagination.links %}
+                            <a
+                                class="pagination__link{% if link.is_current %} pagination__link--current{% endif %}"
+                                href="{{ link.url }}"
+                                {% if link.is_current %}aria-current="page"{% endif %}
+                            >
+                                {{ link.page }}
+                            </a>
+                        {% endfor %}
+                    </div>
+
+                    {% if pagination.next_url %}
+                        <a class="btn btn--ghost btn--small" href="{{ pagination.next_url }}">Suivant</a>
+                    {% endif %}
+                </nav>
+            {% endif %}
         {% else %}
-            <p>Aucune offre disponible.</p>
+            <div class="card empty-state">
+                <h2>Aucune offre ne correspond à la recherche</h2>
+                <p class="muted">
+                    Essaie avec un mot-clé plus large, une autre ville, ou reviens à la liste complète des offres.
+                </p>
+                <a class="btn btn--ghost" href="?route=offres_stage">Afficher toutes les offres</a>
+            </div>
         {% endif %}
     </div>
 </section>

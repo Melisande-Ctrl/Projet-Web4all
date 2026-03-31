@@ -1,0 +1,29 @@
+<header class="header">
+    <div class="container header__top">
+        <a class="brand" href="?route=accueil">
+            <img
+                class="brand__logo-img"
+                src="assets/images/MyInternship_Logo.svg"
+                alt="Logo MyInternship"
+            >
+        </a>
+
+        {% include 'base/barre-navigation.html.twig' %}
+
+        {% if session.user %}
+            <a class="btn btn--primary btn--account" href="?route=mon_espace">
+                Mon espace
+            </a>
+
+            <form method="POST" action="?route=logout" style="display:inline;">
+                <button class="btn btn--ghost btn--account" type="submit">
+                    Déconnexion
+                </button>
+            </form>
+        {% else %}
+            <a class="btn btn--primary btn--account" href="?route=connexion">
+                Connexion
+            </a>
+        {% endif %}
+    </div>
+</header>

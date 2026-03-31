@@ -1,4 +1,4 @@
-{% extends 'base/layout.html.twig' %}
+{% extends 'base/mise-en-page.html.twig' %}
 
 {% block pageTitle %}
 <title>{{ page_title }}</title>
@@ -8,16 +8,16 @@
 <section class="hero">
     <div class="container hero__grid">
         <div class="hero__copy">
-            <p class="hero__eyebrow">Plateforme scolaire de recherche de stage</p>
-            <h1>Trouvez un <span class="accent">stage solide</span>, dans une entreprise qui vaut vraiment le coup.</h1>
+            <p class="hero__eyebrow">Plateforme de gestion des stages</p>
+            <h1>Consultez les <span class="accent">offres de stage</span> et suivez vos démarches.</h1>
             <p class="muted hero__lead">
-                MyInternship aide les etudiants a reperer les meilleures opportunites, comparer les entreprises,
-                suivre les candidatures et avancer plus vite avec l accompagnement des pilotes.
+                MyInternship centralise les offres de stage, les informations sur les entreprises
+                et le suivi des candidatures pour les étudiants, les pilotes et l’administration.
             </p>
 
             <div class="hero__actions">
-                <a class="btn btn--primary" href="?route=internships">Trouver un stage</a>
-                <a class="btn btn--ghost" href="?route=connexion">Acceder a mon espace</a>
+                <a class="btn btn--primary" href="?route=offres_stage">Trouver un stage</a>
+                <a class="btn btn--ghost" href="?route=connexion">Accéder à mon espace</a>
             </div>
 
             <div class="hero__badges">
@@ -29,12 +29,12 @@
 
             <div class="hero__mini-proof">
                 <div class="mini-proof">
-                    <strong>Recherche plus lisible</strong>
-                    <span>Offres, entreprises, wish-list et candidatures reunies au meme endroit.</span>
+                    <strong>Offres et entreprises</strong>
+                    <span>Accédez aux offres de stage et aux informations utiles sur les entreprises d’accueil.</span>
                 </div>
                 <div class="mini-proof mini-proof--accent">
-                    <strong>Suivi plus clair</strong>
-                    <span>Chaque role accede aux informations utiles sans se perdre dans l interface.</span>
+                    <strong>Suivi des démarches</strong>
+                    <span>Retrouvez vos candidatures et vos sélections depuis votre espace personnel.</span>
                 </div>
             </div>
         </div>
@@ -42,29 +42,20 @@
         <aside class="search-panel">
             <div class="search-panel__head">
                 <p class="search-panel__eyebrow">Recherche rapide</p>
-                <h2>Lancer une recherche ciblee</h2>
+                <h2>Recherche rapide</h2>
             </div>
 
             <form class="search search--hello" method="get" action="">
-                <input type="hidden" name="route" value="internships">
+                <input type="hidden" name="route" value="offres_stage">
 
                 <label class="field field--search">
                     <span class="field__label">Quoi ?</span>
-                    <input class="input" name="keyword" type="text" placeholder="Metier, competence, entreprise">
+                    <input class="input" name="keyword" type="text" placeholder="Métier, compétence, entreprise">
                 </label>
 
                 <label class="field field--search">
-                    <span class="field__label">Ou ?</span>
-                    <input class="input" name="location" type="text" placeholder="Ville, departement">
-                </label>
-
-                <label class="field field--search">
-                    <span class="field__label">Contrat</span>
-                    <select class="input" name="contract">
-                        <option value="">Stage</option>
-                        <option value="stage">Stage</option>
-                        <option value="alternance">Alternance</option>
-                    </select>
+                    <span class="field__label">Où ?</span>
+                    <input class="input" name="location" type="text" placeholder="Ville, département">
                 </label>
 
                 <button class="btn btn--primary btn--search search__submit" type="submit">
@@ -79,12 +70,12 @@
 
             <div class="chips">
                 {% for search in popularSearches %}
-                    <a class="chip" href="?route=internships">{{ search }}</a>
+                    <a class="chip" href="?route=offres_stage">{{ search }}</a>
                 {% endfor %}
             </div>
 
             <div class="search-panel__footer">
-                <p class="search-panel__hint">Commencez par un domaine ou une competence, puis affinez par ville.</p>
+                <p class="search-panel__hint">Utilisez la recherche pour accéder rapidement aux offres disponibles.</p>
             </div>
         </aside>
     </div>
@@ -104,8 +95,8 @@
 <section class="section">
     <div class="container">
         <div class="section__head section__head--compact">
-            <h2>Pourquoi cette plateforme est utile</h2>
-            <p class="muted">Une lecture rapide des services les plus concrets pour les etudiants et les pilotes.</p>
+            <h2>Fonctionnalités principales</h2>
+            <p class="muted">Les principaux services proposés aux étudiants, aux pilotes et à l’administration.</p>
         </div>
 
         <div class="cards cards--three">
@@ -123,8 +114,8 @@
 <section class="section section--surface">
     <div class="container">
         <div class="section__head">
-            <h2>Acces par profil</h2>
-            <p class="muted">Chaque role accede a une experience ciblee selon ses responsabilites dans le projet.</p>
+            <h2>Accès par profil</h2>
+            <p class="muted">Chaque profil dispose d’un accès adapté à ses besoins et à ses droits.</p>
         </div>
 
         <div class="cards cards--three">
@@ -143,25 +134,27 @@
 <section class="section">
     <div class="container">
         <div class="section__head">
-            <h2>Offres a regarder en priorite</h2>
-            <p class="muted">Une presentation claire et dense, inspiree des codes des plateformes emploi modernes.</p>
+            <h2>Offres récentes</h2>
+            <p class="muted">Consultez une sélection d’offres actuellement disponibles.</p>
         </div>
 
-        {% if featuredInternships is not empty %}
+        {% if offresMisesEnAvant is not empty %}
             <div class="list">
-                {% for internship in featuredInternships %}
+                {% for offre_stage in offresMisesEnAvant %}
                     <article class="list__item">
                         <div class="list__body">
-                            <div class="list__title">{{ internship.title }}</div>
+                            <div class="list__title">{{ offre_stage.title }}</div>
                             <div class="list__meta">
-                                <span>{{ internship.company }}</span>
-                                <span>{{ internship.location }}</span>
-                                <span>{{ internship.contract }}</span>
-                                <span>{{ internship.duration }}</span>
-                                <span>{{ internship.salary }}</span>
+                                <span>{{ offre_stage.company }}</span>
+                                <span>{{ offre_stage.location }}</span>
+                                <span>Stage</span>
+                                <span>{{ offre_stage.duration_weeks }} semaines</span>
+                                {% if offre_stage.salary %}
+                                    <span>{{ offre_stage.salary }}</span>
+                                {% endif %}
                             </div>
                         </div>
-                        <a class="btn btn--small" href="?route=internship_show&id={{ internship.id }}">Voir</a>
+                        <a class="btn btn--small" href="?route=offre_stage&id={{ offre_stage.id }}">Voir</a>
                     </article>
                 {% endfor %}
             </div>
@@ -170,7 +163,7 @@
         {% endif %}
 
         <div class="section__foot">
-            <a class="btn btn--ghost" href="?route=internships">Voir toutes les offres</a>
+            <a class="btn btn--ghost" href="?route=offres_stage">Voir toutes les offres</a>
         </div>
     </div>
 </section>
@@ -178,8 +171,8 @@
 <section class="section section--surface">
     <div class="container">
         <div class="section__head">
-            <h2>Entreprises a suivre</h2>
-            <p class="muted">Des fiches plus lisibles pour aider les etudiants a choisir ou postuler intelligemment.</p>
+            <h2>Entreprises référencées</h2>
+            <p class="muted">Consultez les entreprises présentes sur la plateforme et leurs offres associées.</p>
         </div>
 
         <div class="cards">
@@ -217,12 +210,12 @@
 <section class="cta" id="cta">
     <div class="container cta__box">
         <div>
-            <h2>Trouver votre bonheur</h2>
+            <h2>Accéder à la plateforme</h2>
             <p class="muted">
-                Un site web simple, efficace et facile a utiliser.
+                Connectez-vous pour consulter votre espace personnel et suivre vos démarches.
             </p>
         </div>
-        <a class="btn btn--primary" href="?route=connexion">Acceder a la plateforme</a>
+        <a class="btn btn--primary" href="?route=connexion">Accéder à la plateforme</a>
     </div>
 </section>
 {% endblock %}

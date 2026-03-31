@@ -3,7 +3,7 @@ namespace App\Models;
 
 use PDO;
 
-class EntrepriseModel extends Model {
+class EntrepriseModel extends Modele {
 
     /**
      * Récupère le nombre total d'entreprises

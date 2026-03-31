@@ -6,7 +6,7 @@ namespace App\Controllers;
 
 use App\Models\AdminModel;
 
-class AdminController extends Controller {
+class AdminController extends Controleur {
 
         private AdminModel $adminModel;
 
@@ -15,11 +15,28 @@ class AdminController extends Controller {
         $this->adminModel = new AdminModel();
     }
 
-    public function showDashboard(): void {
+    public function showDashboard(): void
+    {
+        if (!isset($_SESSION['user'])) {
+            $this->redirect('home');
+        }
 
-        $this->render('MonCompteAdmin.html.twig', [
+        if ($_SESSION['user']['role'] !== 1) {
+            $this->redirect('home');
+        }
 
+        $section = $_GET['section'] ?? 'users';
+
+        $menu = [
+            'users' => 'Utilisateurs',
+            'entreprises' => 'Entreprises',
+            'stats' => 'Statistiques'
+        ];
+
+        $this->render('dashboard/MonCompteAdmin.html.twig', [
+            'section' => $section,
+            'menu' => $menu,
+            'route' => 'admin_dashboard'
         ]);
-
     }
 }

@@ -6,20 +6,37 @@ namespace App\Controllers;
 
 use App\Models\PiloteModel;
 
-class PiloteController extends Controller {
+class PiloteController extends Controleur {
 
     private PiloteModel $piloteModel;
+
 
     public function __construct($twig){
         parent::__construct($twig);
         $this->piloteModel = new piloteModel();
     }
 
-    public function showDashboard(): void {
+    public function showDashboard(): void
+    {
+        if (!isset($_SESSION['user'])) {
+            $this->redirect('home');
+        }
 
-        $this->render('MonComptePilote.html.twig', [
+        if ($_SESSION['user']['role'] !== 2) {
+            $this->redirect('home');
+        }
 
+        $section = $_GET['section'] ?? 'etudiants';
+
+        $menu = [
+            'etudiants' => 'Étudiants',
+            'offres' => 'Offres de stage'
+        ];
+
+        $this->render('dashboard/MonComptePilote.html.twig', [
+            'section' => $section,
+            'menu' => $menu,
+            'route' => 'pilote_dashboard'
         ]);
-
     }
 }

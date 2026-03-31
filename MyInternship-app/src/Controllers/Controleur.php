@@ -9,7 +9,7 @@ use Twig\Environment;
 /**
  * Base technique commune a tous les controleurs.
  */
-abstract class Controller
+abstract class Controleur
 {
     protected ?object $model = null;
     protected Environment $templateEngine;
@@ -21,6 +21,8 @@ abstract class Controller
 
     protected function render(string $template, array $data = []): void
     {
+        $data['session'] = $_SESSION;
+
         echo $this->templateEngine->render($template, $data);
     }
 

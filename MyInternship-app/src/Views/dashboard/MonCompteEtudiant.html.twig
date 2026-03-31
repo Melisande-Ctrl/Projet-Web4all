@@ -1,0 +1,121 @@
+{% extends "dashboard/layout_dashboard.html.twig" %}
+
+{% block dashboard_content %}
+
+    {% if section == 'infos' %}
+
+        <div class="card form-card">
+            <h3>Informations du compte</h3>
+
+            <div class="form-grid">
+                <div class="field">
+                    <label class="field__label">Nom</label>
+                    <input class="input" value="{{ session.user.nom }}" disabled>
+                </div>
+
+                <div class="field">
+                    <label class="field__label">Prénom</label>
+                    <input class="input" value="{{ session.user.prenom }}" disabled>
+                </div>
+
+                <div class="field">
+                    <label class="field__label">Email</label>
+                    <input class="input" value="{{ session.user.email }}" disabled>
+                </div>
+
+                <div class="field">
+                    <label class="field__label">Mot de passe</label>
+
+                    <div style="display:flex; gap:10px; align-items:center;">
+                        <input class="input" type="password" value="********" disabled>
+
+                        <a href="?route=etudiant_dashboard&section=password"
+                           class="btn btn--ghost btn--small">
+                            Modifier le mot de passe
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    {% elseif section == 'candidatures' %}
+
+        <div class="card">
+            <h3>Mes candidatures</h3>
+            <p>À venir...</p>
+        </div>
+
+    {% elseif section == 'wishlist' %}
+
+        {% if wishlist is empty %}
+            <p>Aucune offre dans la wishlist</p>
+        {% else %}
+
+        <div class="card">
+            <h3>Ma wishlist</h3>
+            {% for offre_stage in wishlist %}
+                <article class="list__item">
+                    <div class="list__body list__body--stack">
+                        <div class="list__title">{{ offre_stage.Titre }}</div>
+
+                        <div class="list__meta">
+                            <span>{{ offre_stage.Id_Entreprise }}</span>
+                            <span>{{ offre_stage.Id_Adresse }}</span>
+                            <span>{{ offre_stage.Duree_Semaines }} semaines</span>
+                            {% if offre_stage.Base_Remuneration %}
+                                <span>{{ offre_stage.Base_Remuneration }}</span>
+                            {% endif %}
+                        </div>
+
+                        <p class="muted list__excerpt">{{ offre_stage.Description|slice(0, 180) }}{% if offre_stage.Description|length > 180 %}...{% endif %}</p>
+
+                        {% if offre_stage.competences is not empty %}
+                            <ul class="tag-list">
+                                {% for competence in offre_stage.competences %}
+                                    <li class="badge">{{ competence }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
+
+                    <div class="list__actions">
+                        <a class="btn btn--small" href="?route=offre_stage&id={{ offre_stage.id }}">Voir le détail</a>
+                    </div>
+                </article>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+    {% elseif section == 'password' %}
+
+        <div class="card form-card">
+            <h3>Changer le mot de passe</h3>
+
+            <form method="POST" action="?route=change_password">
+                <div class="form-grid">
+                    <div class="field">
+                        <label class="field__label">Mot de passe actuel</label>
+                        <input class="input" type="password" name="current_password" required>
+                    </div>
+
+                    <div class="field">
+                        <label class="field__label">Nouveau mot de passe</label>
+                        <input class="input" type="password" name="new_password" required>
+                    </div>
+
+                    <div class="field">
+                        <label class="field__label">Confirmer le mot de passe</label>
+                        <input class="input" type="password" name="confirm_password" required>
+                    </div>
+                </div>
+
+                <div style="margin-top:20px;">
+                    <button class="btn btn--primary" type="submit">
+                        Mettre à jour le mot de passe
+                    </button>
+                </div>
+            </form>
+        </div>
+    {% endif %}
+
+{% endblock %}

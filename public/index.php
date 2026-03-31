@@ -25,13 +25,14 @@ require_once __DIR__ . '/../vendor/autoload.php';
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 use Twig\Extension\DebugExtension;
-use App\Controllers\HomeController;
-use App\Controllers\LoginController;
-use App\Controllers\InternshipController;
+use App\Controllers\AccueilController;
+use App\Controllers\ConnexionController;
+use App\Controllers\OffreStageController;
 use App\Controllers\EntrepriseController;
 use App\Controllers\AdminController;
 use App\Controllers\PiloteController;
 use App\Controllers\EtudiantController;
+use App\Controllers\MainController;
 
 /**
 *Initialisation de Twig
@@ -48,33 +49,37 @@ $twig->addExtension(new DebugExtension());
 /**
 *Lecture de la requête
 */
-$route = $_GET['route'] ?? 'home';
+$route = $_GET['route'] ?? 'accueil';
 $httpMethod = $_SERVER['REQUEST_METHOD'];
 $id = isset($_GET['id']) ? (int) $_GET['id'] : null;
-$page = isset($_GET['page']) ? (int) $_GET['page'] : 1;
 
 /**
 *Définition des routes
 */
 $routes = [
     'GET' => [
-        'home' => [HomeController::class, 'index'],
-        'connexion' => [LoginController::class, 'showLoginForm'],
-        'internships' => [InternshipController::class, 'index'],
-        'internship_show' => [InternshipController::class, 'show'],
-        'entreprises' => [EntrepriseController::class, 'pageRechercheEntreprises'],
+        'accueil' => [AccueilController::class, 'index'],
+        'connexion' => [ConnexionController::class, 'afficherFormulaireConnexion'],
+        'offres_stage' => [OffreStageController::class, 'index'],
+        'offre_stage' => [OffreStageController::class, 'show'],
+        'offre_stage_candidature' => [OffreStageController::class, 'showCandidatureForm'],
+        'entreprises' => [EntrepriseController::class, 'pageRechercheEntreprise'],
         'entreprise_show' => [EntrepriseController::class, 'ficheEntreprise'],
-        'entreprise_edit' => [EntrepriseController::class, 'formUpdateEntreprise'],
-        'updateEntreprise' => [EntrepriseController::class, 'updateEntreprise'],
-        'entreprise_delete' => [EntrepriseController::class, 'deleteEntreprise'],
-        'mentions_legales' => [HomeController::class, 'legalNotices'],
+        'mentions_legales' => [AccueilController::class, 'mentionsLegales'],
         'admin_dashboard' => [AdminController::class, 'showDashboard'],
         'pilote_dashboard' => [PiloteController::class, 'showDashboard'],
         'etudiant_dashboard' => [EtudiantController::class, 'showDashboard'],
-    ],
+        'mon_espace' => [MainController::class, 'redirectToDashboard'],
+        ],
     'POST' => [
-        'login' => [LoginController::class, 'login'],
-        'logout' => [LoginController::class, 'logout'],
+        'traitement_connexion' => [ConnexionController::class, 'connecter'],
+        'deconnexion' => [ConnexionController::class, 'deconnecter'],
+        'login' => [ConnexionController::class, 'connecter'],
+        'logout' => [ConnexionController::class, 'deconnecter'],
+        'change_password' => [MainController::class, 'changePassword'],
+        'wishlist_ajouter' => [OffreStageController::class, 'ajouterWishlist'],
+        'new_entreprise' => [EntrepriseController::class, 'createEntreprise'],
+        'candidature_ajouter' => [OffreStageController::class, 'ajouterCandidature'],
     ],
 ];
 
@@ -85,10 +90,6 @@ try {
     if (!isset($routes[$httpMethod][$route])) {
         http_response_code(404);
         echo '<h1>404 - Page non trouvée</h1>';
-//        echo $twig->render('404.html.twig', [
-//            'page_title' => 'Erreur 404',
-//            'message' => 'La page demandée n\'existe pas.',
-//        ]);
         exit;
     }
 
@@ -100,11 +101,16 @@ try {
         throw new Exception("La méthode {$method} n'existe pas dans le contrôleur {$controllerClass}.");
     }
 
-    if ($id !== null) {
+    if ($route === 'offres_stage') {
+        $page = filter_input(INPUT_GET, 'page', FILTER_VALIDATE_INT);
+        $page = $page !== false && $page !== null ? max(1, $page) : 1;
+        $controller->$method($page);
+    } elseif ($id !== null) {
         $controller->$method($id);
     } else {
         $controller->$method();
     }
+
 } catch (Throwable $e) {
     http_response_code(500);
     echo '<h1>500 - Erreur interne du serveur</h1>';
