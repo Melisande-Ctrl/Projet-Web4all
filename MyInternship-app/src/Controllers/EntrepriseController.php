@@ -33,9 +33,12 @@ class EntrepriseController extends Controller
     {
         [$entreprise, $note, $offres] = $this->model->ficheEntreprise($id);
         $affichageBoutons = false;
-        if ($_SESSION['user']['role'] === 1 or $_SESSION['user']['role'] === 2) {
-            $affichageBoutons = true;
+        if (isset($_SESSION['user'])) {
+            if ($_SESSION['user']['role'] === 1 or $_SESSION['user']['role'] === 2) {
+                $affichageBoutons = true;
+            }
         }
+
         if (!$entreprise) { // le ! fait une vérification qui renvoie un booléen true si $entreprise est null
             echo $this->templateEngine->render('404.html.twig', ['erreur' => "Entreprise non trouvée"]);
             return;
