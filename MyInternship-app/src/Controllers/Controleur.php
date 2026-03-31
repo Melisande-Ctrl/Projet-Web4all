@@ -26,9 +26,11 @@ abstract class Controleur
         echo $this->templateEngine->render($template, $data);
     }
 
-    protected function redirect(string $route): never
+    protected function redirect(string $route, array $params = []): never
     {
-        header('Location: ?route=' . urlencode($route));
+        $query = http_build_query(array_merge(['route' => $route], $params));
+
+        header('Location: ?' . $query);
         exit;
     }
 }

@@ -98,7 +98,7 @@ class EntrepriseController extends Controleur
         }
         else {
             echo '<h1>Entreprise créée</h1>';
-            $this->redirect('entreprise_show&id='.$Id_Entreprise);
+            $this->redirect('entreprise_show', ['id' => $Id_Entreprise]);
         }
     }
 
@@ -134,17 +134,17 @@ class EntrepriseController extends Controleur
 
         if (!is_array($dataEntreprise) or !is_int($id)) {
             //echo '<h1>Erreur - Entrée utilisateur</h1>';
-            $this->redirect('entreprise_show&id='.$id);
+            $this->redirect('entreprise_show', ['id' => $id]);
         }
         foreach ($dataEntreprise as $key => $value) {
             if (!is_string($key) or !is_string($value)) {
                 //echo '<h1>Erreur - Entrée utilisateur</h1>';
-                $this->redirect('entreprise_show&id='.$id);
+                $this->redirect('entreprise_show', ['id' => $id]);
             }
         }
         if ($this->model->updateEntreprise($id, $dataEntreprise)) {
             echo '<h1>Entreprise créée</h1>';
-            $this->redirect('entreprise_show&id='.$id);
+            $this->redirect('entreprise_show', ['id' => $id]);
         }
         else {
             echo '<h1>Erreur - Entreprise non modifiée</h1>';
