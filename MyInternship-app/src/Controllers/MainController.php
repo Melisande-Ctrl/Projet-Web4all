@@ -43,7 +43,7 @@ class MainController extends Controleur
 
         $utilisateur = $this->connexionModel->getUtilisateurParEmail($_SESSION['user']['email']);
 
-        if ($utilisateur['Password'] !== $currentPassword) {
+        if (!$this->connexionModel->verifyPassword($currentPassword, $utilisateur['Password'])) {
             die("Mot de passe incorrect");
         }
 
