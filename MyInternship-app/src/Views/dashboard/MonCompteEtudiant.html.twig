@@ -81,6 +81,19 @@
                     <div class="list__actions">
                         <a class="btn btn--small" href="?route=offre_stage&id={{ offre_stage.id }}">Voir le détail</a>
                     </div>
+
+                    <form method="POST" action="?route=remove_wishlist">
+                        <input type="hidden" name="offre_id" value="{{ offre_stage.Id_Offre }}">
+                        <input type="hidden" name="section" value="wishlist">
+
+                        <button
+                                class="btn btn--small"
+                                onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette offre ?')"
+                                style="background-color: #EF4444; border-color: #EF4444; color: white;">
+                            Supprimer
+                        </button>
+                    </form>
+
                 </article>
             {% endfor %}
         </div>

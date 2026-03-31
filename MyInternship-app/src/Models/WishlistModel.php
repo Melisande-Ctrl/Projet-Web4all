@@ -57,5 +57,17 @@ class WishlistModel extends Modele
         return array_values($wishlist);
     }
 
+    public function removeFromWishlist(int $compteId, int $offreId): void
+    {
+        $sql = "DELETE FROM Wishlist 
+            WHERE Id_Compte = :compte_id 
+            AND Id_Offre = :offre_id";
 
+        $stmt = $this->connection->prepare($sql);
+
+        $stmt->bindValue(':compte_id', $compteId, \PDO::PARAM_INT);
+        $stmt->bindValue(':offre_id', $offreId, \PDO::PARAM_INT);
+
+        $stmt->execute();
+    }
 }
