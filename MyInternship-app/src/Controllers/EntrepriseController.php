@@ -23,9 +23,6 @@ class EntrepriseController extends Controleur
     /**
      * @param $id
      * @return void
-     * @throws LoaderError
-     * @throws RuntimeError
-     * @throws SyntaxError
      *
      * Affiche la fiche détaillée d'une entreprise
      */
@@ -51,10 +48,6 @@ class EntrepriseController extends Controleur
     }
 
     /**
-     * @throws SyntaxError
-     * @throws RuntimeError
-     * @throws LoaderError
-     *
      * Affiche la page de recherche des entreprises
      * @return void
      */
@@ -105,10 +98,6 @@ class EntrepriseController extends Controleur
     /**
      * @param $id
      * @return void
-     *
-     * @throws LoaderError
-     * @throws RuntimeError
-     * @throws SyntaxError
      */
     public function formUpdateEntreprise($id) : void {
         $entreprise = $this->model->getEntrepriseById($id);
