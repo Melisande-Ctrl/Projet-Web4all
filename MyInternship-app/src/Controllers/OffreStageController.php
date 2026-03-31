@@ -39,6 +39,7 @@ class OffreStageController extends Controleur
             'pagination' => $pagination,
             'current_list_url' => $this->buildOffreStageUrl($resultats['current_page'], $filters),
             'wishlist_feedback' => $this->consumeWishlistFeedback(),
+            'offre_management_feedback' => $this->consumeOffreManagementFeedback(),
         ]);
     }
 
@@ -60,7 +61,155 @@ class OffreStageController extends Controleur
             'offre' => $offre,
             'wishlist_feedback' => $this->consumeWishlistFeedback(),
             'candidature_feedback' => $this->consumeCandidatureFeedback(),
+            'offre_management_feedback' => $this->consumeOffreManagementFeedback(),
         ]);
+    }
+
+    public function showCreateForm(): void
+    {
+        $this->requireOffreManagementAccess();
+
+        $this->renderOffreStageForm(
+            [
+                'title' => '',
+                'entreprise_id' => '',
+                'description' => '',
+                'salary' => '',
+                'duration_weeks' => '',
+                'address' => '',
+                'location' => '',
+                'country' => '',
+                'skills_text' => '',
+            ],
+            'create'
+        );
+    }
+
+    public function create(): void
+    {
+        $this->requireOffreManagementAccess();
+
+        $data = $this->getOffreStageFormDataFromRequest();
+        $error = $this->validateOffreStageFormData($data);
+
+        if ($error !== null) {
+            $this->renderOffreStageForm($data, 'create', null, $error);
+            return;
+        }
+
+        $offreId = $this->model->createOffreStage($data);
+
+        if ($offreId === false) {
+            $this->renderOffreStageForm(
+                $data,
+                'create',
+                null,
+                'Impossible de créer cette offre pour le moment.'
+            );
+            return;
+        }
+
+        $_SESSION['offre_management_feedback'] = [
+            'type' => 'success',
+            'message' => 'L’offre a bien été créée.',
+        ];
+
+        $this->redirect('offre_stage', ['id' => $offreId]);
+    }
+
+    public function showEditForm(?int $id = null): void
+    {
+        $this->requireOffreManagementAccess();
+
+        if ($id === null) {
+            http_response_code(404);
+            $this->render('404.html.twig', ['erreur' => 'Offre non trouvée']);
+            return;
+        }
+
+        $offre = $this->model->getOffreStageForFormById($id);
+
+        if ($offre === null) {
+            http_response_code(404);
+            $this->render('404.html.twig', ['erreur' => 'Offre non trouvée']);
+            return;
+        }
+
+        $this->renderOffreStageForm($offre, 'edit', $id);
+    }
+
+    public function update(?int $id = null): void
+    {
+        $this->requireOffreManagementAccess();
+
+        if ($id === null) {
+            http_response_code(404);
+            $this->render('404.html.twig', ['erreur' => 'Offre non trouvée']);
+            return;
+        }
+
+        if ($this->model->getOffreStageForFormById($id) === null) {
+            http_response_code(404);
+            $this->render('404.html.twig', ['erreur' => 'Offre non trouvée']);
+            return;
+        }
+
+        $data = $this->getOffreStageFormDataFromRequest();
+        $error = $this->validateOffreStageFormData($data);
+
+        if ($error !== null) {
+            $this->renderOffreStageForm($data, 'edit', $id, $error);
+            return;
+        }
+
+        if (!$this->model->updateOffreStage($id, $data)) {
+            $this->renderOffreStageForm(
+                $data,
+                'edit',
+                $id,
+                'Impossible de modifier cette offre pour le moment.'
+            );
+            return;
+        }
+
+        $_SESSION['offre_management_feedback'] = [
+            'type' => 'success',
+            'message' => 'L’offre a bien été modifiée.',
+        ];
+
+        $this->redirect('offre_stage', ['id' => $id]);
+    }
+
+    public function delete(?int $id = null): void
+    {
+        $this->requireOffreManagementAccess();
+
+        if ($id === null) {
+            http_response_code(404);
+            $this->render('404.html.twig', ['erreur' => 'Offre non trouvée']);
+            return;
+        }
+
+        if ($this->model->getOffreStageForFormById($id) === null) {
+            http_response_code(404);
+            $this->render('404.html.twig', ['erreur' => 'Offre non trouvée']);
+            return;
+        }
+
+        if (!$this->model->deleteOffreStage($id)) {
+            $_SESSION['offre_management_feedback'] = [
+                'type' => 'error',
+                'message' => 'Impossible de supprimer cette offre pour le moment.',
+            ];
+            $this->redirect('offre_stage', ['id' => $id]);
+        }
+
+        $_SESSION['offre_management_feedback'] = [
+            'type' => 'success',
+            'message' => 'L’offre a bien été supprimée.',
+        ];
+
+        $this->redirect('offres_stage');
     }
 
     public function showCandidatureForm(?int $id = null): void
@@ -238,6 +387,98 @@ class OffreStageController extends Controleur
         unset($_SESSION['candidature_feedback']);
 
         return is_array($feedback) ? $feedback : null;
+    }
+
+    private function consumeOffreManagementFeedback(): ?array
+    {
+        $feedback = $_SESSION['offre_management_feedback'] ?? null;
+        unset($_SESSION['offre_management_feedback']);
+
+        return is_array($feedback) ? $feedback : null;
+    }
+
+    private function requireOffreManagementAccess(): void
+    {
+        if (!$this->canManageOffres()) {
+            $_SESSION['offre_management_feedback'] = [
+                'type' => 'error',
+                'message' => 'Tu dois être connecté comme admin ou pilote pour gérer les offres.',
+            ];
+            $this->redirect('mon_espace');
+        }
+    }
+
+    private function canManageOffres(): bool
+    {
+        $role = (int) ($_SESSION['user']['role'] ?? 0);
+
+        return $role === 1 || $role === 2;
+    }
+
+    private function getOffreStageFormDataFromRequest(): array
+    {
+        return [
+            'title' => trim((string) ($_POST['Titre'] ?? '')),
+            'entreprise_id' => filter_input(INPUT_POST, 'Id_Entreprise', FILTER_VALIDATE_INT) ?: 0,
+            'description' => trim((string) ($_POST['Description'] ?? '')),
+            'salary' => trim((string) ($_POST['Base_Remuneration'] ?? '')),
+            'duration_weeks' => filter_input(INPUT_POST, 'Duree_Semaines', FILTER_VALIDATE_INT) ?: 0,
+            'address' => trim((string) ($_POST['Adresse'] ?? '')),
+            'location' => trim((string) ($_POST['Ville'] ?? '')),
+            'country' => trim((string) ($_POST['Pays'] ?? '')),
+            'skills_text' => trim((string) ($_POST['Competences'] ?? '')),
+        ];
+    }
+
+    private function validateOffreStageFormData(array $data): ?string
+    {
+        if ($data['title'] === '' || mb_strlen($data['title']) > 80) {
+            return 'Le titre de l’offre est obligatoire et doit rester court.';
+        }
+
+        if ($data['entreprise_id'] < 1) {
+            return 'Tu dois sélectionner une entreprise.';
+        }
+
+        $entrepriseIds = array_map(
+            static fn (array $entreprise): int => (int) $entreprise['id'],
+            $this->model->getEntreprisesPourSelection()
+        );
+        if (!in_array((int) $data['entreprise_id'], $entrepriseIds, true)) {
+            return 'L’entreprise sélectionnée est invalide.';
+        }
+
+        if ($data['description'] === '') {
+            return 'La description de l’offre est obligatoire.';
+        }
+
+        if ($data['duration_weeks'] < 1) {
+            return 'La durée doit être supérieure à zéro.';
+        }
+
+        if ($data['address'] === '' || $data['location'] === '' || $data['country'] === '') {
+            return 'L’adresse, la ville et le pays sont obligatoires.';
+        }
+
+        if ($data['salary'] !== '' && mb_strlen($data['salary']) > 20) {
+            return 'La rémunération est trop longue.';
+        }
+
+        return null;
+    }
+
+    private function renderOffreStageForm(array $data, string $mode, ?int $id = null, ?string $error = null): void
+    {
+        $this->render('formOffreStage.html.twig', [
+            'page_title' => $mode === 'create'
+                ? 'Créer une offre - MyInternship'
+                : 'Modifier une offre - MyInternship',
+            'mode' => $mode,
+            'offre' => $data,
+            'offre_id' => $id,
+            'entreprises' => $this->model->getEntreprisesPourSelection(),
+            'form_error' => $error,
+        ]);
     }
 
     private function uploadCandidatureFile(string $fieldName, string $prefix): string

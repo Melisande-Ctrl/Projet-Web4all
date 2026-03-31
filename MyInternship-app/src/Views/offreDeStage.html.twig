@@ -19,6 +19,10 @@
                     <p class="muted">{{ candidature_feedback.message }}</p>
                 {% endif %}
 
+                {% if offre_management_feedback %}
+                    <p class="muted">{{ offre_management_feedback.message }}</p>
+                {% endif %}
+
                 <h1>{{ offre.title }}</h1>
 
                 <div class="list__meta">
@@ -37,6 +41,13 @@
                         <input type="hidden" name="return_url" value="?route=offre_stage&id={{ offre.id }}">
                         <button class="btn btn--ghost btn--small" type="submit">+ Ajouter à ma wishlist</button>
                     </form>
+                {% endif %}
+
+                {% if session.user is defined and (session.user.role == 1 or session.user.role == 2) %}
+                    <div class="offer-card__admin-actions">
+                        <a class="btn btn--edit btn--small" href="?route=offre_stage_edit&id={{ offre.id }}">Modifier l’offre</a>
+                        <a class="btn btn--danger btn--small" href="?route=offre_stage_delete&id={{ offre.id }}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette offre ?');">Supprimer l’offre</a>
+                    </div>
                 {% endif %}
 
                 <div class="offer-card__section">
