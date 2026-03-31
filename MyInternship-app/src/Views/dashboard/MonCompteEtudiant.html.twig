@@ -47,10 +47,44 @@
 
     {% elseif section == 'wishlist' %}
 
+        {% if wishlist is empty %}
+            <p>Aucune offre dans la wishlist</p>
+        {% else %}
+
         <div class="card">
             <h3>Ma wishlist</h3>
-            <p>À venir...</p>
+            {% for offre_stage in wishlist %}
+                <article class="list__item">
+                    <div class="list__body list__body--stack">
+                        <div class="list__title">{{ offre_stage.Titre }}</div>
+
+                        <div class="list__meta">
+                            <span>{{ offre_stage.Id_Entreprise }}</span>
+                            <span>{{ offre_stage.Id_Adresse }}</span>
+                            <span>{{ offre_stage.Duree_Semaines }} semaines</span>
+                            {% if offre_stage.Base_Remuneration %}
+                                <span>{{ offre_stage.Base_Remuneration }}</span>
+                            {% endif %}
+                        </div>
+
+                        <p class="muted list__excerpt">{{ offre_stage.Description|slice(0, 180) }}{% if offre_stage.Description|length > 180 %}...{% endif %}</p>
+
+                        {% if offre_stage.competences is not empty %}
+                            <ul class="tag-list">
+                                {% for competence in offre_stage.competences %}
+                                    <li class="badge">{{ competence }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
+
+                    <div class="list__actions">
+                        <a class="btn btn--small" href="?route=offre_stage&id={{ offre_stage.id }}">Voir le détail</a>
+                    </div>
+                </article>
+            {% endfor %}
         </div>
+        {% endif %}
 
     {% elseif section == 'password' %}
 
