@@ -51,4 +51,22 @@ class EtudiantController extends Controleur {
             'wishlist' => $wishlist
         ]);
     }
+
+    public function removeFromWishlist(): void
+    {
+        if (!isset($_SESSION['user'])) {
+            $this->redirect('home');
+        }
+
+        $offreId = (int) ($_POST['offre_id'] ?? 0);
+        $userId = $_SESSION['user']['id'];
+        $section = $_POST['section'] ?? 'wishlist';
+
+        if ($offreId) {
+            $this->wishlistModel->removeFromWishlist($userId, $offreId);
+        }
+
+        header('Location: ?route=etudiant_dashboard&section=' . $section);
+        exit;
+    }
 }

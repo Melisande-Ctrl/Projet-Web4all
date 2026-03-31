@@ -83,6 +83,7 @@ $routes = [
         'wishlist_ajouter' => [OffreStageController::class, 'ajouterWishlist'],
         'new_entreprise' => [EntrepriseController::class, 'createEntreprise'],
         'candidature_ajouter' => [OffreStageController::class, 'ajouterCandidature'],
+        'remove_wishlist' => [EtudiantController::class, 'removeFromWishlist'],
     ],
 ];
 
