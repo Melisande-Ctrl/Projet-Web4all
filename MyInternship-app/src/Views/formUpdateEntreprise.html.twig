@@ -1,0 +1,63 @@
+{% extends "base/layout.html.twig" %}
+
+{% block pageTitle %}
+    <title>Formulaire de Modification - MyInternship</title>
+{% endblock %}
+
+{% block content %}
+    <div class="section">
+        <div class="container">
+            <div class="section__head">
+                <h1>Modifier les informations de l'entreprise {{ entreprise.Nom_Entreprise }}</h1>
+                <h4 class="muted">Mettez à jour les détails de cette entreprise pour que les étudiants puissent mieux la connaître.</h4>
+            </div>
+            <div class="card">
+                <h3>Modifier les informations d'une entreprise </h3>
+                <form method="POST" action="?route=updateEntreprise&id={{ entreprise.Id_Entreprise }}">
+                    <div class="form-grid">
+                        <div class="field">
+                            <label class="field__label">Nom</label>
+                            <input class="input" type="text" name="Nom" minlength="1" maxlength="150" value="{{ entreprise.Nom_Entreprise }}" required>
+                        </div>
+
+                        <div class="field">
+                            <label class="field__label">Description</label>
+                            <input class="input" type="text" name="Description" minlength="5" value="{{ entreprise.Description_Entreprise }}" required>
+                        </div>
+
+                        <div class="field">
+                            <label class="field__label">Email</label>
+                            <input class="input" type="email" name="Email" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" value="{{ entreprise.Email }}" required>
+                        </div>
+
+                        <div class="field">
+                            <label class="field__label">Telephone</label>
+                            <input class="input" type="text" name="Telephone" pattern="[0-9]+.{10,20}" value="{{ entreprise.Telephone }}" required>
+                        </div>
+
+                        <div class="field">
+                            <label class="field__label">Adresse</label>
+                            <input class="input" type="text" name="Adresse" minlength="1" maxlength="100" value="{{ entreprise.Nom_Adresse }}" required>
+                        </div>
+
+                        <div class="field">
+                            <label class="field__label">Ville</label>
+                            <input class="input" type="text" name="Ville" pattern="[A-Za-zÀ-ÿ\- ]+.{1,60}" value="{{ entreprise.Nom_Ville }}" required>
+                        </div>
+
+                        <div class="field">
+                            <label class="field__label">Pays</label>
+                            <input class="input" type="text" name="Pays" pattern="[A-Za-zÀ-ÿ\- ]+.{1,50}" value="{{ entreprise.Nom_Pays }}" required>
+                        </div>
+                    </div>
+
+                    <div style="margin-top:20px;">
+                        <button class="btn btn--primary" type="submit">
+                            Modifier cette entreprise
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

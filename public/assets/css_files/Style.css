@@ -545,6 +545,16 @@ h3{
     color:var(--primary-dark);
     font-weight:800;
 }
+.company-note{
+    display:grid;
+    place-items:center;
+    padding: 10px;
+    border-radius:14px;
+    background:var(--surface);
+    color:var(--primary-dark);
+    font-weight:800;
+    font-size: x-large;
+}
 
 .timeline{
     list-style:none;
