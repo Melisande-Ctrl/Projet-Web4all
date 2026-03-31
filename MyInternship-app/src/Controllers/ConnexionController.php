@@ -46,9 +46,13 @@ class ConnexionController extends Controleur
             $this->redirect('connexion');
         }
 
-        if (!$utilisateur || $password !== $utilisateur['Password']) {
+        if (!$utilisateur || !$modeleConnexion->verifyPassword($password, $utilisateur['Password'])) {
             $_SESSION['auth_error'] = 'Identifiants incorrects';
             $this->redirect('connexion');
+        }
+
+        if ($modeleConnexion->passwordNeedsUpgrade($utilisateur['Password'])) {
+            $modeleConnexion->updatePassword((int) $utilisateur['Id_Compte'], $password);
         }
 
         session_regenerate_id(true);
