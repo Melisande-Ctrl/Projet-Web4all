@@ -40,16 +40,23 @@ class EtudiantController extends Controleur {
         ];
 
         $candidatures = [];
+        $wishlist = [];
+
 
         if ($section === 'candidatures') {
             $candidatures = $this->candidature->getCandidaturesByUser($_SESSION['user']['id']);
+        }
+
+        if ($section === 'wishlist') {
+            $wishlist = $this->wishlistModel->getWishlistByUser($_SESSION['user']['id']);
         }
 
         $this->render('dashboard/MonCompteEtudiant.html.twig', [
             'section' => $section,
             'menu' => $menu,
             'route' => 'etudiant_dashboard',
-            'candidatures' => $candidatures
+            'candidatures' => $candidatures,
+            'wishlist' => $wishlist
         ]);
     }
 
