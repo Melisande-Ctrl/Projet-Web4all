@@ -242,6 +242,7 @@ class OffreStageController extends Controleur
 
     private function uploadCandidatureFile(string $fieldName, string $prefix): string
     {
+
         if (!isset($_FILES[$fieldName]) || !is_array($_FILES[$fieldName])) {
             throw new RuntimeException('Les fichiers demandés sont obligatoires.');
         }
@@ -263,12 +264,15 @@ class OffreStageController extends Controleur
             throw new RuntimeException('Impossible de préparer le dossier des candidatures.');
         }
 
+
+
         $filename = sprintf(
             '%s_%d_%s.pdf',
             $prefix,
             (int) ($_SESSION['user']['id'] ?? 0),
             bin2hex(random_bytes(8))
         );
+
 
         $destination = $uploadDirectory . '/' . $filename;
         if (!move_uploaded_file((string) $file['tmp_name'], $destination)) {
