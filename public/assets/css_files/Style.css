@@ -289,6 +289,26 @@ h3{
     background:var(--primary-dark);
     transform:translateY(-1px);
 }
+.btn--edit{
+    background:var(--primary);
+    border-color:var(--primary);
+    color:#FFFFFF;
+    box-shadow:0 12px 24px rgba(37,99,235,0.22);
+}
+.btn--edit:hover{
+    background:var(--primary-dark);
+    transform:translateY(-1px);
+}
+.btn--danger{
+    background:#DC2626;
+    border-color:#DC2626;
+    color:#FFFFFF;
+    box-shadow:0 12px 24px rgba(220,38,38,0.18);
+}
+.btn--danger:hover{
+    background:#B91C1C;
+    transform:translateY(-1px);
+}
 .btn--ghost{
     background:#FFFFFF;
     border-color:#CCD8EE;

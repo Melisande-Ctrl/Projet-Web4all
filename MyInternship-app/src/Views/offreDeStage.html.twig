@@ -45,8 +45,8 @@
 
                 {% if session.user is defined and (session.user.role == 1 or session.user.role == 2) %}
                     <div class="offer-card__admin-actions">
-                        <a class="btn btn--small" href="?route=offre_stage_edit&id={{ offre.id }}">Modifier l’offre</a>
-                        <a class="btn btn--small" href="?route=offre_stage_delete&id={{ offre.id }}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette offre ?');">Supprimer l’offre</a>
+                        <a class="btn btn--edit btn--small" href="?route=offre_stage_edit&id={{ offre.id }}">Modifier l’offre</a>
+                        <a class="btn btn--danger btn--small" href="?route=offre_stage_delete&id={{ offre.id }}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette offre ?');">Supprimer l’offre</a>
                     </div>
                 {% endif %}
 
