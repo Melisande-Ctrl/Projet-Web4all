@@ -58,11 +58,10 @@ class EntrepriseController extends Controller
     public function pageRechercheEntreprises() : void // ?int $page = null ??????
     {
         $numPage = 2;//$_GET['numNewPage']
-        [$nbPages, $entreprises, $nbOffres, $listesFiltres] = $this->model->getEntreprises($numPage);
+        [$nbPages, $entreprises, $listesFiltres] = $this->model->getEntreprises($numPage);
         echo $this->templateEngine->render('rechercheEntreprises.html.twig',
             ['nbPages' => $nbPages,
                 'entreprises' => $entreprises,
-                'nbOffres' => $nbOffres,
                 'listesFiltres' => $listesFiltres]);//'current_page' => $page,
     }
 
@@ -97,7 +96,6 @@ class EntrepriseController extends Controller
             $this->redirect('entreprise_show&id='.$Id_Entreprise);
         }
     }
-
 
     /**
      * @param $id
@@ -154,7 +152,7 @@ class EntrepriseController extends Controller
             $this->redirect('entreprises');
         }
         else {
-            echo '<h1>Erreur - Entreprise non supprimée</h1>';
+            echo '<h1>Erreur - Entreprise non supprimée</h1>';//Bam,tap,careers@bam.com,0162325458,96
         }
     }
 }

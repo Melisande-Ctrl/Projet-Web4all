@@ -19,7 +19,7 @@
                             <h2>{{ entreprise.Nom_Entreprise }}</h2>
                             <h4 class="muted">{{ entreprise.Nom_Ville }}</h4>
                         </div>
-                        <p>{{ nbOffres[loop.index0]['nbOffres'] }} stagiaire(s) recherché(s)</p>
+                        <p>{{ entreprise.nbOffres }} stagiaire(s) recherché(s)</p>
                         <a class="link" href="?route=entreprise_show&id={{ entreprise.Id_Entreprise }}">Voir la fiche</a>
                     </article>
                     {% endfor %}
