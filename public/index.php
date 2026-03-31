@@ -63,6 +63,9 @@ $routes = [
         'offres_stage' => [OffreStageController::class, 'index'],
         'offre_stage' => [OffreStageController::class, 'show'],
         'offre_stage_candidature' => [OffreStageController::class, 'showCandidatureForm'],
+        'offre_stage_create' => [OffreStageController::class, 'showCreateForm'],
+        'offre_stage_edit' => [OffreStageController::class, 'showEditForm'],
+        'offre_stage_delete' => [OffreStageController::class, 'delete'],
         'entreprises' => [EntrepriseController::class, 'pageRechercheEntreprises'],
         'entreprise_show' => [EntrepriseController::class, 'ficheEntreprise'],
         'entreprise_edit' => [EntrepriseController::class, 'formUpdateEntreprise'],
@@ -81,9 +84,11 @@ $routes = [
         'change_password' => [MainController::class, 'changePassword'],
         'wishlist_ajouter' => [OffreStageController::class, 'ajouterWishlist'],
         'new_entreprise' => [EntrepriseController::class, 'createEntreprise'],
+        'new_offre_stage' => [OffreStageController::class, 'create'],
         'candidature_ajouter' => [OffreStageController::class, 'ajouterCandidature'],
         'remove_wishlist' => [EtudiantController::class, 'removeFromWishlist'],
         'updateEntreprise' => [EntrepriseController::class, 'updateEntreprise'],
+        'updateOffreStage' => [OffreStageController::class, 'update'],
     ],
 ];
 

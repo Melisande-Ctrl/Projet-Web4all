@@ -221,6 +221,17 @@ h3{
     outline:none;
     background:white;
 }
+.textarea{
+    min-height:180px;
+    border:1px solid var(--border);
+    border-radius:var(--radius-small);
+    padding:14px;
+    font-size:15px;
+    outline:none;
+    background:white;
+    resize:vertical;
+    font-family:inherit;
+}
 .search--hello .input{
     height:40px;
     border:none;
@@ -229,6 +240,10 @@ h3{
     background:transparent;
 }
 .input:focus{
+    border-color:#8AB7FF;
+    box-shadow:0 0 0 4px rgba(37, 99, 235, 0.12);
+}
+.textarea:focus{
     border-color:#8AB7FF;
     box-shadow:0 0 0 4px rgba(37, 99, 235, 0.12);
 }
@@ -612,6 +627,15 @@ h3{
     gap:16px;
     margin-top:20px;
 }
+.field--full{
+    grid-column:1 / -1;
+}
+.form-actions{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-top:24px;
+}
 .alert{
     padding:12px 14px;
     border-radius:16px;
@@ -692,6 +716,11 @@ h3{
 .offer-card__actions{
     display:flex;
     justify-content:flex-start;
+}
+.offer-card__admin-actions{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
 }
 .offer-card__section{
     display:flex;
