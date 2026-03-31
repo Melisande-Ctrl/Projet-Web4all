@@ -40,10 +40,10 @@ class EntrepriseController extends Controleur
         }
 
         if (!$entreprise) { // le ! fait une vérification qui renvoie un booléen true si $entreprise est null
-            echo $this->templateEngine->render('404.html.twig', ['erreur' => "Entreprise non trouvée"]);
+            $this->render('404.html.twig', ['erreur' => "Entreprise non trouvée"]);
             return;
         }
-        echo $this->templateEngine->render('ficheEntreprise.html.twig',
+        $this->render('ficheEntreprise.html.twig',
             ['entreprise' => $entreprise,
                 'note' => $note,
                 'offres' => $offres,
@@ -62,10 +62,12 @@ class EntrepriseController extends Controleur
     {
         $numPage = 2;//$_GET['numNewPage']
         [$nbPages, $entreprises, $listesFiltres] = $this->model->getEntreprises($numPage);
-        echo $this->templateEngine->render('rechercheEntreprises.html.twig',
+
+        $this->render('rechercheEntreprises.html.twig',
             ['nbPages' => $nbPages,
                 'entreprises' => $entreprises,
                 'listesFiltres' => $listesFiltres]);//'current_page' => $page,
+
     }
 
     /**
@@ -111,10 +113,10 @@ class EntrepriseController extends Controleur
     public function formUpdateEntreprise($id) : void {
         $entreprise = $this->model->getEntrepriseById($id);
         if (!$entreprise) {
-            echo $this->templateEngine->render('404.html.twig', ['erreur' => "Entreprise non trouvée"]);
+            $this->render('404.html.twig', ['erreur' => "Entreprise non trouvée"]);
             return;
         }
-        echo $this->templateEngine->render('formUpdateEntreprise.html.twig', ['entreprise' => $entreprise]);
+        $this->render('formUpdateEntreprise.html.twig', ['entreprise' => $entreprise]);
     }
     /**
      * @param $id
