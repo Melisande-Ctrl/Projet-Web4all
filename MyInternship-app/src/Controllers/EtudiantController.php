@@ -77,4 +77,19 @@ class EtudiantController extends Controleur {
         header('Location: ?route=etudiant_dashboard&section=' . $section);
         exit;
     }
+
+    public function searchEtudiant() : void {
+
+        $nom = $_GET['nom'] ?? null;
+        $etudiants = null;
+
+        if ($nom) {
+            $etudiants = $this->etudiantModel->getEtudiantParNom($nom);
+        }
+
+        $this->render('dashboard/MonComptePilote.html.twig', [
+            'etudiants' => $etudiants
+        ]);
+
+    }
 }
