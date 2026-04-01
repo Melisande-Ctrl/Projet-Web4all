@@ -3,9 +3,6 @@ namespace App\Controllers;
 
 use App\Models\EntrepriseModel;
 use Twig\Environment;
-use Twig\Error\LoaderError;
-use Twig\Error\RuntimeError;
-use Twig\Error\SyntaxError;
 
 class EntrepriseController extends Controleur
 {
@@ -16,7 +13,7 @@ class EntrepriseController extends Controleur
      */
     public function __construct($templateEngine)
     {
-        parent::__construct($templateEngine);//$this->templateEngine = $templateEngine;
+        parent::__construct($templateEngine);
         $this->model = new EntrepriseModel();
     }
 
@@ -26,7 +23,7 @@ class EntrepriseController extends Controleur
      *
      * Affiche la fiche détaillée d'une entreprise
      */
-    public function ficheEntreprise($id) : void //?int $id = null
+    public function ficheEntreprise($id) : void
     {
         [$entreprise, $note, $offres] = $this->model->ficheEntreprise($id);
         $affichageBoutons = false;
@@ -51,7 +48,7 @@ class EntrepriseController extends Controleur
      * Affiche la page de recherche des entreprises
      * @return void
      */
-    public function pageRechercheEntreprises() : void // ?int $page = null ??????
+    public function pageRechercheEntreprises() : void
     {
         $numPage = 2;//$_GET['numNewPage']
         [$nbPages, $entreprises, $listesFiltres] = $this->model->getEntreprises($numPage);
@@ -63,11 +60,7 @@ class EntrepriseController extends Controleur
 
     }
 
-    /**
-     * @param $dataEntreprise
-     * @return void
-     */
-    public function createEntreprise() : void {
+    public function getPOSTdataEntreprise() : array {
         $dataEntreprise['Nom'] = $_POST['Nom'] ?? '';
         $dataEntreprise['Description'] = $_POST['Description'] ?? '';
         $dataEntreprise['Email'] = $_POST['Email'] ?? '';
@@ -76,13 +69,18 @@ class EntrepriseController extends Controleur
         $dataEntreprise['Ville'] = $_POST['Ville'] ?? '';
         $dataEntreprise['Pays'] = $_POST['Pays'] ?? '';
 
-        if (!is_array($dataEntreprise)) {
-            $this->redirect('mon_espace');
-            //echo '<h1>Erreur - Entrée utilisateur</h1>';
-        }
+        return $dataEntreprise;
+    }
+    /**
+     * @return void
+     */
+    public function createEntreprise() : void {
+        $dataEntreprise = $this->getPOSTdataEntreprise();
+
         foreach ($dataEntreprise as $key => $value) {
             if (!is_string($key) or !is_string($value)) {
-                echo '<h1>Erreur - Entrée utilisateur</h1>';
+                //echo '<h1>Erreur - Entrée utilisateur</h1>';
+                $this->redirect('mon_espace');
             }
         }
         $Id_Entreprise = $this->model->createEntreprise($dataEntreprise);
@@ -111,17 +109,11 @@ class EntrepriseController extends Controleur
      * @param $id
      * @return void
      */
-    public function updateEntreprise($id) : void //faire en sorte que l'id ne vienne pas du user (recup when update button clicked for ex)
+    public function updateEntreprise($id) : void
     {
-        $dataEntreprise['Nom'] = $_POST['Nom'] ?? '';
-        $dataEntreprise['Description'] = $_POST['Description'] ?? '';
-        $dataEntreprise['Email'] = $_POST['Email'] ?? '';
-        $dataEntreprise['Telephone'] = $_POST['Telephone'] ?? '';
-        $dataEntreprise['Adresse'] = $_POST['Adresse'] ?? '';
-        $dataEntreprise['Ville'] = $_POST['Ville'] ?? '';
-        $dataEntreprise['Pays'] = $_POST['Pays'] ?? '';
+        $dataEntreprise = $this->getPOSTdataEntreprise();
 
-        if (!is_array($dataEntreprise) or !is_int($id)) {
+        if (!is_int($id)) {
             //echo '<h1>Erreur - Entrée utilisateur</h1>';
             $this->redirect('entreprise_show', ['id' => $id]);
         }
