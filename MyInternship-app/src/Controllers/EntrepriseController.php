@@ -51,17 +51,16 @@ class EntrepriseController extends Controleur
      */
     public function pageRechercheEntreprises(int $currentPage = 1) : void
     {
-        //$currentPage = 2;$_GET['numNewPage']
         $criteresRecherche['Nom'] = $_GET['Nom'] ?? '';
         $criteresRecherche['Ville'] = $_GET['Ville'] ?? '';
-        [$nbPages, $entreprises, $listesFiltres] = $this->model->getEntreprises($currentPage, $criteresRecherche);
+        [$nbPages, $nbEntreprises, $entreprises] = $this->model->getEntreprises($currentPage, $criteresRecherche);
 
         $this->render('rechercheEntreprises.html.twig',
             ['nbPages' => $nbPages,
              'currentPage' => $currentPage,
+             'nbEntreprises' => $nbEntreprises,
              'entreprises' => $entreprises,
-             'criteria' => $criteresRecherche,
-             'listesFiltres' => $listesFiltres]);
+             'criteria' => $criteresRecherche]);
 
     }
 

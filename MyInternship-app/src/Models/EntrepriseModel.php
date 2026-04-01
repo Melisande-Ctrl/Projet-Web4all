@@ -138,15 +138,7 @@ class EntrepriseModel extends Modele {
             return null; // Retourne null si les entreprises ne sont pas trouvées
         }
 
-        //Récupération des listes pour les filtres
-        $queryVilles = $this->connection->query("SELECT DISTINCT(Nom_Ville) FROM Villes");
-        $listeVilles = $queryVilles->fetchAll(PDO::FETCH_ASSOC);
-        $queryPays = $this->connection->query("SELECT DISTINCT(Nom_Pays) FROM Pays");
-        $listePays = $queryPays->fetchAll(PDO::FETCH_ASSOC);
-
-        $filtres['listeVilles'] = $listeVilles;
-        $filtres['listePays'] = $listePays;
-        return [$nbPages, $nbEntreprises, $entreprises, $filtres];
+        return [$nbPages, $nbEntreprises, $entreprises];
     }
     public function createEntreprise($dataEntreprise) : int | bool
     {

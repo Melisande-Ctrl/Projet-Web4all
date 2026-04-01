@@ -34,13 +34,12 @@
 
             <div class="results-bar">
                 <p class="muted">
-{#                    total_results = nombre d'entreprises résultant de la recherche en fonction des filtres#}
-                    {{ total_results }} offre{% if total_results > 1 %}s{% endif %}
-                    {% if filters.keyword or filters.location %}
-                        trouvée{% if total_results > 1 %}s{% endif %}
-                        avec les filtres actifs.
+                    {{  nbEntreprises }} entreprise(s)
+                    {% if criteria.Nom or criteria.Ville %}
+                        trouvée(s)
+                        avec filtre(s) actif(s).
                     {% else %}
-                        disponible{% if total_results > 1 %}s{% endif %} actuellement.
+                        disponible(s) actuellement.
                     {% endif %}
                 </p>
             </div>
