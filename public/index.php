@@ -111,7 +111,7 @@ try {
         throw new Exception("La méthode {$method} n'existe pas dans le contrôleur {$controllerClass}.");
     }
 
-    if ($route === 'offres_stage') {
+    if ($route === 'offres_stage' or $route === 'entreprises') {
         $page = filter_input(INPUT_GET, 'page', FILTER_VALIDATE_INT);
         $page = $page !== false && $page !== null ? max(1, $page) : 1;
         $controller->$method($page);
