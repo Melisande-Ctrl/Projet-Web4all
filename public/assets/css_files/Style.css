@@ -751,6 +751,57 @@ h3{
 .offer-card__section p{
     margin:0;
 }
+.stats-carousel{
+    display:grid;
+    grid-auto-flow:column;
+    grid-auto-columns:minmax(260px, 1fr);
+    gap:18px;
+    overflow-x:auto;
+    padding-bottom:8px;
+}
+.stats-card{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    min-height:220px;
+}
+.stats-card--wide{
+    min-width:340px;
+}
+.stats-card__eyebrow{
+    margin:0;
+    color:var(--muted);
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+}
+.stats-card__value{
+    font-size:2.2rem;
+    line-height:1;
+    letter-spacing:-0.04em;
+}
+.stats-list{
+    list-style:none;
+    padding:0;
+    margin:0;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+.stats-list li{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    padding:12px 14px;
+    border:1px solid var(--border);
+    border-radius:16px;
+    background:#F9FBFF;
+}
+.stats-list strong{
+    flex-shrink:0;
+}
 
 .footer{
     border-top:1px solid rgba(217,226,241,0.9);
