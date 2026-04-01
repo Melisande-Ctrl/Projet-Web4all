@@ -6,7 +6,9 @@ use PDO;
 class EntrepriseModel extends Modele {
 
     /**
-     * Récupère le nombre total d'entreprises
+     * Récupère le nombre total d'entreprises dans la base de données
+     *
+     * @return int
      */
     public function getNbEntreprises() : int
     {
@@ -66,8 +68,12 @@ class EntrepriseModel extends Modele {
 
     /**
      * Récupère les entreprises avec pagination
+     *
+     * @param $numPage
+     * @param $criteresRecherche
+     * @return array|null
      */
-    public function getEntreprises($numPage) : array | null
+    public function getEntreprises($numPage, $criteresRecherche) : array | null
     {
         $nbEntreprises = $this->getNbEntreprises(); // Nombre d'entreprises dans la base de données
         $perPage = 10; // Nombre d'entreprises par page
@@ -75,15 +81,40 @@ class EntrepriseModel extends Modele {
         // Calcul du décalage à appliquer lors de la récupération des entreprises dans la base de données
         $offset = ($numPage - 1) * $perPage;
 
+        //Construction de la partie WHERE pour ajouter les filtres de l'utilisateur
+        $conditions = [];
+        $criteriaValues = [];
+
+        $nomFilter = trim((string)($criteresRecherche['Nom'] ?? ''));
+        if ($nomFilter !== '') {
+            $conditions[] = 'en.Nom_Entreprise LIKE :nomFilter';
+            $criteriaValues[':nomFilter'] = '%' . $nomFilter . '%';
+        }
+        $villeFilter = trim((string)($criteresRecherche['Ville'] ?? ''));
+        if ($villeFilter !== '') {
+            $conditions[] = 'v.Nom_Ville LIKE :villeFilter';
+            $criteriaValues[':villeFilter'] = '%' . $villeFilter . '%';
+        }
+        if ($conditions === []) {
+            $completeWHERE = '';
+        }
+        else {
+            $completeWHERE = ' WHERE ' . implode(' AND ', $conditions);
+        }
+
         //Récupération des entreprises pour la page actuelle
         $queryEntreprises = $this->connection->prepare("SELECT en.*, v.Nom_Ville, 
                         COALESCE(COUNT(os.Id_Offre), 0) AS nbOffres FROM Entreprises en 
                         LEFT JOIN Adresses a ON en.Siege_social = a.Id_Adresse 
                         LEFT JOIN Villes v ON a.Id_Ville = v.Id_Ville 
                         LEFT JOIN Offres_Stages os ON en.Id_Entreprise = os.Id_Entreprise
-                        GROUP BY en.Id_Entreprise, en.Nom_Entreprise ORDER BY en.Nom_Entreprise LIMIT ? OFFSET ?");
-        $queryEntreprises->bindParam(1, $perPage, PDO::PARAM_INT);
-        $queryEntreprises->bindParam(2, $offset, PDO::PARAM_INT);
+                        $completeWHERE
+                        GROUP BY en.Id_Entreprise, en.Nom_Entreprise ORDER BY en.Nom_Entreprise LIMIT :limit OFFSET :offset");
+        foreach ($criteriaValues as $name => $value) {
+            $queryEntreprises->bindParam($name, $value, PDO::PARAM_STR);
+        }
+        $queryEntreprises->bindParam(':limit', $perPage, PDO::PARAM_INT);
+        $queryEntreprises->bindParam(':offset', $offset, PDO::PARAM_INT);
         $queryEntreprises->execute();
         $entreprises = $queryEntreprises->fetchAll(PDO::FETCH_ASSOC);
         if (!$entreprises)

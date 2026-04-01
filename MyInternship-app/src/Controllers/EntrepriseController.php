@@ -18,12 +18,12 @@ class EntrepriseController extends Controleur
     }
 
     /**
-     * @param $id
+     * @param int|null $id
      * @return void
      *
      * Affiche la fiche détaillée d'une entreprise
      */
-    public function ficheEntreprise($id) : void
+    public function ficheEntreprise(int|null $id = 1) : void
     {
         [$entreprise, $note, $offres] = $this->model->ficheEntreprise($id);
         $affichageBoutons = false;
@@ -46,17 +46,22 @@ class EntrepriseController extends Controleur
 
     /**
      * Affiche la page de recherche des entreprises
+     * @param int $numPage
      * @return void
      */
-    public function pageRechercheEntreprises() : void
+    public function pageRechercheEntreprises(int $currentPage = 1) : void
     {
-        $numPage = 2;//$_GET['numNewPage']
-        [$nbPages, $entreprises, $listesFiltres] = $this->model->getEntreprises($numPage);
+        //$currentPage = 2;$_GET['numNewPage']
+        $criteresRecherche['Nom'] = $_POST['Nom'] ?? '';
+        $criteresRecherche['Ville'] = $_POST['Ville'] ?? '';
+        [$nbPages, $entreprises, $listesFiltres] = $this->model->getEntreprises($currentPage, $criteresRecherche);
 
         $this->render('rechercheEntreprises.html.twig',
             ['nbPages' => $nbPages,
-                'entreprises' => $entreprises,
-                'listesFiltres' => $listesFiltres]);//'current_page' => $page,
+             'currentPage' => $currentPage,
+             'entreprises' => $entreprises,
+             'criteria' => $criteresRecherche,
+             'listesFiltres' => $listesFiltres]);
 
     }
 

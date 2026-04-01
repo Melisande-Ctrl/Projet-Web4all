@@ -83,6 +83,7 @@ $routes = [
         'logout' => [ConnexionController::class, 'deconnecter'],
         'change_password' => [MainController::class, 'changePassword'],
         'wishlist_ajouter' => [OffreStageController::class, 'ajouterWishlist'],
+        'entreprises' => [EntrepriseController::class, 'pageRechercheEntreprises'],
         'new_entreprise' => [EntrepriseController::class, 'createEntreprise'],
         'new_offre_stage' => [OffreStageController::class, 'create'],
         'candidature_ajouter' => [OffreStageController::class, 'ajouterCandidature'],
@@ -110,7 +111,7 @@ try {
         throw new Exception("La méthode {$method} n'existe pas dans le contrôleur {$controllerClass}.");
     }
 
-    if ($route === 'offres_stage') {
+    if ($route === 'offres_stage' or $route === 'entreprises') {
         $page = filter_input(INPUT_GET, 'page', FILTER_VALIDATE_INT);
         $page = $page !== false && $page !== null ? max(1, $page) : 1;
         $controller->$method($page);

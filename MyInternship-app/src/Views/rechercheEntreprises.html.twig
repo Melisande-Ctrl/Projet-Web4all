@@ -11,6 +11,38 @@
                 <h1>Rechercher des entreprises</h1>
                 <p class="muted">Découvrez les entreprises partenaires et leurs offres de stage.</p>
             </div>
+
+            <div class="card filters-card">
+                <form class="search filters-search" method="POST" action="?route=entreprises&page=1">
+
+                    <label class="field">
+                        <span class="field__label">Nom d'entreprise</span>
+                        <input class="input" name="Nom" type="text" value="{{ criteria.Nom }}" placeholder="Ex : Aloa">
+                    </label>
+
+                    <label class="field">
+                        <span class="field__label">Ville</span>
+                        <input class="input" name="Ville" type="text" value="{{ criteria.Ville }}" placeholder="Ex : La Rochelle">
+                    </label>
+
+                    <button class="btn btn--primary" type="submit">Rechercher</button>
+                    <a class="btn btn--ghost" href="?route=entreprises&page=1">Réinitialiser</a>
+                </form>
+            </div>
+
+            <div class="results-bar">
+                <p class="muted">
+{#                    total_results = nombre d'entreprises résultant de la recherche en fonction des filtres#}
+                    {{ total_results }} offre{% if total_results > 1 %}s{% endif %}
+                    {% if filters.keyword or filters.location %}
+                        trouvée{% if total_results > 1 %}s{% endif %}
+                        avec les filtres actifs.
+                    {% else %}
+                        disponible{% if total_results > 1 %}s{% endif %} actuellement.
+                    {% endif %}
+                </p>
+            </div>
+
             {% if entreprises is not empty %}
                 <div class="cards">
                     {% for entreprise in entreprises %}
@@ -20,37 +52,33 @@
                             <h4 class="muted">{{ entreprise.Nom_Ville }}</h4>
                         </div>
                         <p>{{ entreprise.nbOffres }} stagiaire(s) recherché(s)</p>
-                        <a class="link" href="?route=entreprise_show&id={{ entreprise.Id_Entreprise }}">Voir la fiche</a>
+                        <a class="link" href="?route=entreprise_show&id={{ entreprise.Id_Entreprise }}">Voir les détails</a>
                     </article>
                     {% endfor %}
                 </div>
-                <form action="/?" method="get">
-                    {% for i in 1..nbPages %} {# // temporary#}
-                        <label>{{ i }}</label>
-                        <input name="numNewPage" type="hidden" value="{{ i }}">
-                    {% endfor %}
-                </form>
-{#                {% if total_pages > 1 %}
+
+                {% if nbPages > 1 %} {# // Boutons de pagination#}
                     <div class="pagination">
-                        {% if current_page > 1 %}
-                            <a class="btn btn--ghost" href="?route=entreprises&page=1">« Première</a>
-                            <a class="btn btn--ghost" href="?route=entreprises&page={{ current_page - 1 }}">‹ Précédente</a>
+                        {% if currentPage > 1 %}
+                            <a class="btn btn--ghost" href="?route=entreprises&page=1">Première</a>
+                            <a class="btn btn--ghost" href="?route=entreprises&page={{ currentPage - 1 }}">Précédente</a>
                         {% endif %}
 
                         <div class="pagination__info">
-                            Page {{ current_page }} sur {{ total_pages }}
+                            Page {{ currentPage }} sur {{ nbPages }}
                         </div>
 
-                        {% if current_page < total_pages %}
-                            <a class="btn btn--ghost" href="?route=entreprises&page={{ current_page + 1 }}">Suivante ›</a>
-                            <a class="btn btn--ghost" href="?route=entreprises&page={{ total_pages }}">Dernière »</a>
+                        {% if currentPage < nbPages %}
+                            <a class="btn btn--ghost" href="?route=entreprises&page={{ currentPage + 1 }}">Suivante</a>
+                            <a class="btn btn--ghost" href="?route=entreprises&page={{ nbPages }}">Dernière</a>
                         {% endif %}
                     </div>
                 {% endif %}
+
             {% else %}
                 <div class="alert alert--info">
                     <p>Aucune entreprise trouvée pour le moment.</p>
-                </div>#}
+                </div>
             {% endif %}
         </div>
     </section>
