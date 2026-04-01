@@ -6,7 +6,7 @@ namespace App\Models;
 
 use PDO;
 
-class Candidature extends Modele
+class CandidatureModel extends Modele
 {
     public function etudiantAPostule(int $compteId, int $offreId): bool
     {
