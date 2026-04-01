@@ -63,6 +63,12 @@
             </div>
         {% endif %}
 
+        {% if offre_management_feedback %}
+            <div class="card empty-state">
+                <p class="muted">{{ offre_management_feedback.message }}</p>
+            </div>
+        {% endif %}
+
         {% if offres_stage is not empty %}
             <div class="list">
                 {% for offre_stage in offres_stage %}

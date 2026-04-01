@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 
+use App\Models\Candidature;
 use App\Models\EtudiantModel;
 use App\Models\WishlistModel;
 
@@ -11,11 +12,13 @@ class EtudiantController extends Controleur {
 
     private EtudiantModel $etudiantModel;
     private WishlistModel $wishlistModel;
+    private Candidature $candidature;
 
     public function __construct($twig){
         parent::__construct($twig);
         $this->etudiantModel = new etudiantModel();
         $this->wishlistModel = new WishlistModel();
+        $this->candidature = new Candidature();
     }
 
     public function showDashboard(): void
@@ -32,22 +35,27 @@ class EtudiantController extends Controleur {
 
         $menu = [
             'infos' => 'Informations',
-            'candidatures' => 'Liste des candidatures',
+            'candidatures' => 'Mes Candidatures',
             'wishlist' => 'Ma Wishlist'
         ];
 
+        $candidatures = [];
         $wishlist = [];
+
+
+        if ($section === 'candidatures') {
+            $candidatures = $this->candidature->getCandidaturesByUser($_SESSION['user']['id']);
+        }
 
         if ($section === 'wishlist') {
             $wishlist = $this->wishlistModel->getWishlistByUser($_SESSION['user']['id']);
         }
 
-
-
         $this->render('dashboard/MonCompteEtudiant.html.twig', [
             'section' => $section,
             'menu' => $menu,
             'route' => 'etudiant_dashboard',
+            'candidatures' => $candidatures,
             'wishlist' => $wishlist
         ]);
     }

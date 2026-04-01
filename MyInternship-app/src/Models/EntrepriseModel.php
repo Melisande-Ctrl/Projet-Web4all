@@ -163,34 +163,39 @@ class EntrepriseModel extends Modele {
     {
         // Récupération des données de l'entreprise avec son adresse complète
         $databaseDataEntreprise = $this->getEntrepriseById($Id_Entreprise);
+        if ($databaseDataEntreprise === null) {
+            return false;
+        }
+
+        $modification = true;
 
         if ($databaseDataEntreprise['Nom'] !== $dataEntreprise['Nom'])
         {
             $queryUpdateNomEntreprise = $this->connection->prepare("UPDATE Entreprises SET Nom_Entreprise = ? WHERE Id_Entreprise = ?");
             $queryUpdateNomEntreprise->bindParam(1, $dataEntreprise['Nom'], PDO::PARAM_STR);
             $queryUpdateNomEntreprise->bindParam(2,$Id_Entreprise, PDO::PARAM_INT);
-            $modification = $queryUpdateNomEntreprise->execute();
+            $modification = $modification && $queryUpdateNomEntreprise->execute();
         }
         if ($databaseDataEntreprise['Description'] !== $dataEntreprise['Description'])
         {
             $queryUpdateDescriptionEntreprise = $this->connection->prepare("UPDATE Entreprises SET Description_Entreprise = ? WHERE Id_Entreprise = ?");
             $queryUpdateDescriptionEntreprise->bindParam(1, $dataEntreprise['Description'], PDO::PARAM_STR);
             $queryUpdateDescriptionEntreprise->bindParam(2,$Id_Entreprise, PDO::PARAM_INT);
-            $modification2 = $queryUpdateDescriptionEntreprise->execute();
+            $modification = $modification && $queryUpdateDescriptionEntreprise->execute();
         }
         if ($databaseDataEntreprise['Email'] !== $dataEntreprise['Email'])
         {
             $queryUpdateEmailEntreprise = $this->connection->prepare("UPDATE Entreprises SET Email = ? WHERE Id_Entreprise = ?");
             $queryUpdateEmailEntreprise->bindParam(1, $dataEntreprise['Email'], PDO::PARAM_STR);
             $queryUpdateEmailEntreprise->bindParam(2,$Id_Entreprise, PDO::PARAM_INT);
-            $modification3 = $queryUpdateEmailEntreprise->execute();
+            $modification = $modification && $queryUpdateEmailEntreprise->execute();
         }
         if ($databaseDataEntreprise['Telephone'] !== $dataEntreprise['Telephone'])
         {
             $queryUpdateTelephoneEntreprise = $this->connection->prepare("UPDATE Entreprises SET Telephone = ? WHERE Id_Entreprise = ?");
             $queryUpdateTelephoneEntreprise->bindParam(1, $dataEntreprise['Telephone'], PDO::PARAM_STR);
             $queryUpdateTelephoneEntreprise->bindParam(2,$Id_Entreprise, PDO::PARAM_INT);
-            $modification4 = $queryUpdateTelephoneEntreprise->execute();
+            $modification = $modification && $queryUpdateTelephoneEntreprise->execute();
         }
 
         // Modifier l'adresse
@@ -206,20 +211,20 @@ class EntrepriseModel extends Modele {
                 $queryUpdateNomAdresseEntreprise = $this->connection->prepare("UPDATE Adresses SET Nom_Adresse = ? WHERE Id_Adresse = ?");
                 $queryUpdateNomAdresseEntreprise->bindParam(1, $dataEntreprise['Adresse'], PDO::PARAM_STR);
                 $queryUpdateNomAdresseEntreprise->bindParam(2, $databaseDataEntreprise['Siege_social'], PDO::PARAM_INT);
-                $modification5 = $queryUpdateNomAdresseEntreprise->execute();
+                $modification = $modification && $queryUpdateNomAdresseEntreprise->execute();
             }
             else {
                 $queryCreateAdresse = $this->connection->prepare("INSERT INTO Adresses(Nom_Adresse, Id_Ville) VALUES (?, ?)");
                 $queryCreateAdresse->bindParam(1, $dataEntreprise['Adresse'], PDO::PARAM_STR);
                 $queryCreateAdresse->bindParam(2, $databaseDataEntreprise['Id_Ville'], PDO::PARAM_INT);
-                $modification6 = $queryCreateAdresse->execute();
+                $modification = $modification && $queryCreateAdresse->execute();
                 $Id_Adresse = (int)$this->connection->lastInsertId();
                 $databaseDataEntreprise['Siege_social'] = $Id_Adresse;
                 // Update l'Id_Ville de l'entreprise
                 $queryUpdateIdAdresseEntreprise = $this->connection->prepare("UPDATE Entreprises SET Siege_social = ? WHERE Id_Entreprise = ?");
                 $queryUpdateIdAdresseEntreprise->bindParam(1, $databaseDataEntreprise['Siege_social'], PDO::PARAM_INT);
                 $queryUpdateIdAdresseEntreprise->bindParam(2,$Id_Entreprise, PDO::PARAM_INT);
-                $modification7 = $queryUpdateIdAdresseEntreprise->execute();
+                $modification = $modification && $queryUpdateIdAdresseEntreprise->execute();
             }
         }
 
@@ -233,20 +238,20 @@ class EntrepriseModel extends Modele {
                 $queryUpdateNomVilleEntreprise = $this->connection->prepare("UPDATE Villes SET Nom_Ville = ? WHERE Id_Ville = ?");
                 $queryUpdateNomVilleEntreprise->bindParam(1, $dataEntreprise['Ville'], PDO::PARAM_STR);
                 $queryUpdateNomVilleEntreprise->bindParam(2, $databaseDataEntreprise['Id_Ville'], PDO::PARAM_INT);
-                $modification8 = $queryUpdateNomVilleEntreprise->execute();
+                $modification = $modification && $queryUpdateNomVilleEntreprise->execute();
             }
             else {
                 $queryCreateVille = $this->connection->prepare("INSERT INTO Villes(Nom_Ville, Id_Pays) VALUES (?, ?)");
                 $queryCreateVille->bindParam(1, $dataEntreprise['Ville'], PDO::PARAM_STR);
                 $queryCreateVille->bindParam(2, $databaseDataEntreprise['Id_Pays'], PDO::PARAM_INT);
-                $modification9 = $queryCreateVille->execute();
+                $modification = $modification && $queryCreateVille->execute();
                 $Id_Ville = (int)$this->connection->lastInsertId();
                 $databaseDataEntreprise['Id_Ville'] = $Id_Ville;
                 // Update l'Id_Ville de l'entreprise
                 $queryUpdateIdVilleEntreprise = $this->connection->prepare("UPDATE Adresses SET Id_Ville = ? WHERE Id_Adresse = ?");
                 $queryUpdateIdVilleEntreprise->bindParam(1, $databaseDataEntreprise['Id_Ville'], PDO::PARAM_INT);
                 $queryUpdateIdVilleEntreprise->bindParam(2,$databaseDataEntreprise['Siege_social'], PDO::PARAM_INT);
-                $modification10 = $queryUpdateIdVilleEntreprise->execute();
+                $modification = $modification && $queryUpdateIdVilleEntreprise->execute();
             }
         }
 
@@ -260,19 +265,19 @@ class EntrepriseModel extends Modele {
                 $queryUpdateNomPaysEntreprise = $this->connection->prepare("UPDATE Pays SET Nom_Pays = ? WHERE Id_Pays = ?");
                 $queryUpdateNomPaysEntreprise->bindParam(1, $dataEntreprise['Pays'], PDO::PARAM_STR);
                 $queryUpdateNomPaysEntreprise->bindParam(2, $databaseDataEntreprise['Id_Pays'], PDO::PARAM_INT);
-                $modification11 = $queryUpdateNomPaysEntreprise->execute();
+                $modification = $modification && $queryUpdateNomPaysEntreprise->execute();
             }
             else {
                 $queryCreatePays = $this->connection->prepare("INSERT INTO Pays(Nom_Pays) VALUES (?)");
                 $queryCreatePays->bindParam(1, $dataEntreprise['Pays'], PDO::PARAM_STR);
-                $modification12 = $queryCreatePays->execute();
+                $modification = $modification && $queryCreatePays->execute();
                 $Id_Pays = (int)$this->connection->lastInsertId();
                 $databaseDataEntreprise['Id_Pays'] = $Id_Pays;
                 // Update l'Id_Pays de l'entreprise
                 $queryUpdateIdPaysEntreprise = $this->connection->prepare("UPDATE Villes SET Id_Pays = ? WHERE Id_Ville = ?");
                 $queryUpdateIdPaysEntreprise->bindParam(1, $databaseDataEntreprise['Id_Pays'], PDO::PARAM_INT);
                 $queryUpdateIdPaysEntreprise->bindParam(2,$databaseDataEntreprise['Id_Ville'], PDO::PARAM_INT);
-                $modification13 = $queryUpdateIdPaysEntreprise->execute();
+                $modification = $modification && $queryUpdateIdPaysEntreprise->execute();
             }
         }
         return $modification; // Retourne true si la modification a réussi, sinon false
