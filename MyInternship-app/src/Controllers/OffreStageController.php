@@ -65,6 +65,14 @@ class OffreStageController extends Controleur
         ]);
     }
 
+    public function showStats(): void
+    {
+        $this->render('statsOffres.html.twig', [
+            'page_title' => 'Statistiques des offres - MyInternship',
+            'stats' => $this->model->getOffreStageStatistics(),
+        ]);
+    }
+
     public function showCreateForm(): void
     {
         $this->requireOffreManagementAccess();

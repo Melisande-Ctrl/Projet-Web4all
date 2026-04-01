@@ -62,6 +62,7 @@ $routes = [
         'connexion' => [ConnexionController::class, 'afficherFormulaireConnexion'],
         'offres_stage' => [OffreStageController::class, 'index'],
         'offre_stage' => [OffreStageController::class, 'show'],
+        'offres_stage_stats' => [OffreStageController::class, 'showStats'],
         'offre_stage_candidature' => [OffreStageController::class, 'showCandidatureForm'],
         'offre_stage_create' => [OffreStageController::class, 'showCreateForm'],
         'offre_stage_edit' => [OffreStageController::class, 'showEditForm'],

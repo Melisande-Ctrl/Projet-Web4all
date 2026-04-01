@@ -193,6 +193,16 @@ class OffreStageModel extends Modele
         return $query->rowCount() > 0;
     }
 
+    public function getOffreStageStatistics(): array
+    {
+        return [
+            'total_offres' => $this->getNombreTotalOffresStage(),
+            'average_candidatures' => $this->getAverageCandidaturesPerOffre(),
+            'wishlist_top' => $this->getTopWishlistOffres(),
+            'durations' => $this->getDurationDistribution(),
+        ];
+    }
+
     public function getEntreprisesPourSelection(): array
     {
         $query = $this->connection->query(
@@ -402,6 +412,58 @@ class OffreStageModel extends Modele
         }
 
         return [' WHERE ' . implode(' AND ', $conditions), $parameters];
+    }
+
+    private function getAverageCandidaturesPerOffre(): float
+    {
+        $query = $this->connection->query(
+            'SELECT AVG(candidatures_count) AS average_candidatures
+             FROM (
+                SELECT o.Id_Offre, COUNT(c.Id_Compte) AS candidatures_count
+                FROM Offres_Stages o
+                LEFT JOIN Candidatures c ON c.Id_Offre = o.Id_Offre
+                GROUP BY o.Id_Offre
+             ) stats'
+        );
+
+        $average = $query->fetchColumn();
+
+        return round((float) ($average ?: 0), 2);
+    }
+
+    private function getTopWishlistOffres(int $limit = 5): array
+    {
+        $query = $this->connection->prepare(
+            'SELECT
+                o.Id_Offre AS id,
+                o.Titre AS title,
+                e.Nom_Entreprise AS company,
+                COUNT(w.Id_Compte) AS wishlist_count
+             FROM Offres_Stages o
+             INNER JOIN Entreprises e ON e.Id_Entreprise = o.Id_Entreprise
+             LEFT JOIN Wishlist w ON w.Id_Offre = o.Id_Offre
+             GROUP BY o.Id_Offre, o.Titre, e.Nom_Entreprise
+             ORDER BY wishlist_count DESC, o.Date_Creation DESC, o.Id_Offre DESC
+             LIMIT :limit'
+        );
+        $query->bindValue(':limit', $limit, PDO::PARAM_INT);
+        $query->execute();
+
+        return $query->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    private function getDurationDistribution(): array
+    {
+        $query = $this->connection->query(
+            'SELECT
+                Duree_Semaines AS duration_weeks,
+                COUNT(*) AS offers_count
+             FROM Offres_Stages
+             GROUP BY Duree_Semaines
+             ORDER BY Duree_Semaines'
+        );
+
+        return $query->fetchAll(PDO::FETCH_ASSOC);
     }
 
     private function hydrateSkills(?string $skills): array
