@@ -2,12 +2,42 @@
 
 {% block dashboard_content %}
 
-    {% if section == 'users' %}
+    {% if section == 'infos' %}
 
-        <div class="card">
-            <h3>Gestion des utilisateurs</h3>
-            <p>À venir...</p>
+        <div class="card form-card">
+            <h3>Informations du compte</h3>
+
+            <div class="form-grid">
+                <div class="field">
+                    <label class="field__label">Nom</label>
+                    <input class="input" value="{{ session.user.nom }}" disabled>
+                </div>
+
+                <div class="field">
+                    <label class="field__label">Prénom</label>
+                    <input class="input" value="{{ session.user.prenom }}" disabled>
+                </div>
+
+                <div class="field">
+                    <label class="field__label">Email</label>
+                    <input class="input" value="{{ session.user.email }}" disabled>
+                </div>
+
+                <div class="field">
+                    <label class="field__label">Mot de passe</label>
+
+                    <div style="display:flex; gap:10px; align-items:center;">
+                        <input class="input" type="password" value="********" disabled>
+
+                        <a href="?route=etudiant_dashboard&section=password"
+                           class="btn btn--ghost btn--small">
+                            Modifier le mot de passe
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
+
 
     {% elseif section == 'entreprises' %}
 
@@ -59,7 +89,59 @@
             </form>
         </div>
 
-    {% elseif section == 'stats' %}
+    {% elseif section == 'etudiants' %}
+
+        <form method="GET" action="">
+            <input type="hidden" name="route" value="admin_dashboard">
+            <input type="hidden" name="section" value="etudiants">
+
+            <label class="field">
+                <span class="field__label">Rechercher un étudiant</span>
+                <input
+                        class="input"
+                        name="nom"
+                        type="text"
+                        placeholder="Nom"
+                        value="{{ app.request.get('nom') }}"
+                >
+            </label>
+        </form>
+
+        {% if etudiants is defined and etudiants is not empty %}
+            <div class="card" style="margin-top:20px;">
+                <h3>Résultats</h3>
+
+                <div class="list">
+                    {% for etudiant in etudiants %}
+                        <div class="list__item">
+
+                            <div class="list__body">
+                                <div class="list__title">
+                                    {{ etudiant.Nom }} {{ etudiant.Prenom }}
+                                </div>
+
+                                <div class="list__meta">
+                                    <span>{{ etudiant.Email }}</span>
+                                </div>
+                            </div>
+
+                            <div class="list__actions">
+                                <a href="?route=detail_etudiant&id={{ etudiant.Id }}"
+                                   class="btn btn--ghost btn--small">
+                                    Voir les candidatures
+                                </a>
+                            </div>
+
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+        {% elseif etudiants is defined %}
+            <div class="empty-state">
+                <p>Aucun étudiant trouvé</p>
+            </div>
+        {% endif %}
 
         <div class="card">
             <h3>Statistiques</h3>

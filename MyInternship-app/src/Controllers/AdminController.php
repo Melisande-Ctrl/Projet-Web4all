@@ -25,18 +25,25 @@ class AdminController extends Controleur {
             $this->redirect('home');
         }
 
-        $section = $_GET['section'] ?? 'users';
+        $section = $_GET['section'] ?? 'infos';
+        $nom = $_GET['nom'] ?? null;
+        $etudiants = null;
+
+        if ($section === 'etudiants' && $nom) {
+            $etudiants = $this->adminModel->getEtudiantParNom($nom);
+        }
 
         $menu = [
-            'users' => 'Utilisateurs',
+            'infos' => 'Infos',
             'entreprises' => 'Entreprises',
-            'stats' => 'Statistiques'
+            'etudiants' => 'Etudiants'
         ];
 
         $this->render('dashboard/MonCompteAdmin.html.twig', [
             'section' => $section,
             'menu' => $menu,
-            'route' => 'admin_dashboard'
+            'route' => 'admin_dashboard',
+            'etudiants' => $etudiants
         ]);
     }
 }
