@@ -1,0 +1,54 @@
+<div class="form-grid">
+    <div class="field">
+        <label class="field__label" for="offre_titre">Titre</label>
+        <input class="input" id="offre_titre" type="text" name="Titre" maxlength="80" value="{{ offre.title|default('') }}" required>
+    </div>
+
+    <div class="field">
+        <label class="field__label" for="offre_entreprise">Entreprise</label>
+        <select class="input" id="offre_entreprise" name="Id_Entreprise" required>
+            <option value="">Sélectionner une entreprise</option>
+            {% for entreprise in entreprises %}
+                <option value="{{ entreprise.id }}" {% if offre.entreprise_id|default('') == entreprise.id %}selected{% endif %}>
+                    {{ entreprise.name }}
+                </option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="field">
+        <label class="field__label" for="offre_remuneration">Rémunération</label>
+        <input class="input" id="offre_remuneration" type="text" name="Base_Remuneration" maxlength="20" value="{{ offre.salary|default('') }}" placeholder="Ex : 4,35 €/h">
+    </div>
+
+    <div class="field">
+        <label class="field__label" for="offre_duree">Durée en semaines</label>
+        <input class="input" id="offre_duree" type="number" min="1" name="Duree_Semaines" value="{{ offre.duration_weeks|default('') }}" required>
+    </div>
+
+    <div class="field">
+        <label class="field__label" for="offre_adresse">Adresse</label>
+        <input class="input" id="offre_adresse" type="text" name="Adresse" maxlength="100" value="{{ offre.address|default('') }}" required>
+    </div>
+
+    <div class="field">
+        <label class="field__label" for="offre_ville">Ville</label>
+        <input class="input" id="offre_ville" type="text" name="Ville" maxlength="60" value="{{ offre.location|default('') }}" required>
+    </div>
+
+    <div class="field">
+        <label class="field__label" for="offre_pays">Pays</label>
+        <input class="input" id="offre_pays" type="text" name="Pays" maxlength="50" value="{{ offre.country|default('') }}" required>
+    </div>
+
+    <div class="field field--full">
+        <label class="field__label" for="offre_description">Description</label>
+        <textarea class="textarea" id="offre_description" name="Description" rows="8" required>{{ offre.description|default('') }}</textarea>
+    </div>
+
+    <div class="field field--full">
+        <label class="field__label" for="offre_competences">Compétences</label>
+        <input class="input" id="offre_competences" type="text" name="Competences" value="{{ offre.skills_text|default('') }}" placeholder="Ex : PHP, SQL, Twig">
+        <p class="muted">Séparez les compétences par des virgules.</p>
+    </div>
+</div>

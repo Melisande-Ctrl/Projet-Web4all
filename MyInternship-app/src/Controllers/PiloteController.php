@@ -5,18 +5,21 @@ declare(strict_types=1);
 namespace App\Controllers;
 
 use App\Models\CandidatureModel;
+use App\Models\OffreStageModel;
 use App\Models\PiloteModel;
 
 class PiloteController extends Controleur {
 
     private PiloteModel $piloteModel;
     private CandidatureModel $candidatureModel;
+    private OffreStageModel $offreStageModel;
 
 
     public function __construct($twig){
         parent::__construct($twig);
         $this->piloteModel = new piloteModel();
         $this->candidatureModel = new CandidatureModel();
+        $this->offreStageModel = new OffreStageModel();
     }
 
     public function showDashboard(): void
@@ -55,7 +58,7 @@ class PiloteController extends Controleur {
         $menu = [
             'Infos' => 'Informations',
             'etudiants' => 'Etudiants',
-            'offres' => 'Offres de stage'
+            'offres' => 'Offres'
         ];
 
         $this->render('dashboard/MonComptePilote.html.twig', [
@@ -65,7 +68,19 @@ class PiloteController extends Controleur {
             'etudiants' => $etudiants,
             'etudiantDetail' => $etudiantDetail,
             'candidatures' => $candidatures,
-            'user' => $_SESSION['user']
+            'user' => $_SESSION['user'],
+            'entreprisesOffres' => $this->offreStageModel->getEntreprisesPourSelection(),
+            'offre' => [
+                'title' => '',
+                'entreprise_id' => '',
+                'description' => '',
+                'salary' => '',
+                'duration_weeks' => '',
+                'address' => '',
+                'location' => '',
+                'country' => '',
+                'skills_text' => '',
+            ],
         ]);
     }
 }

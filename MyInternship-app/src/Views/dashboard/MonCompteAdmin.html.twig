@@ -138,6 +138,26 @@
             </div>
         {% endif %}
 
+    {% elseif section == 'offres' %}
+
+        <div class="card form-card">
+            <h3>Créer une offre de stage</h3>
+            <p class="muted">
+                Renseignez les informations utiles avant de publier une nouvelle offre.
+            </p>
+
+            <form method="post" action="?route=new_offre_stage" style="margin-top:20px;">
+                {% set entreprises = entreprisesOffres %}
+                {% include 'offreStageFormFields.html.twig' %}
+
+                <div class="form-actions">
+                    <button class="btn btn--primary" type="submit">
+                        Créer l’offre
+                    </button>
+                </div>
+            </form>
+        </div>
+
     {% elseif section == 'password' %}
 
         <div class="card form-card">
