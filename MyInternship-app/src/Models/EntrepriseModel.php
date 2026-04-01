@@ -194,12 +194,15 @@ class EntrepriseModel extends Modele {
         }
 
         // Modifier l'adresse
-        $queryCountEntreprises = $this->connection->prepare("SELECT COUNT(Id_Entreprise) FROM Entreprises WHERE Siege_social = :Id_Adresse");
-        $queryCountEntreprises->bindParam(':Id_Adresse',$databaseDataEntreprise['Siege_social'], PDO::PARAM_INT);
-        $queryCountEntreprises->execute();
-        $nbEntreprisesAtAdresse = $queryCountEntreprises->fetch(PDO::FETCH_ASSOC)['COUNT(Id_Entreprise)'];
+        $queryCount = $this->connection->prepare("SELECT
+                (SELECT COUNT(*) FROM Entreprises WHERE Siege_social = :Id_Adresse) AS nbEntreprises,
+                (SELECT COUNT(*) FROM Offres_Stages WHERE Id_Adresse = :Id_Adresse) AS nbOffres;");
+        $queryCount->bindParam(':Id_Adresse',$databaseDataEntreprise['Siege_social'], PDO::PARAM_INT);
+        $queryCount->execute();
+        $nbEntreprisesEtOffres = $queryCount->fetch(PDO::FETCH_ASSOC);
+        $nbUsingAdresse = $nbEntreprisesEtOffres['nbEntreprises'] + $nbEntreprisesEtOffres['nbOffres'];
         if ($databaseDataEntreprise['Nom_Adresse'] !== $dataEntreprise['Adresse']) {
-            if ($nbEntreprisesAtAdresse < 2) {
+            if ($nbUsingAdresse < 2) {
                 $queryUpdateNomAdresseEntreprise = $this->connection->prepare("UPDATE Adresses SET Nom_Adresse = ? WHERE Id_Adresse = ?");
                 $queryUpdateNomAdresseEntreprise->bindParam(1, $dataEntreprise['Adresse'], PDO::PARAM_STR);
                 $queryUpdateNomAdresseEntreprise->bindParam(2, $databaseDataEntreprise['Siege_social'], PDO::PARAM_INT);
@@ -276,7 +279,7 @@ class EntrepriseModel extends Modele {
     }
     public function deleteEntreprise($id) : bool {
         $queryNbOffres = $this->connection->prepare("SELECT COALESCE(COUNT(Id_Offre), 0) AS nbOffres 
-                        FROM Offres_Stages WHERE Id_Entreprise = :id GROUP BY en.Id_Entreprise");
+                        FROM Offres_Stages WHERE Id_Entreprise = :id GROUP BY Id_Entreprise");
         $queryNbOffres->bindParam(':id',$id, PDO::PARAM_INT);
         $queryNbOffres->execute();
         $nbOffres = $queryNbOffres->fetch(PDO::FETCH_ASSOC)['nbOffres'];
@@ -294,11 +297,14 @@ class EntrepriseModel extends Modele {
         $queryDeleteEntreprise->bindParam(':id',$id, PDO::PARAM_INT);
         $suppression = $queryDeleteEntreprise->execute();
 
-        $queryCountEntreprises = $this->connection->prepare("SELECT COUNT(Id_Entreprise) FROM Entreprises WHERE Siege_social = :Id_Adresse");
-        $queryCountEntreprises->bindParam(':Id_Adresse',$Id_Adresse, PDO::PARAM_INT);
-        $queryCountEntreprises->execute();
-        $nbEntreprisesAtAdresse = $queryCountEntreprises->fetch(PDO::FETCH_ASSOC)['COUNT(Id_Entreprise)'];
-        if ($nbEntreprisesAtAdresse < 1) {
+        $queryCount = $this->connection->prepare("SELECT
+                (SELECT COUNT(*) FROM Entreprises WHERE Siege_social = :Id_Adresse) AS nbEntreprises,
+                (SELECT COUNT(*) FROM Offres_Stages WHERE Id_Adresse = :Id_Adresse) AS nbOffres;");
+        $queryCount->bindParam(':Id_Adresse',$Id_Adresse, PDO::PARAM_INT);
+        $queryCount->execute();
+        $nbEntreprisesEtOffres = $queryCount->fetch(PDO::FETCH_ASSOC);
+        $nbUsingAdresse = $nbEntreprisesEtOffres['nbEntreprises'] + $nbEntreprisesEtOffres['nbOffres'];
+        if ($nbUsingAdresse < 1) {
             //Récupération de l'identifiant unique de la ville de l'adresse
             $queryId_Ville = $this->connection->prepare("SELECT Id_Ville FROM Adresses WHERE Id_Adresse = :Id_Adresse");
             $queryId_Ville->bindParam(':Id_Adresse',$Id_Adresse, PDO::PARAM_INT);
