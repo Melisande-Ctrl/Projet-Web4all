@@ -7,10 +7,10 @@ namespace App\Models;
 use PDO;
 use Throwable;
 
-class OffreStage extends Modele
+class OffreStageModel extends Modele
 {
-    private const HOME_FEATURED_LIMIT = 3;
-    private const LIST_PER_PAGE = 6;
+    private const int HOME_FEATURED_LIMIT = 3;
+    private const int LIST_PER_PAGE = 6;
 
     public function getNombreTotalOffresStage(array $filters = []): int
     {
