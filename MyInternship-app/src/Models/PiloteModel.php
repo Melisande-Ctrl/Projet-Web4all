@@ -17,4 +17,16 @@ class PiloteModel extends Modele {
         return $etudiants ?: null;
     }
 
+    public function getEtudiantById(int $id): ?array
+    {
+        $sql = "SELECT * FROM Comptes WHERE Id_Compte = :id";
+
+        $stmt = $this->connection->prepare($sql);
+        $stmt->bindValue(':id', $id, \PDO::PARAM_INT);
+        $stmt->execute();
+
+        $etudiant = $stmt->fetch(\PDO::FETCH_ASSOC);
+
+        return $etudiant ?: null;
+    }
 }

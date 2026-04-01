@@ -5,14 +5,17 @@ declare(strict_types=1);
 namespace App\Controllers;
 
 use App\Models\AdminModel;
+use App\Models\CandidatureModel;
 
 class AdminController extends Controleur {
 
         private AdminModel $adminModel;
+        private CandidatureModel $candidatureModel;
 
     public function __construct($twig){
         parent::__construct($twig);
         $this->adminModel = new AdminModel();
+        $this->candidatureModel = new CandidatureModel();
     }
 
     public function showDashboard(): void
@@ -29,6 +32,7 @@ class AdminController extends Controleur {
         $nom = $_GET['nom'] ?? null;
         $etudiants = null;
 
+
         if ($section === 'etudiants' && $nom) {
             $etudiants = $this->adminModel->getEtudiantParNom($nom);
         }
@@ -43,7 +47,7 @@ class AdminController extends Controleur {
             'section' => $section,
             'menu' => $menu,
             'route' => 'admin_dashboard',
-            'etudiants' => $etudiants
+            'etudiants' => $etudiants,
         ]);
     }
 }
