@@ -7,20 +7,26 @@
 {% block content %}
 <section class="section">
     <div class="container">
-        <div class="section__head">
-            <h1>Statistiques des offres</h1>
-            <p class="muted">Consultez les principaux indicateurs liés aux offres de stage.</p>
+        <div class="stats-hero card">
+            <div class="stats-hero__copy">
+                <p class="stats-card__eyebrow">Vue d’ensemble</p>
+                <h1>Statistiques des offres</h1>
+                <p class="muted">Faites défiler les cartes pour consulter les principaux indicateurs liés aux offres de stage.</p>
+            </div>
+            <div class="stats-hero__actions">
+                <a class="btn btn--ghost" href="?route=offres_stage">Retour aux offres</a>
+            </div>
         </div>
 
         <div class="stats-carousel">
             <article class="card stats-card">
                 <p class="stats-card__eyebrow">Offres disponibles</p>
                 <strong class="stats-card__value">{{ stats.total_offres }}</strong>
-                <p class="muted">Nombre total d’offres actuellement enregistrées en base.</p>
+                <p class="muted">Nombre total d’offres actuellement disponibles dans l’application.</p>
             </article>
 
             <article class="card stats-card">
-                <p class="stats-card__eyebrow">Candidatures</p>
+                <p class="stats-card__eyebrow">Candidatures moyennes</p>
                 <strong class="stats-card__value">{{ stats.average_candidatures }}</strong>
                 <p class="muted">Nombre moyen de candidatures par offre.</p>
             </article>
@@ -28,12 +34,13 @@
             <article class="card stats-card stats-card--wide">
                 <p class="stats-card__eyebrow">Top wishlist</p>
                 <strong class="stats-card__value">Top {{ stats.wishlist_top|length }}</strong>
+                <p class="muted">Offres les plus souvent ajoutées dans les wishlists des étudiants.</p>
                 {% if stats.wishlist_top is not empty %}
                     <ul class="stats-list">
                         {% for offre in stats.wishlist_top %}
                             <li>
                                 <span>{{ offre.title }} - {{ offre.company }}</span>
-                                <strong>{{ offre.wishlist_count }}</strong>
+                                <strong>{{ offre.wishlist_count }} ajout{% if offre.wishlist_count > 1 %}s{% endif %}</strong>
                             </li>
                         {% endfor %}
                     </ul>
@@ -45,12 +52,13 @@
             <article class="card stats-card stats-card--wide">
                 <p class="stats-card__eyebrow">Répartition par durée</p>
                 <strong class="stats-card__value">{{ stats.durations|length }}</strong>
+                <p class="muted">Nombre d’offres disponibles selon la durée de stage indiquée.</p>
                 {% if stats.durations is not empty %}
                     <ul class="stats-list">
                         {% for item in stats.durations %}
                             <li>
                                 <span>{{ item.duration_weeks }} semaine{% if item.duration_weeks > 1 %}s{% endif %}</span>
-                                <strong>{{ item.offers_count }}</strong>
+                                <strong>{{ item.offers_count }} offre{% if item.offers_count > 1 %}s{% endif %}</strong>
                             </li>
                         {% endfor %}
                     </ul>
