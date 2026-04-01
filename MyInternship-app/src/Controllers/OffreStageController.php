@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 
-use App\Models\Candidature;
-use App\Models\OffreStage;
+use App\Models\CandidatureModel;
+use App\Models\OffreStageModel;
 use RuntimeException;
 use Twig\Environment;
 
@@ -14,7 +14,7 @@ class OffreStageController extends Controleur
     public function __construct(Environment $templateEngine)
     {
         parent::__construct($templateEngine);
-        $this->model = new OffreStage();
+        $this->model = new OffreStageModel();
     }
 
     public function index(int $page = 1): void
@@ -303,7 +303,7 @@ class OffreStageController extends Controleur
             $this->redirectToReturnUrl();
         }
 
-        $candidatureModel = new Candidature();
+        $candidatureModel = new CandidatureModel();
         $compteId = (int) $_SESSION['user']['id'];
 
         if ($candidatureModel->etudiantAPostule($compteId, (int) $offreId)) {
