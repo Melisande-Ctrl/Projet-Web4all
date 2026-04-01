@@ -4,16 +4,19 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 
+use App\Models\OffreStageModel;
 use App\Models\PiloteModel;
 
 class PiloteController extends Controleur {
 
     private PiloteModel $piloteModel;
+    private OffreStageModel $offreStageModel;
 
 
     public function __construct($twig){
         parent::__construct($twig);
         $this->piloteModel = new piloteModel();
+        $this->offreStageModel = new OffreStageModel();
     }
 
     public function showDashboard(): void
@@ -47,7 +50,19 @@ class PiloteController extends Controleur {
             'section' => $section,
             'menu' => $menu,
             'route' => 'pilote_dashboard',
-            'etudiants' => $etudiants
+            'etudiants' => $etudiants,
+            'entreprisesOffres' => $this->offreStageModel->getEntreprisesPourSelection(),
+            'offre' => [
+                'title' => '',
+                'entreprise_id' => '',
+                'description' => '',
+                'salary' => '',
+                'duration_weeks' => '',
+                'address' => '',
+                'location' => '',
+                'country' => '',
+                'skills_text' => '',
+            ],
         ]);
     }
 }

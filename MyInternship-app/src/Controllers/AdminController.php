@@ -5,14 +5,17 @@ declare(strict_types=1);
 namespace App\Controllers;
 
 use App\Models\AdminModel;
+use App\Models\OffreStageModel;
 
 class AdminController extends Controleur {
 
         private AdminModel $adminModel;
+        private OffreStageModel $offreStageModel;
 
     public function __construct($twig){
         parent::__construct($twig);
         $this->adminModel = new AdminModel();
+        $this->offreStageModel = new OffreStageModel();
     }
 
     public function showDashboard(): void
@@ -37,14 +40,26 @@ class AdminController extends Controleur {
             'infos' => 'Infos',
             'entreprises' => 'Entreprises',
             'etudiants' => 'Etudiants',
-            'creer_offre' => 'Offres'
+            'offres' => 'Offres'
         ];
 
         $this->render('dashboard/MonCompteAdmin.html.twig', [
             'section' => $section,
             'menu' => $menu,
             'route' => 'admin_dashboard',
-            'etudiants' => $etudiants
+            'etudiants' => $etudiants,
+            'entreprisesOffres' => $this->offreStageModel->getEntreprisesPourSelection(),
+            'offre' => [
+                'title' => '',
+                'entreprise_id' => '',
+                'description' => '',
+                'salary' => '',
+                'duration_weeks' => '',
+                'address' => '',
+                'location' => '',
+                'country' => '',
+                'skills_text' => '',
+            ],
         ]);
     }
 }
