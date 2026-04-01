@@ -29,6 +29,7 @@
                     <span>{{ offre.company }}</span>
                     <span>{{ offre.location }}</span>
                     <span>{{ offre.duration_weeks }} semaines</span>
+                    <span>{{ offre.candidatures_count }} candidature{% if offre.candidatures_count > 1 %}s{% endif %}</span>
                     {% if offre.salary %}
                         <span>{{ offre.salary }}</span>
                     {% endif %}

@@ -80,6 +80,7 @@
                                 <span>{{ offre_stage.company }}</span>
                                 <span>{{ offre_stage.location }}</span>
                                 <span>{{ offre_stage.duration_weeks }} semaines</span>
+                                <span>{{ offre_stage.candidatures_count }} candidature{% if offre_stage.candidatures_count > 1 %}s{% endif %}</span>
                                 {% if offre_stage.salary %}
                                     <span>{{ offre_stage.salary }}</span>
                                 {% endif %}

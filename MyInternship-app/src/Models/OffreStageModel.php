@@ -81,11 +81,13 @@ class OffreStageModel extends Modele
                 o.Base_Remuneration AS salary,
                 o.Duree_Semaines AS duration_weeks,
                 o.Date_Creation AS created_at,
+                COUNT(DISTINCT ca.Id_Compte) AS candidatures_count,
                 GROUP_CONCAT(DISTINCT c.Nom_Competence ORDER BY c.Nom_Competence SEPARATOR "||") AS skills
             FROM Offres_Stages o
             INNER JOIN Entreprises e ON e.Id_Entreprise = o.Id_Entreprise
             INNER JOIN Adresses a ON a.Id_Adresse = o.Id_Adresse
             INNER JOIN Villes v ON v.Id_Ville = a.Id_Ville
+            LEFT JOIN Candidatures ca ON ca.Id_Offre = o.Id_Offre
             LEFT JOIN Offres_Competences_Liaison ocl ON ocl.Id_Offre = o.Id_Offre
             LEFT JOIN Competences c ON c.Id_Competence = ocl.Id_Competence'
             . $whereSql .
@@ -140,12 +142,14 @@ class OffreStageModel extends Modele
                 a.Nom_Adresse AS address,
                 v.Nom_Ville AS location,
                 p.Nom_Pays AS country,
+                COUNT(DISTINCT ca.Id_Compte) AS candidatures_count,
                 GROUP_CONCAT(DISTINCT c.Nom_Competence ORDER BY c.Nom_Competence SEPARATOR "||") AS skills
             FROM Offres_Stages o
             INNER JOIN Entreprises e ON e.Id_Entreprise = o.Id_Entreprise
             INNER JOIN Adresses a ON a.Id_Adresse = o.Id_Adresse
             INNER JOIN Villes v ON v.Id_Ville = a.Id_Ville
             INNER JOIN Pays p ON p.Id_Pays = v.Id_Pays
+            LEFT JOIN Candidatures ca ON ca.Id_Offre = o.Id_Offre
             LEFT JOIN Offres_Competences_Liaison ocl ON ocl.Id_Offre = o.Id_Offre
             LEFT JOIN Competences c ON c.Id_Competence = ocl.Id_Competence
             WHERE o.Id_Offre = :id
