@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 
-use App\Models\OffreStage;
+use App\Models\OffreStageModel;
 
 class AccueilController extends Controleur
 {
     public function index(): void
     {
-        $modeleOffreStage = new OffreStage();
+        $modeleOffreStage = new OffreStageModel();
         $offresMisesEnAvant = $modeleOffreStage->getOffresMisesEnAvant();
         $totalOffresStage = $modeleOffreStage->getNombreTotalOffresStage();
 

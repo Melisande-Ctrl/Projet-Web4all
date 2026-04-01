@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 
-use App\Models\Candidature;
+use App\Models\CandidatureModel;
 use App\Models\EtudiantModel;
 use App\Models\WishlistModel;
 
@@ -12,13 +12,13 @@ class EtudiantController extends Controleur {
 
     private EtudiantModel $etudiantModel;
     private WishlistModel $wishlistModel;
-    private Candidature $candidature;
+    private CandidatureModel $candidature;
 
     public function __construct($twig){
         parent::__construct($twig);
         $this->etudiantModel = new etudiantModel();
         $this->wishlistModel = new WishlistModel();
-        $this->candidature = new Candidature();
+        $this->candidature = new CandidatureModel();
     }
 
     public function showDashboard(): void
