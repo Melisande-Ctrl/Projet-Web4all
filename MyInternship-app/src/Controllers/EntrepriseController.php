@@ -156,6 +156,8 @@ class EntrepriseController extends Controleur
             echo '<h1>Entreprise supprimée</h1>';
             $this->redirect('entreprise_show', ['id' => $id]);
         }
-
+        else {
+            echo '<h1>Erreur - Entreprise non notée</h1>';
+        }
     }
 }
