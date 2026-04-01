@@ -11,6 +11,10 @@ class ConnexionController extends Controleur
 {
     public function afficherFormulaireConnexion(): void
     {
+        if (isset($_SESSION['user'])) {
+            $this->redirect('mon_espace');
+        }
+
         $this->render('connexion.html.twig', [
             'page_title' => 'Connexion - MyInternship',
             'error' => $_SESSION['auth_error'] ?? null,
