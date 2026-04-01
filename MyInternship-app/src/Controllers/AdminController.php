@@ -5,16 +5,19 @@ declare(strict_types=1);
 namespace App\Controllers;
 
 use App\Models\AdminModel;
+use App\Models\CandidatureModel;
 use App\Models\OffreStageModel;
 
 class AdminController extends Controleur {
 
         private AdminModel $adminModel;
+        private CandidatureModel $candidatureModel;
         private OffreStageModel $offreStageModel;
 
     public function __construct($twig){
         parent::__construct($twig);
         $this->adminModel = new AdminModel();
+        $this->candidatureModel = new CandidatureModel();
         $this->offreStageModel = new OffreStageModel();
     }
 
@@ -31,6 +34,7 @@ class AdminController extends Controleur {
         $section = $_GET['section'] ?? 'infos';
         $nom = $_GET['nom'] ?? null;
         $etudiants = null;
+
 
         if ($section === 'etudiants' && $nom) {
             $etudiants = $this->adminModel->getEtudiantParNom($nom);

@@ -74,12 +74,16 @@
                                 </div>
                             </div>
 
+                            {% if etudiant.Id_Pilote == user.id %}
+
                             <div class="list__actions">
-                                <a href="?route=detail_etudiant&id={{ etudiant.Id }}"
+                                <a href="?route=pilote_dashboard&section=detail_etudiant&id={{ etudiant.Id_Compte }}"
                                    class="btn btn--ghost btn--small">
                                     Voir les candidatures
                                 </a>
                             </div>
+
+                            {% endif %}
 
                         </div>
                     {% endfor %}
@@ -142,6 +146,33 @@
                 </div>
             </form>
         </div>
+
+    {% elseif section == 'detail_etudiant' %}
+
+        <h2 style="margin-bottom:5px;">
+            {{ etudiantDetail.Nom }} {{ etudiantDetail.Prenom }}
+        </h2>
+
+        <p class="muted" style="margin-bottom:20px;">
+            {{ etudiantDetail.Email }}
+        </p>
+
+        {% for candidature in candidatures %}
+            <div class="card" style="margin-bottom:16px;">
+
+                <h3>{{ candidature.Titre }}</h3>
+
+                <div class="list__meta" style="margin-bottom:10px;">
+                    <span>Postulé le {{ candidature.Date_Candidature|date('Y-m-d') }}</span>
+                    <span>{{ candidature.Duree_Semaines }} semaines</span>
+                </div>
+
+                <p class="list__excerpt">
+                    {{ candidature.Description }}
+                </p>
+
+            </div>
+        {% endfor %}
 
     {% endif %}
 
