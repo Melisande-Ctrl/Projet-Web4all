@@ -36,8 +36,13 @@
                     {% endfor %}
                 </div>
                 {% if affichageBoutons %}
-                    <div class="field">
+                    <div>
                         <h2 style="margin-top: 18px;">Noter l'entreprise :</h2>
+                        {% for i in 1..5 %}
+                            <a class="btn btn--small btn--primary" href="?route=entreprise_note&id={{ entreprise.Id_Entreprise }}&note={{ i }}">
+                                {% for j in 1..i %} ✭ {% endfor %}
+                            </a>
+                        {% endfor %}
                     </div>
                 {% endif %}
             </div>

@@ -71,6 +71,7 @@ $routes = [
         'entreprise_show' => [EntrepriseController::class, 'ficheEntreprise'],
         'entreprise_edit' => [EntrepriseController::class, 'formUpdateEntreprise'],
         'entreprise_delete' => [EntrepriseController::class, 'deleteEntreprise'],
+        'entreprise_note' => [EntrepriseController::class, 'noterEntreprise'],
         'mentions_legales' => [AccueilController::class, 'mentionsLegales'],
         'admin_dashboard' => [AdminController::class, 'showDashboard'],
         'pilote_dashboard' => [PiloteController::class, 'showDashboard'],

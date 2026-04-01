@@ -392,4 +392,16 @@ class EntrepriseModel extends Modele {
         }
         return $suppression;
     }
+    public function noterEntreprise($Id_Entreprise, $note, $Id_Compte) : bool {
+        if ($Id_Compte === null) {
+            return false;
+        }
+        $queryNote = $this->connection->prepare("INSERT INTO Notes (Valeur_Note, Id_Entreprise, Id_Compte) VALUES (?, ?, ?)
+                        ON DUPLICATE KEY UPDATE Valeur_Note = ?");
+        $queryNote->bindParam(1, $note, PDO::PARAM_INT);
+        $queryNote->bindParam(2, $Id_Entreprise, PDO::PARAM_INT);
+        $queryNote->bindParam(3, $Id_Compte, PDO::PARAM_INT);
+        $queryNote->bindParam(4, $note, PDO::PARAM_INT);
+        return $queryNote->execute();
+    }
 }

@@ -145,4 +145,17 @@ class EntrepriseController extends Controleur
             echo '<h1>Erreur - Entreprise non supprimée</h1>';//Bam,tap,careers@bam.com,0162325458,96
         }
     }
+
+    public function noterEntreprise($id) : void {
+        $note = $_GET['note'] ?? '';
+        $Id_Compte = null;
+        if ($_SESSION['user']['role'] === 1 or $_SESSION['user']['role'] === 2) {
+            $Id_Compte = $_SESSION['user']['id'];
+        }
+        if ($this->model->noterEntreprise($id, $note, $Id_Compte)) {
+            echo '<h1>Entreprise supprimée</h1>';
+            $this->redirect('entreprise_show', ['id' => $id]);
+        }
+
+    }
 }
