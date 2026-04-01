@@ -39,7 +39,8 @@ class PiloteController extends Controleur {
         $menu = [
             'Infos' => 'Informations',
             'etudiants' => 'Etudiants',
-            'offres' => 'Offres de stage'
+            'offres' => 'Offres de stage',
+            'creer_offre' => 'Offres'
         ];
 
         $this->render('dashboard/MonComptePilote.html.twig', [

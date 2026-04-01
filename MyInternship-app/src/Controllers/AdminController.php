@@ -36,7 +36,8 @@ class AdminController extends Controleur {
         $menu = [
             'infos' => 'Infos',
             'entreprises' => 'Entreprises',
-            'etudiants' => 'Etudiants'
+            'etudiants' => 'Etudiants',
+            'creer_offre' => 'Offres'
         ];
 
         $this->render('dashboard/MonCompteAdmin.html.twig', [
