@@ -56,7 +56,8 @@ class EtudiantController extends Controleur {
             'menu' => $menu,
             'route' => 'etudiant_dashboard',
             'candidatures' => $candidatures,
-            'wishlist' => $wishlist
+            'wishlist' => $wishlist,
+            'password_feedback' => MainController::consumePasswordFeedback()
         ]);
     }
 

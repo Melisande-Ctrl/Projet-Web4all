@@ -53,6 +53,7 @@ class AdminController extends Controleur {
             'route' => 'admin_dashboard',
             'etudiants' => $etudiants,
             'entreprisesOffres' => $this->offreStageModel->getEntreprisesPourSelection(),
+            'password_feedback' => MainController::consumePasswordFeedback(),
             'offre' => [
                 'title' => '',
                 'entreprise_id' => '',

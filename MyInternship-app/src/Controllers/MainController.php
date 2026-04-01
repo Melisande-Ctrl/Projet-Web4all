@@ -44,15 +44,51 @@ class MainController extends Controleur
         $utilisateur = $this->connexionModel->getUtilisateurParEmail($_SESSION['user']['email']);
 
         if (!$this->connexionModel->verifyPassword($currentPassword, $utilisateur['Password'])) {
-            die("Mot de passe incorrect");
+            $_SESSION['password_feedback'] = [
+                'type' => 'error',
+                'message' => 'Le mot de passe actuel est incorrect.',
+            ];
+            $this->redirectToPasswordSection();
         }
 
         if ($newPassword !== $confirmPassword) {
-            die("Les mots de passe ne correspondent pas");
+            $_SESSION['password_feedback'] = [
+                'type' => 'error',
+                'message' => 'Les mots de passe ne correspondent pas.',
+            ];
+            $this->redirectToPasswordSection();
         }
 
         $this->connexionModel->updatePassword((int) $_SESSION['user']['id'], $newPassword);
 
-        $this->redirectToDashboard();
+        $_SESSION['password_feedback'] = [
+            'type' => 'success',
+            'message' => 'Le mot de passe a bien été mis à jour.',
+        ];
+
+        $this->redirectToPasswordSection();
+    }
+
+    public static function consumePasswordFeedback(): ?array
+    {
+        $feedback = $_SESSION['password_feedback'] ?? null;
+        unset($_SESSION['password_feedback']);
+
+        return is_array($feedback) ? $feedback : null;
+    }
+
+    private function redirectToPasswordSection(): void
+    {
+        $role = (int) ($_SESSION['user']['role'] ?? 0);
+
+        if ($role === 1) {
+            $this->redirect('admin_dashboard', ['section' => 'password']);
+        }
+
+        if ($role === 2) {
+            $this->redirect('pilote_dashboard', ['section' => 'password']);
+        }
+
+        $this->redirect('etudiant_dashboard', ['section' => 'password']);
     }
 }

@@ -69,6 +69,7 @@ class PiloteController extends Controleur {
             'etudiantDetail' => $etudiantDetail,
             'candidatures' => $candidatures,
             'user' => $_SESSION['user'],
+            'password_feedback' => MainController::consumePasswordFeedback(),
             'entreprisesOffres' => $this->offreStageModel->getEntreprisesPourSelection(),
             'offre' => [
                 'title' => '',
