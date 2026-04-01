@@ -83,7 +83,6 @@ $routes = [
         'logout' => [ConnexionController::class, 'deconnecter'],
         'change_password' => [MainController::class, 'changePassword'],
         'wishlist_ajouter' => [OffreStageController::class, 'ajouterWishlist'],
-        'entreprises' => [EntrepriseController::class, 'pageRechercheEntreprises'],
         'new_entreprise' => [EntrepriseController::class, 'createEntreprise'],
         'new_offre_stage' => [OffreStageController::class, 'create'],
         'candidature_ajouter' => [OffreStageController::class, 'ajouterCandidature'],

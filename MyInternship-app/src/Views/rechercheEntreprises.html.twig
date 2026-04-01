@@ -13,7 +13,9 @@
             </div>
 
             <div class="card filters-card">
-                <form class="search filters-search" method="POST" action="?route=entreprises&page=1">
+                <form class="search filters-search" method="GET" action="">
+                    <input type="hidden" name="route" value="entreprises">
+                    <input type="hidden" name="page" value="1">
 
                     <label class="field">
                         <span class="field__label">Nom d'entreprise</span>
@@ -60,8 +62,8 @@
                 {% if nbPages > 1 %} {# // Boutons de pagination#}
                     <div class="pagination">
                         {% if currentPage > 1 %}
-                            <a class="btn btn--ghost" href="?route=entreprises&page=1">Première</a>
-                            <a class="btn btn--ghost" href="?route=entreprises&page={{ currentPage - 1 }}">Précédente</a>
+                            <a class="btn btn--ghost" href="?route=entreprises&page=1&{{ {'Nom': criteria.Nom, 'Ville': criteria.Ville}|url_encode }}">Première</a>
+                            <a class="btn btn--ghost" href="?route=entreprises&page={{ currentPage - 1 }}&{{ {'Nom': criteria.Nom, 'Ville': criteria.Ville}|url_encode }}">Précédente</a>
                         {% endif %}
 
                         <div class="pagination__info">
@@ -69,8 +71,8 @@
                         </div>
 
                         {% if currentPage < nbPages %}
-                            <a class="btn btn--ghost" href="?route=entreprises&page={{ currentPage + 1 }}">Suivante</a>
-                            <a class="btn btn--ghost" href="?route=entreprises&page={{ nbPages }}">Dernière</a>
+                            <a class="btn btn--ghost" href="?route=entreprises&page={{ currentPage + 1 }}&{{ {'Nom': criteria.Nom, 'Ville': criteria.Ville}|url_encode }}">Suivante</a>
+                            <a class="btn btn--ghost" href="?route=entreprises&page={{ nbPages }}&{{ {'Nom': criteria.Nom, 'Ville': criteria.Ville}|url_encode }}">Dernière</a>
                         {% endif %}
                     </div>
                 {% endif %}
