@@ -24,11 +24,11 @@ class AdminController extends Controleur {
     public function showDashboard(): void
     {
         if (!isset($_SESSION['user'])) {
-            $this->redirect('home');
+            $this->redirect('accueil');
         }
 
         if ($_SESSION['user']['role'] !== 1) {
-            $this->redirect('home');
+            $this->redirect('accueil');
         }
 
         $section = $_GET['section'] ?? 'infos';

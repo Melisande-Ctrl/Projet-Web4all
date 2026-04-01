@@ -10,6 +10,8 @@ class AccueilController extends Controleur
 {
     public function index(): void
     {
+        $ctaRoute = isset($_SESSION['user']) ? 'mon_espace' : 'connexion';
+
         $modeleOffreStage = new OffreStageModel();
         $offresMisesEnAvant = $modeleOffreStage->getOffresMisesEnAvant();
         $totalOffresStage = $modeleOffreStage->getNombreTotalOffresStage();
@@ -47,19 +49,19 @@ class AccueilController extends Controleur
             [
                 'title' => 'Étudiant',
                 'description' => 'Recherche une offre, gère sa wish-list et suit ses candidatures depuis un espace personnel.',
-                'cta_route' => 'connexion',
+                'cta_route' => $ctaRoute,
                 'cta_label' => 'Accéder au compte étudiant',
             ],
             [
                 'title' => 'Pilote',
                 'description' => 'Consulte l’avancement des étudiants, les candidatures envoyées et les entreprises sollicitées.',
-                'cta_route' => 'connexion',
+                'cta_route' => $ctaRoute,
                 'cta_label' => 'Accéder au compte pilote',
             ],
             [
                 'title' => 'Administrateur',
                 'description' => 'Administre les comptes, les offres, les entreprises et les permissions de la plateforme.',
-                'cta_route' => 'connexion',
+                'cta_route' => $ctaRoute,
                 'cta_label' => 'Accéder à l’administration',
             ],
         ];

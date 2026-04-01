@@ -24,11 +24,11 @@ class EtudiantController extends Controleur {
     public function showDashboard(): void
     {
         if (!isset($_SESSION['user'])) {
-            $this->redirect('home');
+            $this->redirect('accueil');
         }
 
         if ($_SESSION['user']['role'] !== 3) {
-            $this->redirect('home');
+            $this->redirect('accueil');
         }
 
         $section = $_GET['section'] ?? 'infos';
@@ -63,7 +63,7 @@ class EtudiantController extends Controleur {
     public function removeFromWishlist(): void
     {
         if (!isset($_SESSION['user'])) {
-            $this->redirect('home');
+            $this->redirect('accueil');
         }
 
         $offreId = (int) ($_POST['offre_id'] ?? 0);

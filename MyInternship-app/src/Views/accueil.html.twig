@@ -17,7 +17,7 @@
 
             <div class="hero__actions">
                 <a class="btn btn--primary" href="?route=offres_stage">Trouver un stage</a>
-                <a class="btn btn--ghost" href="?route=connexion">Accéder à mon espace</a>
+                <a class="btn btn--ghost" href="?route={{ session.user ? 'mon_espace' : 'connexion' }}">Accéder à mon espace</a>
             </div>
 
             <div class="hero__badges">
@@ -215,7 +215,7 @@
                 Connectez-vous pour consulter votre espace personnel et suivre vos démarches.
             </p>
         </div>
-        <a class="btn btn--primary" href="?route=connexion">Accéder à la plateforme</a>
+        <a class="btn btn--primary" href="?route={{ session.user ? 'mon_espace' : 'connexion' }}">Accéder à la plateforme</a>
     </div>
 </section>
 {% endblock %}
