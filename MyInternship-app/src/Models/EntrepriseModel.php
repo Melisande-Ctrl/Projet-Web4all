@@ -396,12 +396,11 @@ class EntrepriseModel extends Modele {
         if ($Id_Compte === null) {
             return false;
         }
-        $queryNote = $this->connection->prepare("INSERT INTO Notes (Valeur_Note, Id_Entreprise, Id_Compte) VALUES (?, ?, ?)
-                        ON DUPLICATE KEY UPDATE Valeur_Note = ?");
-        $queryNote->bindParam(1, $note, PDO::PARAM_INT);
-        $queryNote->bindParam(2, $Id_Entreprise, PDO::PARAM_INT);
-        $queryNote->bindParam(3, $Id_Compte, PDO::PARAM_INT);
-        $queryNote->bindParam(4, $note, PDO::PARAM_INT);
+        $queryNote = $this->connection->prepare("INSERT INTO Notes (Valeur_Note, Id_Entreprise, Id_Compte) VALUES (:note, :Id_Entreprise, :Id_Compte)
+                        ON DUPLICATE KEY UPDATE Valeur_Note = :note");
+        $queryNote->bindParam(':note', $note, PDO::PARAM_INT);
+        $queryNote->bindParam(':Id_Entreprise', $Id_Entreprise, PDO::PARAM_INT);
+        $queryNote->bindParam(':Id_Compte', $Id_Compte, PDO::PARAM_INT);
         return $queryNote->execute();
     }
 }

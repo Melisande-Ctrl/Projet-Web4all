@@ -142,7 +142,7 @@ class EntrepriseController extends Controleur
             $this->redirect('entreprises');
         }
         else {
-            echo '<h1>Erreur - Entreprise non supprimée</h1>';//Bam,tap,careers@bam.com,0162325458,96
+            echo '<h1>Erreur - Entreprise non supprimée</h1>';
         }
     }
 
