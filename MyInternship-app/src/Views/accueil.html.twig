@@ -70,7 +70,7 @@
 
             <div class="chips">
                 {% for search in popularSearches %}
-                    <a class="chip" href="?route=offres_stage">{{ search }}</a>
+                    <a class="chip" href="?route=offres_stage&keyword={{ search|url_encode }}">{{ search }}</a>
                 {% endfor %}
             </div>
 
