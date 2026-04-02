@@ -71,6 +71,7 @@ $routes = [
         'entreprise_show' => [EntrepriseController::class, 'ficheEntreprise'],
         'entreprise_edit' => [EntrepriseController::class, 'formUpdateEntreprise'],
         'entreprise_delete' => [EntrepriseController::class, 'deleteEntreprise'],
+        'entreprise_note' => [EntrepriseController::class, 'noterEntreprise'],
         'mentions_legales' => [AccueilController::class, 'mentionsLegales'],
         'admin_dashboard' => [AdminController::class, 'showDashboard'],
         'pilote_dashboard' => [PiloteController::class, 'showDashboard'],
@@ -111,7 +112,7 @@ try {
         throw new Exception("La méthode {$method} n'existe pas dans le contrôleur {$controllerClass}.");
     }
 
-    if ($route === 'offres_stage') {
+    if ($route === 'offres_stage' or $route === 'entreprises') {
         $page = filter_input(INPUT_GET, 'page', FILTER_VALIDATE_INT);
         $page = $page !== false && $page !== null ? max(1, $page) : 1;
         $controller->$method($page);
