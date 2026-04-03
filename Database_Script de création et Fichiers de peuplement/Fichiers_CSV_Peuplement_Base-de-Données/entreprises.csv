@@ -1,0 +1,61 @@
+Id_Entreprise,Nom_Entreprise,Description_Entreprise,Email,Telephone,Siege_social
+1,Capgemini,ESN spécialisée en conseil services informatiques et transformation digitale.,contact@capgemini.com,0145927021,23
+2,Ubisoft France,Entreprise de développement et édition de jeux vidéo.,contact@ubisoft.com,0145776247,28
+3,Amazon Web Services,Services cloud computing et infrastructure pour entreprises,aws.fr@amazon.com,0180873816,136
+4,BlaBlaCar France,Plateforme de covoiturage leader en Europe.,contact4@blablacar.com,0154586820,88
+5,Airbus France,Constructeur aéronautique et spatial européen.,contact5@airbus.fr,0131429524,35
+6,Dassault Systèmes,Éditeur de logiciels 3D et solutions de simulation industrielle.,contact@3ds.com,0185291046,82
+7,Thales,Groupe spécialisé dans l’aéronautique la défense et la sécurité.,contact7@thalesgroup.com,0142905268,41
+8,Renault,Constructeur automobile français.,contact@renault.fr,0168555945,199
+9,Sopra Steria,Acteur majeur du numérique en Europe spécialisé dans le conseil et l’intégration de systèmes.,contact@soprasteria.com,0190208442,97
+10,EDF,Fournisseur français d'énergie électrique et de services énergétiques.,contact@edf.fr,0110885171,81
+11,Covéa,Groupe d'assurance français proposant assurance habitation et automobile,careers@covea.fr,0144392222,27
+12,Bouygues Télécom,Opérateur télécom français proposant mobile internet et services,recrutement@bouyguestelecom.fr,0122450648,171
+13,Atos,Entreprise internationale de services numériques et cybersécurité.,contact@atos.net,0126944947,6
+14,OVHcloud,Fournisseur européen de cloud computing et d’hébergement.,contact@ovhcloud.com,0167799198,147
+15,Doctolib,Plateforme de gestion de rendez-vous médicaux en ligne.,contact@doctolib.fr,0145610876,120
+16,Cloudflare,Fournisseur d'infrastructure internet et services de sécurité,careers@cloudflare.com,0662104566,90
+17,Michelin,Fabricant de pneumatiques et de services associés.,contact@michelin.fr,0174821963,53
+18,Criteo,Spécialiste du marketing digital et de la publicité en ligne.,contact@criteo.com,0195732454,135
+19,Pernod Ricard,Groupe de spiritueux et vins.,contact@pernod-ricard.fr,0152313904,2
+20,Kering,Groupe de luxe et mode.,contact@kering.fr,0196725398,132
+21,Accor France,Groupe hôtelier international.,contact@accor.fr,0182278854,164
+22,Alten,Société d’ingénierie et de conseil en technologies.,contact@alten.com,0190061486,125
+23,Publicis,Groupe de communication et publicité.,contact@publicis.fr,0199720554,108
+24,Safran,Groupe aéronautique et de défense.,contact@safran.fr,0178459929,9
+25,Legrand,Spécialiste des produits et systèmes électriques.,contact@legrand.fr,0134355808,186
+26,EssilorLuxottica France,Leader mondial de l'optique.,contact@essilorluxottica.fr,0175351303,169
+27,Schneider Electric,Spécialiste de la gestion de l'énergie.,contact@schneider-electric.fr,0132834044,84
+28,Alstom,Entreprise de transport ferroviaire.,contact@alstom.fr,0184383956,101
+29,Arkema,Producteur de chimie de spécialités.,contact@arkema.fr,0171306238,100
+30,Solvay,Groupe chimique international.,contact@solvay.fr,0155111397,5
+31,Orange,Opérateur télécom et services numériques.,contact@orange.com,0188678667,24
+32,Hewlett Packard Enterprise,Fabricant d'équipements informatiques et solutions d'entreprise,careers@hpe.com,0144758600,4
+33,Valeo,Équipementier automobile.,contact@valeo.fr,0140753276,104
+34,Engie,Entreprise multiutilitaire et énergies renouvelables,recrutement@engie.fr,0177244105,188
+35,Stellantis,Constructeur automobile.,contact@stellantis.fr,0195738397,74
+36,Sanofi,Laboratoire pharmaceutique.,contact@sanofi.fr,0194555921,185
+37,Arkane Networks,Startup spécialisée dans la blockchain et les technologies Web3,contact@arkane.net,0176210444,124
+38,Ipsen,Laboratoire biopharmaceutique.,contact@ipsen.fr,0130637542,138
+39,BioMérieux,Spécialiste du diagnostic in vitro.,contact@biomerieux.fr,0160813511,193
+40,Eurofins France,Groupe de laboratoires d'analyses.,contact@eurofins.fr,0115923009,3
+41,Air Liquide France,Producteur de gaz industriels.,contact@airliquide.fr,0171248961,50
+42,Linde France,Spécialiste des gaz industriels.,contact@linde.fr,0144408371,91
+43,Suez France,Entreprise de gestion de l'eau et des déchets.,contact@suez.fr,0146497806,112
+44,TotalEnergies,Groupe énergétique.,contact@totalenergies.fr,0166419404,1
+45,BP France,Compagnie pétrolière.,contact@bp.fr,0192890806,17
+46,Shell France,Compagnie énergétique.,contact@shell.fr,0157655540,182
+47,Enii,Compagnie pétrolière.,contact@enii.fr,0121127389,111
+48,Gemalto,Fabricant de puces électroniques et solutions de sécurité numérique,careers@gemalto.fr,0181913995,98
+49,Equinor,Compagnie pétrolière.,contact@equinor.fr,0183361115,178
+50,Neste,Producteur de biocarburants.,contact@neste.fr,0164251781,8
+51,Orano,Spécialiste du cycle du combustible nucléaire.,contact@orano.fr,0145237524,121
+52,Framatome,Spécialiste de l'énergie nucléaire.,contact@framatome.fr,0185375094,86
+53,Naval Group,Constructeur naval de défense.,contact@naval-group.fr,0156757030,7
+54,Farfetch,Plateforme de luxe en ligne proposant mode et accessoires haut de gamme,careers@farfetch.com,0176310500,42
+55,Essensys,Startup fintech spécialisée en solutions de paiement,contact@essensys.fr,0176291300,184
+56,Diginext,Entreprise de cybersécurité et défense informatique,contact@diginext.fr,0155022020,96
+57,Deutsche Telekom,Opérateur télécom européen proposant services mobiles et internet,careers@telekom.fr,0140468000,191
+58,Insight Software,Editeur logiciel spécialisé en solutions d'intelligence d'affaires,contact@insightsoftware.fr,0148049000,15
+59,Saint-Gobain,Spécialiste des matériaux de construction.,contact@saint-gobain.fr,0161970256,146
+60,Bandai Namco Entertainment,Studio de développement de jeux vidéo et divertissement,careers@bandainamco.fr,0129614475,168

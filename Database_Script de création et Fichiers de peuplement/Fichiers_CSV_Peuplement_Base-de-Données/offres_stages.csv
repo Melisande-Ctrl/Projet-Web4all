@@ -1,0 +1,81 @@
+Id_Offre;Titre;Id_Adresse;Id_Entreprise;Description;Date_Creation;Base_remuneration;Duree_semaines
+1;Stage Développeur Python - H/F;36;29;Développement d'applications en Python avec focus sur l'intelligence artificielle et l'automatisation.;2025-10-15;950 € / mois;16
+2;Stage UX/UI Designer - F/H;68;25;Conception d'interfaces utilisateur intuitives et réalisation de prototypes pour applications web.;2025-11-02;880 € / mois;12
+3;Stage Chef de Projet - H/F;110;10;Gestion de projets informatiques de la planification à la livraison en coordonnant les équipes.;2025-09-20;1100 € / mois;20
+4;Stage Analyste Cybersécurité - F/H;26;40;Analyse des vulnérabilités et mise en place de mesures de sécurité pour les systèmes.;2025-12-10;1050 € / mois;18
+5;Stage Développeur Java - H/F;56;20;Conception et développement d'applications Java avec optimisation des performances.;2025-08-25;920 € / mois;14
+6;Stage Data Scientist - F/H;88;30;Analyse de données massives et création de modèles prédictifs pour la prise de décision.;2025-11-18;1150 € / mois;22
+7;Stage Développeur C++ - H/F;119;2;Développement de logiciels embarqués en C++ pour systèmes critiques.;2025-10-05;980 € / mois;16
+8;Stage Administrateur Réseaux - H/F;49;46;Configuration et maintenance des infrastructures réseau avec monitoring continu.;2025-09-12;900 € / mois;13
+9;Stage Développeur .NET - F/H;51;16;Développement d'applications .NET avec intégration de services web.;2025-12-22;960 € / mois;15
+10;Stage Product Owner - H/F;6;32;Définition des besoins utilisateurs et priorisation des fonctionnalités produit.;2025-11-30;1080 € / mois;17
+11;Stage Développeur Ruby - H/F;13;13;Création d'applications web en Ruby on Rails avec tests automatisés.;2025-10-28;930 € / mois;12
+12;Stage Graphiste Digital - F/H;99;9;Création de contenus visuels pour campagnes marketing et supports numériques.;2025-09-05;850 € / mois;10
+13;Stage Ingénieur IA - H/F;130;26;Mise en œuvre d'algorithmes d'intelligence artificielle pour traitement de données.;2025-12-15;1200 € / mois;24
+14;Stage Développeur Go - F/H;60;11;Développement de services backend en Go avec focus sur la scalabilité.;2025-11-08;970 € / mois;14
+15;Stage Consultant ERP - H/F;5;32;Implémentation et personnalisation de systèmes ERP pour optimisation des processus.;2025-08-30;1020 € / mois;19
+16;Stage Développeur Swift - H/F;109;53;Création d'applications iOS natives avec intégration d'APIs.;2025-10-20;990 € / mois;16
+17;Stage Analyste Métier - F/H;44;18;Étude des besoins métier et rédaction de spécifications fonctionnelles.;2025-09-18;950 € / mois;13
+18;Stage Développeur Kotlin - H/F;39;60;Développement d'applications Android en Kotlin avec architecture MVVM.;2025-12-05;1010 € / mois;18
+19;Stage Spécialiste Cloud - F/H;63;3;Migration et gestion d'infrastructures cloud avec optimisation des coûts.;2025-11-25;1150 € / mois;20
+20;Stage Testeur Automatisé - H/F;3;7;Création de scripts de test automatisés pour validation de logiciels.;2025-10-10;880 € / mois;11
+21;Stage Développeur PHP - H/F;126;42;Développement de sites web dynamiques en PHP avec base de données.;2025-09-22;920 € / mois;15
+22;Stage Architecte Logiciel - F/H;61;24;Conception d'architectures logicielles scalables et maintenables.;2025-12-12;1180 € / mois;22
+23;Stage Développeur Node.js - H/F;32;36;Création d'APIs RESTful en Node.js avec gestion d'événements.;2025-11-15;960 € / mois;14
+24;Stage Analyste SEO - F/H;140;4;Optimisation du référencement naturel pour sites web et analyse de performance.;2025-08-15;870 € / mois;12
+25;Stage Développeur React - H/F;12;17;Développement de composants React pour interfaces utilisateur interactives.;2025-10-30;1000 € / mois;16
+26;Stage Ingénieur Blockchain - F/H;96;56;Exploration et développement de solutions basées sur la blockchain.;2025-12-20;1250 € / mois;25
+27;Stage Développeur Angular - H/F;122;5;Création d'applications web monopages avec Angular et TypeScript.;2025-09-10;980 € / mois;13
+28;Stage Consultant BI - F/H;33;38;Mise en place de tableaux de bord et reporting avec outils BI.;2025-11-05;1050 € / mois;18
+29;Stage Développeur Vue.js - H/F;83;34;Développement d'interfaces web réactives avec Vue.js.;2025-10-25;940 € / mois;15
+30;Stage Spécialiste IoT - F/H;116;22;Conception de solutions IoT avec connectivité et analyse de données.;2025-12-08;1100 € / mois;20
+31;Stage Développeur Scala - H/F;11;41;Développement d'applications distribuées en Scala pour big data.;2025-09-28;1020 € / mois;17
+32;Stage Designer Produit - F/H;38;30;Conception de produits numériques de l'idéation à la réalisation.;2025-11-20;890 € / mois;14
+33;Stage Ingénieur Robotique - H/F;62;55;Développement de logiciels pour robots autonomes et IA embarquée.;2025-10-12;1200 € / mois;21
+34;Stage Développeur Elixir - F/H;16;8;Création de systèmes concurrentiels et fault-tolerants en Elixir.;2025-12-18;970 € / mois;16
+35;Stage Analyste Fonctionnel - H/F;129;31;Analyse des exigences et modélisation de processus métier.;2025-08-20;950 € / mois;13
+36;Stage Développeur Rust - H/F;31;58;Développement de logiciels système sécurisés en Rust.;2025-11-10;1080 € / mois;19
+37;Stage Consultant SAP - F/H;43;47;Configuration et maintenance de modules SAP pour entreprises.;2025-10-05;1150 € / mois;22
+38;Stage Développeur Flutter - H/F;30;4;Création d'applications cross-platform avec Flutter.;2025-09-15;990 € / mois;15
+39;Stage Spécialiste VR/AR - F/H;89;17;Développement d'expériences immersives en réalité virtuelle et augmentée.;2025-12-25;1180 € / mois;24
+40;Stage Développeur Clojure - H/F;123;36;Programmation fonctionnelle pour applications web en Clojure.;2025-11-28;930 € / mois;12
+41;Stage Ingénieur Acoustique - F/H;34;27;Traitement du signal audio et développement d'algorithmes sonores.;2025-10-18;1000 € / mois;16
+42;Stage Développeur Haskell - H/F;78;57;Développement de logiciels fiables avec programmation fonctionnelle pure.;2025-09-08;1040 € / mois;18
+43;Stage Consultant Salesforce - F/H;118;5;Personnalisation de CRM Salesforce et intégration de données.;2025-12-02;1060 € / mois;20
+44;Stage Développeur Svelte - H/F;45;14;Création d'interfaces web légères et performantes avec Svelte.;2025-11-12;920 € / mois;14
+45;Stage Analyste Risque - F/H;37;43;Évaluation des risques informatiques et mise en place de contrôles.;2025-10-22;980 € / mois;17
+46;Stage Développeur Perl - H/F;66;22;Maintenance et développement de scripts Perl pour automatisation.;2025-09-30;880 € / mois;11
+47;Stage Spécialiste Big Data - F/H;21;35;Traitement et analyse de volumes massifs de données avec Hadoop.;2025-12-15;1120 € / mois;23
+48;Stage Développeur R - H/F;134;23;Analyse statistique et visualisation de données avec R.;2025-11-05;950 € / mois;15
+49;Stage Ingénieur Électronique - F/H;93;31;Conception de circuits électroniques et intégration logicielle.;2025-10-08;1070 € / mois;19
+50;Stage Administrateur Systèmes - H/F;8;44;Maintenance des serveurs Linux supervision et gestion des incidents. Encadrement par un tuteur expérimenté et travail en méthodologie Agile (Scrum).;2026-03-20;949 € / mois;18
+51;Stage Développeur Mobile - F/H;59;54;Développement d’applications mobiles Android/iOS en environnement agile. Encadrement par un tuteur expérimenté et travail en méthodologie Agile (Scrum).;2026-03-14;829 € / mois;25
+52;Stage Développeur Backend - H/F;64;19;Conception et développement d’API REST, gestion des bases de données MySQL et optimisation des performances. Encadrement par un tuteur expérimenté et travail en méthodologie Agile (Scrum).;2026-02-19;864 € / mois;25
+53;Stage Développeur Web Full Stack - F/H;105;36;Participation au développement d’applications web (PHP JavaScript) conception de fonctionnalités tests et maintenance. Encadrement par un tuteur expérimenté et travail en méthodologie Agile (Scrum).;2026-02-02;989 € / mois;12
+54;Stage Développeur Mobile - H/F;40;19;Développement d’applications mobiles Android/iOS en environnement agile. Encadrement par un tuteur expérimenté et travail en méthodologie Agile (Scrum).;2026-02-05;960 € / mois;8
+55;Stage Administrateur Systèmes - H/F;25;19;Maintenance des serveurs Linux, supervision et gestion des incidents. Encadrement par un tuteur expérimenté et travail en méthodologie Agile (Scrum).;2026-03-11;993 € / mois;13
+56;Stage Administrateur Systèmes - F/H;10;48;Maintenance des serveurs Linux, supervision et gestion des incidents. Encadrement par un tuteur expérimenté et travail en méthodologie Agile (Scrum).;2026-01-04;1289 € / mois;25
+57;Stage Data Analyst - F/H;29;45;Analyse de données, création de dashboards et participation aux projets de data visualisation. Encadrement par un tuteur expérimenté et travail en méthodologie Agile (Scrum).;2026-03-12;898 € / mois;14
+58;Stage Administrateur Systèmes - F/H;139;33;Maintenance des serveurs Linux, supervision et gestion des incidents. Encadrement par un tuteur expérimenté et travail en méthodologie Agile (Scrum).;2026-02-13;1134 € / mois;25
+59;Stage Développeur Frontend - F/H;7;17;Création d’interfaces utilisateur modernes en HTML CSS et JavaScript (React/Angular). Encadrement par un tuteur expérimenté et travail en méthodologie Agile (Scrum).;2025-12-18;815 € / mois;13
+60;Stage Data Analyst - F/H;48;21;Analyse de données, création de dashboards et participation aux projets de data visualisation. Encadrement par un tuteur expérimenté et travail en méthodologie Agile (Scrum).;2026-03-04;1165 € / mois;11
+61;Stage Ingénieur DevOps - H/F;19;24;Mise en place de pipelines CI/CD, gestion Docker et automatisation des déploiements. Encadrement par un tuteur expérimenté et travail en méthodologie Agile (Scrum).;2026-03-14;1268 € / mois;16
+62;Stage Administrateur Systèmes - H/F;65;16;Maintenance des serveurs Linux, supervision et gestion des incidents. Encadrement par un tuteur expérimenté et travail en méthodologie Agile (Scrum).;2026-03-10;1117 € / mois;16
+63;Stage Développeur Backend - H/F;85;19;Conception et développement d’API REST gestion des bases de données MySQL et optimisation des performances. Encadrement par un tuteur expérimenté et travail en méthodologie Agile (Scrum).;2025-12-09;1210 € / mois;17
+64;Stage Testeur QA - H/F;2;6;Réalisation de tests fonctionnels et automatisés validation des livrables. Encadrement par un tuteur expérimenté et travail en méthodologie Agile (Scrum).;2025-12-04;857 € / mois;11
+65;Stage Testeur QA - F/H;92;51;Réalisation de tests fonctionnels et automatisés validation des livrables. Encadrement par un tuteur expérimenté et travail en méthodologie Agile (Scrum).;2026-02-26;1219 € / mois;12
+66;Stage Développeur Mobile - H/F;107;14;Développement d’applications mobiles Android/iOS en environnement agile. Encadrement par un tuteur expérimenté et travail en méthodologie Agile (Scrum).;2026-02-19;1268 € / mois;8
+67;Stage Développeur Mobile - H/F;22;12;Développement d’applications mobiles Android/iOS en environnement agile. Encadrement par un tuteur expérimenté et travail en méthodologie Agile (Scrum).;2026-01-12;936 € / mois;21
+68;Stage Développeur Frontend - F/H;79;5;Création d’interfaces utilisateur modernes en HTML CSS et JavaScript (React/Angular). Encadrement par un tuteur expérimenté et travail en méthodologie Agile (Scrum).;2025-11-30;812 € / mois;11
+69;Stage Développeur Mobile - F/H;46;4;Développement d’applications mobiles Android/iOS en environnement agile. Encadrement par un tuteur expérimenté et travail en méthodologie Agile (Scrum).;2025-12-30;1145 € / mois;25
+70;Stage Data Analyst - F/H;80;39;Analyse de données, création de dashboards et participation aux projets de data visualisation. Encadrement par un tuteur expérimenté.;2026-01-10;1201 € / mois;18
+71;Stage Développeur Web Full Stack - H/F;86;52;Participation au développement d’applications web (PHP JavaScript), conception de fonctionnalités tests et maintenance.;2025-11-29;1292 € / mois;14
+72;Stage Développeur Mobile - H/F;128;3;Développement d’applications mobiles Android/iOS en environnement agile. Encadrement par un tuteur expérimenté et travail en méthodologie Agile (Scrum).;2026-01-26;833 € / mois;12
+73;Stage Développeur Frontend - H/F;52;15;Création d’interfaces utilisateur modernes en HTML CSS et JavaScript (React/Angular). Encadrement par un tuteur expérimenté et travail en méthodologie Agile (Scrum).;2025-11-27;1224 € / mois;10
+74;Stage Testeur QA - H/F;103;37;Réalisation de tests fonctionnels et automatisés validation des livrables. Encadrement par un tuteur expérimenté et travail en méthodologie Agile (Scrum).;2025-12-20;1218 € / mois;21
+75;Stage Administrateur Systèmes - H/F;1;50;Maintenance des serveurs Linux, supervision et gestion des incidents. Encadrement par un tuteur expérimenté et travail en méthodologie Agile (Scrum).;2026-01-24;821 € / mois;25
+76;Stage Ingénieur DevOps - H/F;54;49;Mise en place de pipelines CI/CD, gestion Docker et automatisation des déploiements. Encadrement par un tuteur expérimenté et travail en méthodologie Agile (Scrum).;2026-03-17;879 € / mois;24
+77;Stage Développeur Backend - H/F;106;1;Conception et développement d’API REST, gestion des bases de données MySQL et optimisation des performances. Encadrement par un tuteur expérimenté et travail en méthodologie Agile (Scrum).;2025-12-18;1252 € / mois;23
+78;Stage Développeur Mobile - F/H;20;12;Développement d’applications mobiles Android/iOS en environnement agile. Encadrement par un tuteur expérimenté et travail en méthodologie Agile (Scrum).;2025-12-29;1136 € / mois;20
+79;Stage Développeur Mobile - H/F;18;59;Développement d’applications mobiles Android/iOS en environnement agile. Encadrement par un tuteur expérimenté et travail en méthodologie Agile (Scrum).;2026-02-22;877 € / mois;12
+80;Stage Ingénieur DevOps - F/H;131;28;Mise en place de pipelines CI/CD, gestion Docker et automatisation des déploiements. Encadrement par un tuteur expérimenté et travail en méthodologie Agile (Scrum).;2025-12-21;934 € / mois;17

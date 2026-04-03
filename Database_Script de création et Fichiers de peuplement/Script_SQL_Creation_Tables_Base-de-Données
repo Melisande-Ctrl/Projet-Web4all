@@ -1,0 +1,139 @@
+create table Competences
+(
+    Id_Competence  int auto_increment
+        primary key,
+    Nom_Competence varchar(50) not null
+);
+
+create table Pays
+(
+    Id_Pays  int auto_increment
+        primary key,
+    Nom_Pays varchar(50) not null
+);
+
+create table Status
+(
+    Id_Status  int auto_increment
+        primary key,
+    Nom_Status varchar(15) not null
+);
+
+create table Comptes
+(
+    Id_Compte int auto_increment
+        primary key,
+    Email     varchar(50) not null,
+    Nom       varchar(60) not null,
+    Prenom    varchar(60) not null,
+    Password  varchar(64) not null,
+    Id_Status int         not null,
+    Id_Pilote int         null,
+    constraint Comptes_pk_2
+        unique (Email),
+    constraint Comptes_Status_fk
+        foreign key (Id_Status) references Status (Id_Status)
+);
+
+create table Villes
+(
+    Id_Ville  int auto_increment
+        primary key,
+    Nom_Ville varchar(60) not null,
+    Id_Pays   int         not null,
+    constraint Villes_Pays_fk
+        foreign key (Id_Pays) references Pays (Id_Pays)
+);
+
+create table Adresses
+(
+    Id_Adresse  int auto_increment
+        primary key,
+    Nom_Adresse varchar(100) not null,
+    Id_Ville    int          not null,
+    constraint Adresses_Ville_fk
+        foreign key (Id_Ville) references Villes (Id_Ville)
+);
+
+create table Entreprises
+(
+    Id_Entreprise          int auto_increment
+        primary key,
+    Nom_Entreprise         varchar(150)  not null,
+    Description_Entreprise varchar(6000) not null,
+    Email                  varchar(50)   not null,
+    Telephone              varchar(20)   not null,
+    Siege_social           int           not null,
+    constraint Entreprises_Adresses_fk
+        foreign key (Siege_social) references Adresses (Id_Adresse)
+);
+
+create table Notes
+(
+    Id_Note       int auto_increment
+        primary key,
+    Valeur_Note   int not null,
+    Id_Entreprise int not null,
+    Id_Compte     int not null,
+    constraint Id_Entreprise
+        unique (Id_Entreprise, Id_Compte),
+    constraint Notes_Comptes_fk
+        foreign key (Id_Compte) references Comptes (Id_Compte),
+    constraint Notes_Entreprises_fk
+        foreign key (Id_Entreprise) references Entreprises (Id_Entreprise)
+);
+
+create table Offres_Stages
+(
+    Id_Offre          int auto_increment
+        primary key,
+    Titre             varchar(80)   not null,
+    Id_Adresse        int           not null,
+    Id_Entreprise     int           not null,
+    Description       varchar(6000) not null,
+    Date_Creation     date          not null,
+    Base_Remuneration varchar(20)   null,
+    Duree_Semaines    int           not null,
+    constraint OffresStages_Adresses_fk
+        foreign key (Id_Adresse) references Adresses (Id_Adresse),
+    constraint OffresStages_Entreprises_fk
+        foreign key (Id_Entreprise) references Entreprises (Id_Entreprise)
+);
+
+create table Candidatures
+(
+    Id_Compte        int          not null,
+    Id_Offre         int          not null,
+    Date_Candidature date         not null,
+    CV               varchar(256) not null,
+    LM               varchar(256) null,
+    primary key (Id_Offre, Id_Compte),
+    constraint Candidatures_Comptes_fk
+        foreign key (Id_Compte) references Comptes (Id_Compte),
+    constraint Candidatures_Offres_fk
+        foreign key (Id_Offre) references Offres_Stages (Id_Offre)
+);
+
+create table Offres_Competences_Liaison
+(
+    Id_Offre      int not null,
+    Id_Competence int not null,
+    primary key (Id_Offre, Id_Competence),
+    constraint Offres_Competences_Liaison_Competences_fk
+        foreign key (Id_Competence) references Competences (Id_Competence),
+    constraint Offres_Competences_Liaison_Offre_fk
+        foreign key (Id_Offre) references Offres_Stages (Id_Offre)
+);
+
+create table Wishlist
+(
+    Id_Compte int not null,
+    Id_Offre  int not null,
+    primary key (Id_Offre, Id_Compte),
+    constraint Wishlist_Comptes_fk
+        foreign key (Id_Compte) references Comptes (Id_Compte),
+    constraint Wishlist_Offres_fk
+        foreign key (Id_Offre) references Offres_Stages (Id_Offre)
+);
+
+
